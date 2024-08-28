@@ -1,0 +1,576 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @model DivyangPortalWeb.Models.SignUp
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/intlTelInput.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/css/baguetteBox.min.css">
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/responsives.css" rel="stylesheet" />
+    <script src="~/Scripts/js/jquery-1.12.3.min.js"></script>
+
+    <script src="~/Scripts/js/bootstrap.bundle.js"></script>
+    <script src="~/Scripts/js/intlTelInput.min.js"></script>
+    <script src="~/Scripts/js/baguetteBox.min.js"></script>
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <script src="~/Scripts/js/custom.js"></script>
+    <script src="~/Scripts/js/min.js"></script>
+    <script src="~/Scripts/js/jquery.validate.min.js"></script>
+    <script src="~/Scripts/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/js/SignUp.js"></script>
+
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+        var modal = document.getElementById("loginpopup");
+        var showLoginPopup = "@TempData["ShowLoginPopup"]" === "true";
+        if (showLoginPopup) {
+            modal.style.display = "block";
+        }
+        })
+    </script>
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="logo">
+                        <a href="Home">
+                            <img src="images/Divyang-career.png" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="hamburger" id="hamburger-1">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+
+                    <div class="mobile-bd-color">
+
+
+                        <ul class="menu">
+
+                            <div class="mobilescreen">
+                                <div class="login">
+                                    <ul>
+                                        @if (Session["EmployeeEmail"] != null && !string.IsNullOrEmpty(Session["EmployeeEmail"].ToString()))
+                                        {
+                                            <li class="login-form-popups">
+                                                <a href="Javascript:;">@Session["EmployeeUserName"].ToString()</a>
+                                                <div class="civi-nav-dashboard">
+                                                    <ul class="left-side-menu">
+                                                        <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+                                                        <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                                        <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        }
+                                        else
+                                        {
+                                            <li class="login-form-popups">
+                                                <a href="Javascript:;"></a>
+                                            </li>
+                                        }
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <li class="menulist">
+                                <a href="javascript:;">Company <span class="caret"></span></a>
+                                <ul class="nav-sub-menus">
+                                    <li><a href="Aboutus">About Us</a></li>
+                                    <li><a href="FounderNote">Founder’s Note</a></li>
+                                    <li>
+                                        @Html.ActionLink("Area", "Dashboard", "Dashboard", new { Area = "Employee" }, null)
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="Jobs">Jobs</a> </li>
+                            <li class="menulist menulists">
+                                <a href="javascript:;">Categories <span class="caret"></span></a>
+                                <ul class="nav-sub-menu">
+
+                                    <ul class="tabs">
+                                        <li class="tab-link current" data-tab="tab-1">Job by Disability</li>
+                                        <li class="tab-link" data-tab="tab-2">Job by Sector</li>
+                                    </ul>
+
+                                    <div id="tab-1" class="tab-content current">
+                                        <span><a href="#!">Physical Disability</a></span>
+                                        <span><a href="#!">Intellectual Disability</a></span>
+                                        <span><a href="#!">Mental Illness</a></span>
+                                        <span><a href="#!">Chronic Neurological</a></span>
+                                        <span><a href="#!">Blood Disorder</a></span>
+                                        <span><a href="#!">Multiple Disabilities</a></span>
+                                    </div>
+                                    <div id="tab-2" class="tab-content">
+                                        <span><a href="#!">Ecommerce</a></span>
+                                        <span><a href="#!">Hospitality</a></span>
+                                        <span><a href="#!">IT / ITES</a></span>
+                                        <span><a href="#!">BFSI</a></span>
+                                        <span><a href="#!">Manufacturing</a></span>
+                                        <span><a href="#!">Retail</a></span>
+                                    </div>
+
+                                </ul>
+                            </li>
+                            <li><a href="Blogs">Blog</a></li>
+                            <li><a href="Schemes">Schemes</a></li>
+                            <li><a href="Contactus">Contact Us</a></li>
+
+                            <div class="mobilescreen">
+                                <div class="login loginm">
+                                    <ul>
+                                        <li class="active"><a href="employerlogin">Post a job</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </ul>
+
+
+
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="login">
+                        <ul>
+
+                            @if (Session["EmployeeEmail"] != null && !string.IsNullOrEmpty(Session["EmployeeEmail"].ToString()))
+                            {
+                                <li class="login-form-popup">
+                                    <a href="Javascript:;">@Session["EmployeeUserName"].ToString()</a>
+                                    <div class="civi-nav-dashboard">
+                                        <ul class="left-side-menu">
+                                            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                            <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="login-form-popup"><a href="Javascript:;">Login</a></li>
+                            }
+                            <li class="active"><a href="employerlogin">Post a job</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!--login and signup strat hear-->
+
+    <div class="lightbgcolor" id="loginpopup">
+        <div class="middlewrapper">
+            <a href="#" class="btn-close"></a>
+
+            <div class="login-section">
+                <ul class="login-tabs">
+                    <li id="tabslogins1" class="tab-link current" data-tab="tab-01">Log in</li>
+                    <li id="tabslogins2" class="tab-link" data-tab="tab-02">Sign Up</li>
+                </ul>
+
+                <div id="tab-01" class="tab-content current">
+                    <div class="tablogins">
+                        @using (Html.BeginForm("LogIn", "SignUp"))
+                        {
+                            if (TempData["CheckLogIn"] != null)
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["CheckLogIn"]
+                                </div>}
+                            <div class="login-form">
+                                <h4>@Html.LabelFor(U => U.EmployerDetails.Email)</h4>
+                                @*<input type="text" placeholder="Enter Account or Email" id="txtemail" />*@
+                                @Html.EditorFor(U => U.EmployerDetails.Email, new { htmlAttributes = new { @placeholder = "Enter Account or Email" } })
+                                @Html.ValidationMessageFor(U => U.EmployerDetails.Email)
+                            </div>
+                            <div class="login-form">
+                                <h4>@Html.LabelFor(U => U.EmployerDetails.Password)</h4>
+                                @*<input id="password-field" type="password" class="form-control" name="password">*@
+                                @Html.EditorFor(U => U.EmployerDetails.Password, new { htmlAttributes = new { placeholder = "Enter Password" } })
+                                @Html.ValidationMessageFor(U => U.EmployerDetails.Password)
+                                <span toggle="#EmployerDetails_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="login-form">
+                                <div class="forgot-password">
+                                    <span>Forgot your password? </span>
+                                    <a class="btn-reset-password" href="javascript:;">Reset password.</a>
+                                </div>
+                            </div>
+                            <div class="login-form">
+                                <button type="submit" class="gl-button btn button" value="Sign in">Sign in</button>
+                            </div>
+                        }
+                        <div class="login-form">
+                            <div class="google-login">
+                                <span>Or Continue with</span>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="tab-02" class="tab-content">
+
+                    <div class="col-group">
+                        <span class="active DivyangType" value="Candidate"><i class="fa fa-user-o" aria-hidden="true"></i> Candidate</span>
+                        <span class="DivyangType" value="Employer"><i class="fa fa-briefcase" aria-hidden="true"></i> Employer</span>
+                    </div>
+                    @using (Html.BeginForm("Signup", "SignUp"))
+                    {
+                        @Html.HiddenFor(U => U.UserType)
+                        @Html.HiddenFor(U => U.CountryCode)
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="signup-form">
+                                    <h4> @Html.LabelFor(U => U.Firstname)</h4>
+                                    @Html.EditorFor(U => U.Firstname)
+                                    @Html.ValidationMessageFor(U => U.Firstname)
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="signup-form">
+                                    <h4>@Html.LabelFor(U => U.Lastname)</h4>
+                                    @Html.EditorFor(U => U.Lastname)
+                                    @Html.ValidationMessageFor(U => U.Lastname)
+                                </div>
+                            </div>
+
+
+                            <div class="signup-form">
+                                <h4>@Html.LabelFor(U => U.Username)</h4>
+                                @Html.EditorFor(U => U.Username)
+                                @Html.ValidationMessageFor(U => U.Username)
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>@Html.LabelFor(U => U.Email)</h4>
+                                @Html.EditorFor(U => U.Email)
+                                @Html.ValidationMessageFor(U => U.Email)
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>Phone number</h4>
+                                <div class="input-group-sm">
+                                    @*<input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">*@
+                                    @Html.TextBoxFor(U => U.PhoneNumber, new { @class = "form-control", id = "mobile", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                    @Html.ValidationMessageFor(U => U.PhoneNumber)
+                                </div>
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>@Html.LabelFor(U => U.Password)</h4>
+                                @*<input id="password-field1" type="password" class="form-control" name="password">
+                                    <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>*@
+                                @Html.EditorFor(U => U.Password)
+                                <span toggle="#Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                @Html.ValidationMessageFor(U => U.Password)
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="checkboxRollingHomes" checked>
+                                <label class="form-check-label" for="checkboxRollingHomes">
+                                    Rolling Homes <a class="btn-reset-password" href="#">Terms</a> and <a class="btn-reset-password" href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <div class="signup-form">
+                                <button type="submit" class="gl-button btn button" value="Sign in">Sign Up</button>
+                            </div>
+
+                        </div>
+                    }
+                    @*<div class="row">
+                            <div class="col-6">
+                                <div class="signup-form">
+                                    <h4>First Name</h4>
+                                    <input type="email" placeholder="Name" />
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="signup-form">
+                                    <h4>Last Name</h4>
+                                    <input type="email" placeholder="Name" />
+                                </div>
+                            </div>
+
+
+                            <div class="signup-form">
+                                <h4>Username</h4>
+                                <input type="text" placeholder="Enter Username" />
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>Email</h4>
+                                <input type="Email" placeholder="Enter Email" />
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>Phone number</h4>
+                                <div class="input-group-sm">
+                                    <input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">
+                                </div>
+                            </div>
+
+                            <div class="signup-form">
+                                <h4>Password</h4>
+                                <input id="password-field1" type="password" class="form-control" name="password">
+                                <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="checkboxRollingHomes" checked>
+                                <label class="form-check-label" for="checkboxRollingHomes">
+                                    Rolling Homes <a class="btn-reset-password" href="#">Terms</a> and <a class="btn-reset-password" href="#">Privacy Policy</a>
+                                </label>
+                            </div>
+
+                            <div class="signup-form">
+                                <button type="submit" class="gl-button btn button" value="Sign in">Sign Up</button>
+                            </div>
+
+                        </div>*@
+                </div>
+
+
+                <div class="Resetpassword">
+                    <div class="login-form">
+                        <input type="email" placeholder="Enter your username or email" />
+                    </div>
+                    <div class="login-form">
+                        <button type="submit" class="gl-button btn button newtab1" value="Sign in">Get new password</button>
+                    </div>
+                    <div class="login-form">
+                        <a class="back-to-login" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to login</a>
+                    </div>
+                    <div class="login-form">
+                        <div class="google-login">
+                            <span>Or Continue with</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="otp-screen">
+                    <form action="javascript: void(0)" class="otp-form" name="otp-form">
+                        <div class="title">
+                            <h3>Please enter the one time password to verify your account</h3>
+                            <p class="info">A code has been sent to *******9897</p>
+                            <p class="msg">Please enter OTP to verify</p>
+                        </div>
+                        <div class="otp-input-fields">
+                            <input type="number" class="otp__digit otp__field__1">
+                            <input type="number" class="otp__digit otp__field__2">
+                            <input type="number" class="otp__digit otp__field__3">
+                            <input type="number" class="otp__digit otp__field__4">
+                            <input type="number" class="otp__digit otp__field__5">
+                            <input type="number" class="otp__digit otp__field__6">
+                        </div>
+
+                        <p class="resend-otp"> <span>Resend OTP</span> </p>
+
+                        <div class="login-form">
+                            <button type="submit" class="gl-button btn button newtab2" value="Sign in" style="margin:0 auto;">Submit Otp</button>
+                        </div>
+
+                        <div class="login-form">
+                            <div class="google-login">
+                                <span>Or Continue with</span>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="password_reset">
+                    <div class="login-form">
+                        <h4>Please enter your new password:</h4>
+                    </div>
+                    <div class="login-form">
+                        <input type="text" placeholder="New Password" />
+                    </div>
+                    <div class="login-form">
+                        <input id="password-field2" type="password" class="form-control" name="password" placeholder="Confirm Password">
+                        <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                    </div>
+                    <div class="login-form">
+                        <button type="submit" class="gl-button btn button newtab3" value="Sign in">Continue</button>
+                    </div>
+
+                    <div class="login-form">
+                        <div class="google-login">
+                            <span>Or Continue with</span>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="reset-password-complete">
+                    <h4>Congratulations</h4>
+                    <p>Your password reset is complete.</p>
+                    <span>Please login with your new password</span>
+                    <div class="login-form">
+                        <button type="submit" class="gl-button btn button newtab4" value="Sign in">log In</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--login and signup end hear-->
+
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <div class="Subscribe-newsletter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="newsletter">
+                            <h5>Subscribe to our newsletter</h5>
+                            <p>We'll keep you updated with the best new jobs.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="newsletter">
+                            <input type="email" placeholder="Enter your email" required />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="newsletter">
+                            <a href="javascript:;">
+                                Subscribe
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-spcing">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="footer-text">
+                            <h5>Disclaimer</h5>
+                            <p>(www.divyangcareer.com) is a career platform connecting employers and candidates. We make no particular recommendations for any job or employer. We do not charge any fees or guarantee job placements and do not give any references. We reserve the right to take strict action for any wrongful activity conducted by any person.</p>
+                            <b>We do not provide jobs and this is informative platform only.</b>
+                            <p>This website has been conceptualized by the PwD's (divyangs) specially for the PwD candidates. If you find any mistakes / suggestions please provide your feedback so that we can improvise it further. Write us at divyangcareer@gmail.com</p>
+                            <h6>Supported by</h6>
+                            <img src="images/hurl.png" alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="footer-text">
+                            <h5>About Us</h5>
+                            <p>At Divyang Career, we believe in the power of inclusivity. We're not just a job portal</p>
+
+                            <a href="tel:8779352803">T. +91 877 935 2803</a>
+                            <a href="mailto:divyangcareer@gmail.com">E. divyangcareer@gmail.com</a>
+
+                            <h4>Working Day & Time</h4>
+                            <p>Monday - Friday</p>
+                            <p>09 Am to 05 Pm</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <div class="footer-text">
+                            <h5>Useful Links</h5>
+
+                            <a href="javascript:;">Jobs</a>
+                            <a href="faqs">FAQ</a>
+                            <a href="Contactus">Contact Us</a>
+                            <a href="FounderNote">Founders Note</a>
+                            <a href="javascript:;">Privacy Policy</a>
+
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <div class="footer-text">
+                            <h5>Connect</h5>
+
+                            <a href="https://www.linkedin.com/company/divyangcareer" target="_blank"><svg class="link-icon e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg> Linkedin</a>
+                            <a href="https://twitter.com/DivyangCareer" target="_blank"><svg class="link-icon e-font-icon-svg e-fab-twitter" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg> Twitter</a>
+                            <a href="https://www.facebook.com/DivyangCareer" target="_blank"><svg class="link-icon e-font-icon-svg e-fab-facebook-square" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"></path></svg> Facebooks</a>
+                            <a href="https://www.instagram.com/divyangcareer/" target="_blank"><svg class="link-icon e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> Instagram</a>
+                            <a href="https://www.youtube.com/divyangcareer" target="_blank"><svg class="link-icon e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg> Youtube</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p><i class="fa fa-copyright" aria-hidden="true"></i> 2024 Divyang Career. All Right Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <div id="gotop"></div>
+    <script src="~/Scripts/js/gotop.js"></script>
+    <script>
+        $('#gotop').gotop({
+            customHtml: '<i class="fa fa-angle-up fa-2x"></i>',
+            bottom: '2em',
+            right: '2em'
+        });
+
+    </script>
+</body>
+</html>

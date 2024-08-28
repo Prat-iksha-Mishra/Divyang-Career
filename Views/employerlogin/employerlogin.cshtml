@@ -1,0 +1,222 @@
+﻿
+@{
+    ViewBag.Title = "employerlogin";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="background-bg">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="Arerecruiter">
+                    <h1>Are you a recruiter?</h1>
+                    <h2>Become a member now</h2>
+                </div>
+
+                <div class="middlewrappers">
+                    <div class="login-section">
+                        <ul class="login-tabss">
+                            <li id="tabslogins1" class="tab-link currents" data-tabs="tab-11">Log in</li>
+                            <li id="tabslogins2" class="tab-link" data-tabs="tab-22">Sign Up</li>
+                        </ul>
+
+                        <div id="tab-11" class="tab-contentss currents">
+                            <div class="tablogins">
+                                <div class="login-form">
+                                    <h4>Account or Email</h4>
+                                    <input type="email" placeholder="Enter Account or Email" />
+                                </div>
+                                <div class="login-form">
+                                    <h4>Password</h4>
+                                    <input id="password-field" type="password" class="form-control" name="password">
+                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+                                <div class="login-form">
+                                    <div class="forgot-password">
+                                        <span>Forgot your password? </span>
+                                        <a class="btn-reset-password" href="javascript:;">Reset password.</a>
+                                    </div>
+                                </div>
+                                <div class="login-form">
+                                    <button type="submit" class="gl-button btn button" value="Sign in">Sign in</button>
+                                </div>
+
+                                <div class="login-form">
+                                    <div class="google-login">
+                                        <span>Or Continue with</span>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="tab-22" class="tab-contentss">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="signup-form">
+                                        <h4>First Name</h4>
+                                        <input type="email" placeholder="Name" />
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="signup-form">
+                                        <h4>Last Name</h4>
+                                        <input type="email" placeholder="Name" />
+                                    </div>
+                                </div>
+
+
+                                <div class="signup-form">
+                                    <h4>Username</h4>
+                                    <input type="text" placeholder="Enter Username" />
+                                </div>
+
+                                <div class="signup-form">
+                                    <h4>Email</h4>
+                                    <input type="Email" placeholder="Enter Email" />
+                                </div>
+
+                                <div class="signup-form">
+                                    <h4>Phone number</h4>
+                                    <div class="input-group-sm">
+                                        <input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">
+                                    </div>
+                                </div>
+
+                                <div class="signup-form">
+                                    <h4>Password</h4>
+                                    <input id="password-field1" type="password" class="form-control" name="password">
+                                    <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkboxRollingHomes" checked>
+                                    <label class="form-check-label" for="checkboxRollingHomes">
+                                        Rolling Homes <a class="btn-reset-password" href="#">Terms</a> and <a class="btn-reset-password" href="#">Privacy Policy</a>
+                                    </label>
+                                </div>
+
+                                <div class="signup-form">
+                                    <button type="submit" class="gl-button btn button" value="Sign in">Sign Up</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="Resetpassword">
+                            <div class="login-form">
+                                <input type="email" placeholder="Enter your username or email" />
+                            </div>
+                            <div class="login-form">
+                                <button type="submit" class="gl-button btn button newtab1" value="Sign in">Get new password</button>
+                            </div>
+                            <div class="login-form">
+                                <a class="back-to-login" href="#"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Back to login</a>
+                            </div>
+                            <div class="login-form">
+                                <div class="google-login">
+                                    <span>Or Continue with</span>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="otp-screen">
+                            <form action="javascript: void(0)" class="otp-form" name="otp-form">
+                                <div class="title">
+                                    <h3>Please enter the one time password to verify your account</h3>
+                                    <p class="info">A code has been sent to *******9897</p>
+                                    <p class="msg">Please enter OTP to verify</p>
+                                </div>
+                                <div class="otp-input-fields">
+                                    <input type="number" class="otp__digit otp__field__1">
+                                    <input type="number" class="otp__digit otp__field__2">
+                                    <input type="number" class="otp__digit otp__field__3">
+                                    <input type="number" class="otp__digit otp__field__4">
+                                    <input type="number" class="otp__digit otp__field__5">
+                                    <input type="number" class="otp__digit otp__field__6">
+                                </div>
+
+                                <p class="resend-otp"> <span>Resend OTP</span> </p>
+
+                                <div class="login-form">
+                                    <button type="submit" class="gl-button btn button newtab2" value="Sign in" style="margin:0 auto;">Submit Otp</button>
+                                </div>
+
+                                <div class="login-form">
+                                    <div class="google-login">
+                                        <span>Or Continue with</span>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="password_reset">
+                            <div class="login-form">
+                                <h4>Please enter your new password:</h4>
+                            </div>
+                            <div class="login-form">
+                                <input type="text" placeholder="New Password" />
+                            </div>
+                            <div class="login-form">
+                                <input id="password-field2" type="password" class="form-control" name="password" placeholder="Confirm Password">
+                                <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="login-form">
+                                <button type="submit" class="gl-button btn button newtab3" value="Sign in">Continue</button>
+                            </div>
+
+                            <div class="login-form">
+                                <div class="google-login">
+                                    <span>Or Continue with</span>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="reset-password-complete">
+                            <h4>Congratulations</h4>
+                            <p>Your password reset is complete.</p>
+                            <span>Please login with your new password</span>
+                            <div class="login-form">
+                                <button type="submit" class="gl-button btn button newtab4" value="Sign in">log In</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="lazyimg">
+                    <img src="images/lazy.jpg" alt="webp" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,329 @@
+﻿
+@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    .selectBox {
+        display: inline-block;
+        width: auto;
+    }
+
+        .selectBox.show {
+            background: #fff7e9;
+        }
+</style>
+<div class="spacing-top jobsbg">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="filter-box-bg">
+                    <div class="civi-nav-filter active">
+                        
+                        <div class="civi-filter-toggle">
+                            <span class="listpng"><img src="~/Images/list.png" /></span>
+                            <span>Filter</span>
+                        </div>
+                        <div class="circleLoading">
+                            <i class="fa fa-refresh fa-spin" aria-hidden="true"></i>
+                            <span>Clear All</span>
+                        </div>
+                    </div>
+                    <div class="mobile-filter">
+                        <div class="filter-section">
+                            <div class="filter-sections">
+                                <h2>Jobs Categories</h2>
+
+                                <ul class="checkboxs">
+                                    <li>
+                                        <label><input type="checkbox" value="option" />Blood Disorder</label>
+                                        <ul class="checkboxs">
+                                            <li><label><input type="checkbox" value="option" />Haemophilia</label></li>
+                                            <li><label><input type="checkbox" value="option" />Sickle Cell Disease</label></li>
+                                            <li><label><input type="checkbox" value="option" />Thalassemia</label></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <label><input type="checkbox" value="option" />Chronic Neurological</label>
+                                        <ul class="checkboxs">
+                                            <li><label><input type="checkbox" value="option" />Multiple Sclerosis</label></li>
+                                            <li><label><input type="checkbox" value="option" />Parkinson’s Disease</label></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <label><input type="checkbox" value="option" />Intellectual Disability</label>
+                                        <ul class="checkboxs">
+                                            <li><label><input type="checkbox" value="option" />Autism Spectrum Disorder</label></li>
+                                            <li><label><input type="checkbox" value="option" />Specific Learning Disabilities</label></li>
+                                        </ul>
+                                    </li>
+                                    <li><label><input type="checkbox" value="option" />Mental Illness</label></li>
+                                    <li><label><input type="checkbox" value="option" />Multiple Disabilities</label></li>
+                                    <li>
+                                        <label><input type="checkbox" value="option" />Physical Disability</label>
+                                        <ul class="checkboxs">
+                                            <li><label><input type="checkbox" value="option" />Hearing Impairment</label></li>
+                                            <li><label><input type="checkbox" value="option" />Locomotor Disability</label></li>
+                                            <li><label><input type="checkbox" value="option" />Speech and Language Disability</label></li>
+                                            <li><label><input type="checkbox" value="option" />Visual Impairmenty</label></li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="filter-sections">
+                                <h2>Jobs Type</h2>
+
+                                <ul class="checkboxs">
+                                    <li><label><input type="checkbox" value="option" />Government</label></li>
+                                    <li><label><input type="checkbox" value="option" />NGO</label></li>
+                                    <li><label><input type="checkbox" value="option" />Private</label></li>
+                                </ul>
+                            </div>
+
+                            <div class="filter-sections">
+                                <h2>Jobs Career</h2>
+
+                                <ul class="checkboxs">
+                                    <li><label><input type="checkbox" value="option" />Accounts / Taxation</label></li>
+                                    <li><label><input type="checkbox" value="option" />BFSI</label></li>
+                                    <li><label><input type="checkbox" value="option" />Ecommerce</label></li>
+                                    <li><label><input type="checkbox" value="option" />Education</label></li>
+                                    <li><label><input type="checkbox" value="option" />Hospitality</label></li>
+                                    <li><label><input type="checkbox" value="option" />IT / ITES</label></li>
+                                    <li><label><input type="checkbox" value="option" />Manufacturing</label></li>
+                                    <li><label><input type="checkbox" value="option" />Retail</label></li>
+                                </ul>
+                            </div>
+
+                            <div class="filter-sections">
+                                <h2>Jobs Qualification</h2>
+                                <ul class="checkboxs">
+                                    <li><label><input type="checkbox" value="option" />10th Pass</label></li>
+                                    <li><label><input type="checkbox" value="option" />12th Pass</label></li>
+                                    <li><label><input type="checkbox" value="option" />Below 10th</label></li>
+                                    <li><label><input type="checkbox" value="option" />Certificate</label></li>
+                                    <li><label><input type="checkbox" value="option" />Degree</label></li>
+                                    <li><label><input type="checkbox" value="option" />Diploma</label></li>
+                                    <li><label><input type="checkbox" value="option" />Doctorate</label></li>
+                                    <li><label><input type="checkbox" value="option" />Graduate</label></li>
+                                    <li><label><input type="checkbox" value="option" />Master</label></li>
+                                    <li><label><input type="checkbox" value="option" />Post Graduate</label></li>
+                                    <li><label><input type="checkbox" value="option" />Under graduate</label></li>
+                                </ul>
+                            </div>
+
+
+                            <div class="filter-sections">
+                                <h2>Jobs Experience</h2>
+                                <ul class="checkboxs">
+                                    <li><label><input type="checkbox" value="option" />0 - 1 Years</label></li>
+                                    <li><label><input type="checkbox" value="option" />1 - 2 Years</label></li>
+                                    <li><label><input type="checkbox" value="option" />3 - 5 Years</label></li>
+                                    <li><label><input type="checkbox" value="option" />6 - 9 Years</label></li>
+                                    <li><label><input type="checkbox" value="option" />10+ Years</label></li>
+                                </ul>
+                            </div>
+
+                            <div class="filter-sections">
+                                <h2>Salary</h2>
+
+                                <div class="salary-filter">
+                                    <div class="filter">
+                                        <input type="number" name="jobs_filter_salary_min" placeholder="Min">
+                                    </div>
+                                    <div class="filter">
+                                        <input type="number" name="jobs_filter_salary_max" placeholder="Max">
+                                    </div>
+                                    <div class="filter">
+                                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <option value="" data-select2-id="3">Rate</option>
+                                            <option value="hour" data-select2-id="20">Hour</option>
+                                            <option value="day" data-select2-id="21">Day</option>
+                                            <option value="week" data-select2-id="22">Week</option>
+                                            <option value="month" data-select2-id="23">Month</option>
+                                            <option value="year" data-select2-id="24">Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="filter-sections">
+                                <h2>Jobs Gender</h2>
+                                <ul class="checkboxs">
+                                    <li><label><input type="checkbox" value="option" />Female</label></li>
+                                    <li><label><input type="checkbox" value="option" />Male</label></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="civi-nav-filter active">
+                    <div class="civi-filter-toggle">
+                        <span></span>
+                    </div>
+                    <div class="circleLoading">
+                        <i class="fa fa-refresh fa-spin" aria-hidden="true"></i>
+                        <span>Clear All</span>
+                        @*<i class="fa fa-th-large" aria-hidden="true"></i>
+                        <i class="fa fa-list" aria-hidden="true"></i>*@
+                        <abbr>Sort by</abbr>
+
+                        <div class="dropdowns">
+                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option value="" data-select2-id="3">Newest</option>
+                                <option value="Oldest" data-select2-id="20">Oldest</option>
+                                <option value="Featured" data-select2-id="21">Featured</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="Explore-job-box Explore-job-box-bg">
+                            <div class="jobs-archive-header">
+                                <a href="JobsDetails"><img src="images/camera.png" alt="" /></a>
+                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="Explore-job-text">
+                                <h6><a href="JobsDetails">Office work</a></h6>
+                                <p><a href="javascript:;"><span>By</span>Nuclear Power Corporation of India Ltd <span>in</span></a></p>
+                                <b><a href="JobsDetails">Physical Disability</a></b>
+                            </div>
+
+                            <div class="jobs-archive-footer">
+                                <a href="javascript:;" class="active">Private</a>
+                                <a href="javascript:;">Kerala</a>
+                            </div>
+
+                            <div class="salary-wrapper">
+                                <span><a href="javascript:;">2₹ - 6₹</a></span>
+                            </div>
+
+                            <div class="days">
+                                <a href="JobsDetails"><span> 6 </span>days left to apply</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="Explore-job-box Explore-job-box-bg">
+                            <div class="jobs-archive-header">
+                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
+                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="Explore-job-text">
+                                <h6><a href="javascript:;">Office work</a></h6>
+                                <b><a href="javascript:;">Physical Disability</a></b>
+                            </div>
+
+                            <div class="jobs-archive-footer">
+                                <a href="javascript:;" class="active">Private</a>
+                                <a href="javascript:;">Kerala</a>
+                            </div>
+
+                            <div class="salary-wrapper">
+                                <span><a href="javascript:;">2₹ - 6₹</a></span>
+                            </div>
+
+                            <div class="days">
+                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="Explore-job-box Explore-job-box-bg">
+                            <div class="jobs-archive-header">
+                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
+                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="Explore-job-text">
+                                <h6><a href="javascript:;">Office work</a></h6>
+                                <b><a href="javascript:;">Physical Disability</a></b>
+                            </div>
+
+                            <div class="jobs-archive-footer">
+                                <a href="javascript:;" class="active">Private</a>
+                                <a href="javascript:;">Kerala</a>
+                            </div>
+
+                            <div class="salary-wrapper">
+                                <span><a href="javascript:;">2₹ - 6₹</a></span>
+                            </div>
+
+                            <div class="days">
+                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="Explore-job-box Explore-job-box-bg">
+                            <div class="jobs-archive-header">
+                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
+                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                            <div class="Explore-job-text">
+                                <h6><a href="javascript:;">Office work</a></h6>
+                                <b><a href="javascript:;">Physical Disability</a></b>
+                            </div>
+
+                            <div class="jobs-archive-footer">
+                                <a href="javascript:;" class="active">Private</a>
+                                <a href="javascript:;">Kerala</a>
+                            </div>
+
+                            <div class="salary-wrapper">
+                                <span><a href="javascript:;">2₹ - 6₹</a></span>
+                            </div>
+
+                            <div class="days">
+                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <nav>
+                    <ul class="pagination justify-content-center pagination1 my-5">
+                        <li class="page-item"><a class="page-link" href="javascript:;"><span>&laquo;</span></a></li>
+                        <li class="page-item active"><a class="page-link" href="javascript:;">1</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                        <li class="page-item "><a class="page-link" href="javascript:;">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">4</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;">5</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:;"> <span>&raquo;</span></a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </div>
+</div>
+

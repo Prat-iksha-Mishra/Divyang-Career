@@ -1,0 +1,14 @@
+
+@font-face {
+    font-family: 'YoureInvited';
+    src: url('YoureInvited.eot') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'YoureInvited';
+    src: url('YoureInvited.otf') format('opentype'), url(data:application/x-font-woff;charset=utf-8) format('woff'), url('YoureInvited.ttf') format('truetype'), url('YoureInvited.svg#YoureInvited') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

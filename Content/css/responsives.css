@@ -1,0 +1,205 @@
+
+@media all and (min-width: 1280px) and (max-width: 1366px) {
+   .menu > li > a {padding:18px 15px 24px;}
+
+}
+
+@media all and (min-width: 1024px) and (max-width: 1366px) {
+    .menu > li > a {padding: 18px 6px 24px;}
+}
+
+
+@media all and (min-width: 820px) and (max-width: 1180px) {
+    .logo img {width: 110px;}
+    .menu > li > a {padding:12px 4px 14px; font-size:16px; }
+    .login{padding:7px 3px;}
+    .login li a {padding: 6px 8px; font-size:16px;}
+    .login li.active a {padding:5px 14px 8px; font-size:16px;}
+    ul.tabs li.current{padding:12px 20px; font-size:16px;}
+    ul.tabs li {padding:12px 20px; font-size:16px;}
+    .tab-content {padding:6px;}
+    .tab-content.current span a {padding:6px 15px;}
+    .nav-sub-menu{width:400px;}
+    .nav-sub-menus li a {padding:6px 15px;}
+    .Explore-job-text { padding: 5px 0px;}
+    .info {flex: 0 0 50%;}
+    .detailsright { padding: 20px 10px;}
+    .detailsright h4 a{font-size: 18px;}
+    .detailsright h6{font-size: 17px;}
+    ul.login-tabss li{font-size:18px; padding:0px 10px 7px;}
+    .vision3-img img{width:100%;}
+    .our-vision-text {margin-top: -2%;}
+    .our-work {margin-top: 0;}
+        .our-work p{margin-top:0px;}
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .logo img {width: 110px;}
+    .menu > li > a {padding:14px 2px 17px; font-size:16px; }
+    .login{padding:7px 3px;}
+    .login li a {padding: 6px 8px; font-size:16px;}
+    .login li.active a {padding:5px 14px 8px; font-size:16px;}
+    ul.tabs li.current{padding:12px 20px; font-size:16px;}
+    ul.tabs li {padding:12px 20px; font-size:16px;}
+    .tab-content {padding:6px;}
+    .tab-content.current span a {padding:6px 15px;}
+    .nav-sub-menu{width:400px;}
+    .nav-sub-menus li a {padding:6px 15px;}
+    .Arerecruiter h1 {font-size: 26px;}
+    .Arerecruiter h2{font-size: 26px;}
+    .middlewrappers{width:98%;}
+    .info {flex: 0 0 50%;}
+    .detailsright { padding: 20px 10px;}
+    .detailsright h4 a {font-size: 18px;}
+    .detailsright h6{font-size: 17px;}
+    ul.login-tabss li{font-size:18px; padding:0px 10px 7px;}
+    .Descriptions h5 {font-size: 20px;}
+    .vision3-img img{width:100%;}
+    .our-work {margin-top: 0;}
+    .our-vision-text {margin-top: -2%;}
+    .our-work p{margin-top:0px;}
+}
+
+@media screen and (max-width: 767px) {
+    header{background: #000; padding:0px;}
+    .logo{width:70%;}
+    .hamburger{display:block; position: absolute; top:8px; right:22px; z-index:9999;}
+    .hamburger .line{background-color:#fe6200;}
+    .menu > li{display:block; padding:5px 16px;}
+    .menu > li > a{padding:4px 3px;}
+    .nav-sub-menus{width:100%; border-radius:10px; z-index:999 !important;  position:relative; display:none;}
+    .menu > li.menulists{display:none;}
+    .menu{position: fixed; width:75%; background: #000;  left: 0;  top: 0;  bottom: 0; padding:0px; height:100vh;}
+    .nav-sub-menu{width:100%; position:relative; display:none;}
+    ul.tabs li.current {padding:10px;}
+    .tab-content {padding:0px;}
+    .tab-content.current span a{font-size:15px; padding:6px 10px;}
+    .spacing-top {padding: 20px 0px;}
+    .videosection video {display:none;}
+    .videosection{background-color:#fe6200; opacity: .6;  transition: background .3s, border-radius .3s, opacity .3s;}
+    .topscreen{position:relative; padding:0px 0px 30px 0px;}
+    .heading h1 {font-size: 30px;}
+    .search-box {width: 100%; display:block; padding:20px 10px;}
+    .search-box input{width:86%; border-right:none;}
+    .selectBox {width: 100%; border-right:none; border-bottom:1px solid #ccc; border-top:1px solid #ccc;}
+    .searchbtn{width:100%; text-align:center; margin:15px 0px; }
+    .searchbtn span{background:#fe6200;}
+    .icon-box-wrapper {display: flex; margin:10px 15px;}
+    .civi-icon-wrap {width: 20%; padding: 15px 5px;}
+    .icon-box-content p{padding:2px 0px;}
+
+    #tl-featured-slider1 .owl-prev{display:none !important;}
+    #tl-featured-slider1 .owl-next{display:none !important;}
+    #tl-featured-slider2 .owl-prev{display:none !important;}
+    #tl-featured-slider2 .owl-next{display:none !important;}
+
+    .fullwidth {display: block;}
+    .left-section-col{padding:20px 15px 20px 30px;}
+    .right-section-col{padding:20px 15px 20px 30px;}
+    .left-section-text{width:100%;}
+    .heading-job h2 {font-size: 24px;}
+    .heading-job {margin-bottom: 15px;}
+    .Category-box{margin-bottom:15px;}
+    .Category-text p{padding:0px; font-size:16px;}
+    .tz-gallery .row .col-md-3{padding:0px;}
+    .tabs {padding: 10px 0px;}
+    .tabs span{font-size:15px; margin-right:8px;}
+    .blog-box a {font-size: 18px;}
+    ul.list-style-type-square-none{padding:0px;}
+    ul.list-style-type-square-none li{width:100%; font-size:16px;}
+    .Training-Centres .col-md-4{padding:0px 15px;}
+    .Training-Centres .col-md-8{padding:0px 15px;}
+    .footer-text h5 {padding:30px 0px 10px 0px;}
+    .newsletter{margin:10px 0px;}
+    .Subscribe-newsletter{padding:15px 0px;}
+    .footer-spcing {padding: 0px 0px 20px;}
+    .copyright{padding:18px 0px;}
+    .faq-section .accordion-button h5 {font-size:16px;}
+    .accordion-body{font-size:16px;}
+    .accordion-body b {font-size:16px;}
+    ul.list-style-type-square li {font-size:16px;}
+    .accordion-item {margin-bottom: 10px;}
+    .faqbg{padding:0px;}
+    .viewalljobs {margin: 20px 0px;}
+    #gotop{display:none !important;}
+    .middlewrapper {width:95%;}
+    .Arerecruiter h1 {font-size: 26px;}
+    .Arerecruiter h2{font-size: 26px;}
+    .lazyimg img{position:relative; width:100%;}
+    .middlewrappers {width: 100%; padding: 4%;}
+    .abt-spacing-top {padding: 0px 0px 0px; margin: 20px 0px;}
+    .our-mission{padding:0px;}
+    .alignnumber {font-size:28px;}
+    .text-counter {padding-top: 20px;}
+    .text-counter p {font-size:16px;}
+    .vision1-img {margin-top: 0;}
+    .our-vision-text h1 {font-size: 29px;}
+    .visiontext{margin-top:8px;}
+    .existance {padding: 0px 0px; margin:10px 0px;}
+    .our-Working {padding: 0; margin:0px 0px 30px 0px;}
+    .our-work2 {width: 100%; margin:15px 0px;}
+    .join-us b{font-size: 22px;}
+    .our-work h2 {font-size:24px;}
+    .mobile-filter{display:none; max-height:600px; overflow-y: scroll; margin:15px 0px;}
+    .listpng img{width:30px; margin-right:3px; margin-top:-5px;}
+    .listpng{display:inline-block;}
+    .filter-box-bg{margin-bottom:20px;}
+    .pagination.pagination1 li a {padding:5px 12px; font-size:19px;}
+    .civi-jobs-header-tops{padding:15px;}
+    .Explore-job-text{width:90%;}
+    .daysapply{display:block; margin-top:15px;}
+    .rating-bars .rating-bars-item{padding:8px 15px;}
+    .detailsright h4 a {font-size: 18px;}
+    .detailsright h6{font-size: 17px;}
+    .civi-header-left h1{font-size: 22px;}
+    .info {flex: 0 0 100%;}
+    .Descriptions h5 {font-size:20px;}
+    .jobs-apply-details {padding: 15px; margin-bottom:20px; margin-top:10px;}
+    .info-apply{width:60%;}
+    .accountlogged-out a{padding:7px 18px 9px;}
+    .jobs-apply-detailstop {padding:15px;}
+    .jobs-apply-detailstop .info-apply{width:100%;}
+    .civi-jobs-header-top{display:block; padding:15px;}
+    .toggle-social{padding:0px 20px 0px 0px;}
+    .blog-detail-text h1 {font-size:22px;}
+    .blog-detail-text a {margin:5px 0px;}
+    .blog-detail-text h3{font-size:20px; margin:15px 0px 5px;}
+    .related-atricle {font-size:22px; margin:5px 0px;}
+    .nameinput{margin-bottom:20px;}
+    .put-message input[type=checkbox] + label{padding:10px 15px;}
+    .btnsubmit{margin:0px 15px;}
+    .justify-content-center {margin-bottom: 0px;}
+    .newblog {margin-top: 30px; margin-left:0px;}
+    .founder-mission {padding:0px; margin:0px;}
+    .founder-mission h1 {font-size:30px;}
+    .founder-join-us {padding:10px 0px;}
+        .founder-join-us .why-us {width: 100%;}
+        .founder-join-us h1 {font-size: 22px;}
+        .founder-join-us .why-us p {font-size:16px;}
+        .founder-join-us .why-us h2 {font-size:24px; margin:10px 0px 0;}
+    .faq-section .accordion-button h5 {margin-right:33px;}
+    .viewalljobs h3 {font-size:22px;}
+    .contact-us {margin: 20px 0px;}
+    .contact-fields{padding-left:0px;}
+        .contact-fields label{padding-bottom:10px;}
+        .contact-fields input[type="text"], .contact-fields input[type="email"], .contact-fields input[type="tel"], .contact-fields input[type="url"], .contact-fields textarea{border-radius:6px; padding:11px 10px; margin:0 0 10px;}
+    .blog-sec{margin:15px 0px; padding:0px;}
+    .readmore {margin-bottom:20px; margin-top:0px;}
+    .vision3-img img{width:100%;}
+    .our-work p{margin:0px;}
+    .our-vision-text h4{font-size:24px;}
+    .our-work {margin-top: 4%;}
+    .why-us2 h3 {font-size:24px;}
+
+    .mobile-bd-color{background:rgb(255 255 255 / 0.84); position:fixed; width:100%; height:100%; top:0; left:0; right:0; z-index:99; display:none;}
+    .mobilescreen{display:block;}
+    .mobilescreen .login{display:block; text-align:left; padding:10px 2px; margin-bottom:20px; border-bottom:1px solid #ddd;}
+    .mobilescreen .login.loginm {display:block; text-align:left; margin-top:20px; border-top:1px solid #ddd; border-bottom:none;}
+    .mobilescreen .login.loginm li.active a{display:block; text-align:left; padding:10px 30px; margin-top:20px; margin-left:15px;}
+    .login{display:none;}
+
+    .login-form-popups:hover .civi-nav-dashboard {display: block;  z-index: 9999999999999;  position: absolute; top: 77px; width: 100%;}
+
+
+    }
+
