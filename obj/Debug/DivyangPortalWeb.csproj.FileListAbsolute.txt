@@ -1,0 +1,251 @@
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\DivyangPortalWeb.dll.config
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\DivyangPortalWeb.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\DivyangPortalWeb.pdb
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csc.exe
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csc.exe.config
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csc.rsp
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csi.exe
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csi.exe.config
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\csi.rsp
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.AppContext.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Console.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.IO.Compression.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Net.Http.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Net.Sockets.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.ValueTuple.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\vbc.exe
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\vbc.exe.config
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\vbc.rsp
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Antlr3.Runtime.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Newtonsoft.Json.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Helpers.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Mvc.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Optimization.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Razor.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.Razor.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\WebGrease.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Helpers.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Mvc.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Optimization.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.Razor.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\System.Web.WebPages.Razor.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Newtonsoft.Json.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Antlr3.Runtime.pdb
+C:\Users\MSI\source\repos\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\MSI\source\repos\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
+C:\Users\MSI\source\repos\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.CoreCompileInputs.cache
+C:\Users\MSI\source\repos\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.CopyComplete
+C:\Users\MSI\source\repos\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.dll
+C:\Users\MSI\source\repos\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.pdb
+G:\My Drive\DivyangPortalWeb\bin\DivyangPortalWeb.dll.config
+G:\My Drive\DivyangPortalWeb\bin\DivyangPortalWeb.dll
+G:\My Drive\DivyangPortalWeb\bin\DivyangPortalWeb.pdb
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csc.exe
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csc.exe.config
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csc.rsp
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csi.exe
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csi.exe.config
+G:\My Drive\DivyangPortalWeb\bin\roslyn\csi.rsp
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.Managed.Core.targets
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\My Drive\DivyangPortalWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.AppContext.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Collections.Immutable.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Console.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Globalization.Calendars.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.IO.Compression.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Net.Http.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Net.Sockets.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Reflection.Metadata.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.ValueTuple.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Xml.XmlDocument.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+G:\My Drive\DivyangPortalWeb\bin\roslyn\vbc.exe
+G:\My Drive\DivyangPortalWeb\bin\roslyn\vbc.exe.config
+G:\My Drive\DivyangPortalWeb\bin\roslyn\vbc.rsp
+G:\My Drive\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe
+G:\My Drive\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe.config
+G:\My Drive\DivyangPortalWeb\bin\Antlr3.Runtime.dll
+G:\My Drive\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\My Drive\DivyangPortalWeb\bin\Microsoft.Web.Infrastructure.dll
+G:\My Drive\DivyangPortalWeb\bin\Newtonsoft.Json.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Helpers.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Mvc.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Optimization.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Razor.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.Razor.dll
+G:\My Drive\DivyangPortalWeb\bin\WebGrease.dll
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Helpers.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Mvc.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Optimization.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.Razor.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.xml
+G:\My Drive\DivyangPortalWeb\bin\System.Web.WebPages.Razor.xml
+G:\My Drive\DivyangPortalWeb\bin\Newtonsoft.Json.xml
+G:\My Drive\DivyangPortalWeb\bin\Antlr3.Runtime.pdb
+G:\My Drive\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\My Drive\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.CoreCompileInputs.cache
+G:\My Drive\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.dll
+G:\My Drive\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.pdb
+G:\My Drive\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
+D:\Divyang\DivyangPortalWeb\bin\DivyangPortalWeb.dll.config
+D:\Divyang\DivyangPortalWeb\bin\DivyangPortalWeb.dll
+D:\Divyang\DivyangPortalWeb\bin\DivyangPortalWeb.pdb
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csc.exe
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csc.exe.config
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csc.rsp
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csi.exe
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csi.exe.config
+D:\Divyang\DivyangPortalWeb\bin\roslyn\csi.rsp
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.Managed.Core.targets
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Divyang\DivyangPortalWeb\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.AppContext.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Collections.Immutable.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Console.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Globalization.Calendars.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.IO.Compression.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Net.Http.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Net.Sockets.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Reflection.Metadata.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.ValueTuple.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Divyang\DivyangPortalWeb\bin\roslyn\vbc.exe
+D:\Divyang\DivyangPortalWeb\bin\roslyn\vbc.exe.config
+D:\Divyang\DivyangPortalWeb\bin\roslyn\vbc.rsp
+D:\Divyang\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe
+D:\Divyang\DivyangPortalWeb\bin\roslyn\VBCSCompiler.exe.config
+D:\Divyang\DivyangPortalWeb\bin\Antlr3.Runtime.dll
+D:\Divyang\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Divyang\DivyangPortalWeb\bin\Microsoft.Web.Infrastructure.dll
+D:\Divyang\DivyangPortalWeb\bin\Newtonsoft.Json.Bson.dll
+D:\Divyang\DivyangPortalWeb\bin\Newtonsoft.Json.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Buffers.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Memory.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Net.Http.Formatting.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Numerics.Vectors.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Threading.Tasks.Extensions.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Helpers.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Mvc.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Optimization.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Razor.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.dll
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.Razor.dll
+D:\Divyang\DivyangPortalWeb\bin\WebGrease.dll
+D:\Divyang\DivyangPortalWeb\bin\Newtonsoft.Json.xml
+D:\Divyang\DivyangPortalWeb\bin\Newtonsoft.Json.Bson.pdb
+D:\Divyang\DivyangPortalWeb\bin\Newtonsoft.Json.Bson.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Buffers.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Memory.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Net.Http.Formatting.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Numerics.Vectors.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Threading.Tasks.Extensions.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Helpers.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Mvc.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Optimization.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.Razor.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.Deployment.xml
+D:\Divyang\DivyangPortalWeb\bin\System.Web.WebPages.Razor.xml
+D:\Divyang\DivyangPortalWeb\bin\Antlr3.Runtime.pdb
+D:\Divyang\DivyangPortalWeb\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Divyang\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.CoreCompileInputs.cache
+D:\Divyang\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.CopyComplete
+D:\Divyang\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.dll
+D:\Divyang\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.pdb
+D:\Divyang\DivyangPortalWeb\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache

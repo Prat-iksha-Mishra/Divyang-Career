@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+    <link href="~/Areas/Employee/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/css/baguetteBox.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/css/intlTelInput.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Areas/Employee/Content/css/responsives.css" rel="stylesheet" />
+
+
+    <script src="~/Areas/Employee/Scripts/js/jquery-1.12.3.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/bootstrap.bundle.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/baguetteBox.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/intlTelInput.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/min.js"></script>
+
+
+</head>
+<body>
+   
+    <div id="mySidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>
+                <a href="Home">
+                    <img src="~/Areas/Employee/Images/Divyang-career.png" />
+                </a>
+            </h3>
+            <button class="toggle-btn" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="left-side-menu">
+            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+        </ul>
+
+    </div>
+
+    <div id="main">
+
+        <header>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div class="hamburger" id="hamburger-1">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+
+                        <div class="mobile-bd-color">
+                            <ul class="menu">
+
+                                <div class="mobilescreen">
+                                    <div class="login">
+                                        <ul>
+                                            <li class="login-form-popup"><a href="Javascript:;">Login</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <li class="menulist">
+                                    <a href="javascript:;">Company <span class="caret"></span></a>
+                                    <ul class="nav-sub-menus">
+                                        <li>@Html.ActionLink("About Us", "About", "Home", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Founder’s Note", "FounderNote", "FounderNote", new { area = "" }, null)</li>
+                                        <li>
+                                            @Html.ActionLink("Area", "Dashboard", "Dashboard", new { Area = "Employee" }, null)
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="Jobs">Jobs</a> </li>
+                                <li class="menulist menulists">
+                                    <a href="javascript:;">Categories <span class="caret"></span></a>
+                                    <ul class="nav-sub-menu">
+
+                                        <ul class="tabs">
+                                            <li class="tab-link current" data-tab="tab-1">Job by Disability</li>
+                                            <li class="tab-link" data-tab="tab-2">Job by Sector</li>
+                                        </ul>
+
+                                        <div id="tab-1" class="tab-content current">
+                                            <span><a href="#!">Physical Disability</a></span>
+                                            <span><a href="#!">Intellectual Disability</a></span>
+                                            <span><a href="#!">Mental Illness</a></span>
+                                            <span><a href="#!">Chronic Neurological</a></span>
+                                            <span><a href="#!">Blood Disorder</a></span>
+                                            <span><a href="#!">Multiple Disabilities</a></span>
+                                        </div>
+                                        <div id="tab-2" class="tab-content">
+                                            <span><a href="#!">Ecommerce</a></span>
+                                            <span><a href="#!">Hospitality</a></span>
+                                            <span><a href="#!">IT / ITES</a></span>
+                                            <span><a href="#!">BFSI</a></span>
+                                            <span><a href="#!">Manufacturing</a></span>
+                                            <span><a href="#!">Retail</a></span>
+                                        </div>
+
+                                    </ul>
+                                </li>
+                                <li><a href="Blogs">Blog</a></li>
+                                <li><a href="Schemes">Schemes</a></li>
+                                <li><a href="Contactus">Contact Us</a></li>
+
+                                <div class="mobilescreen">
+                                    <div class="login loginm">
+                                        <ul>
+                                            <li class="active"><a href="employerlogin">Post a job</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <div class="civi-notification text-sm-end">
+                            <div class="icon-noti">
+                                <a href="#">
+                                    <i class="fa fa-bell"></i>
+                                    <span>1</span>
+                                </a>
+                            </div>
+                            <div class="user-show">
+                                <p>
+                                    <img src="https://secure.gravatar.com/avatar/5d2e029467d752f9911fb0961199db17?s=96&amp;d=mm&amp;r=g" title="user" alt="user">
+                                    <abbr>@Session["EmployeeUserName"].ToString()</abbr>
+
+                                    <div class="civi-nav-dashboard">
+                                        <ul class="left-side-menu">
+                                            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                        </ul>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="post-a-job">
+                                <a href="employerlogin">Post a job</a></>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+    
+
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>
