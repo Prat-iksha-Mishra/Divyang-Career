@@ -68,7 +68,7 @@
                     <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
                 </a>
             </li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item "> <span>Settings</span> </a></li>
+            <li><a href="@Url.Action("Setting", "Setting", new { area = "Employee" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item "> <span>Settings</span> </a></li>
             <li>
                 <a href="@Url.Action("LogOut", "Home", new { area = "" })" class="nav-item ">
                 <img src="~/Areas/Employee/Images/logout.svg" alt="logout Icon" /><span>Logout</span>

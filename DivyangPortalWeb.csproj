@@ -149,6 +149,7 @@
     <Compile Include="Areas\Employee\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Employee\Controllers\DashboardJobsController.cs" />
     <Compile Include="Areas\Employee\Controllers\MeetingsController.cs" />
+    <Compile Include="Areas\Employee\Controllers\SettingController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
@@ -1664,6 +1665,7 @@
     <Content Include="Areas\Employee\Views\Companies\addnewcompany.cshtml" />
     <Content Include="Areas\Employee\Views\DashboardJobs\DashboardJobs.cshtml" />
     <Content Include="Areas\Employee\Views\Meetings\Meetings.cshtml" />
+    <Content Include="Areas\Employee\Views\Setting\Setting.cshtml" />
     <None Include="bin\DivyangPortalWeb.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />

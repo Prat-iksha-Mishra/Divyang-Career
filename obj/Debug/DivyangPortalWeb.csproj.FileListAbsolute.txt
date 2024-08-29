@@ -378,3 +378,4 @@ D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.Cor
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.CopyComplete
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.dll
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.pdb
+D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
