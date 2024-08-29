@@ -143,7 +143,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Employee\Controllers\applicantsController.cs" />
+    <Compile Include="Areas\Employee\Controllers\CandidatesController.cs" />
+    <Compile Include="Areas\Employee\Controllers\CompaniesController.cs" />
     <Compile Include="Areas\Employee\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Employee\Controllers\DashboardJobsController.cs" />
+    <Compile Include="Areas\Employee\Controllers\MeetingsController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
@@ -1652,6 +1657,13 @@
     <Content Include="packages\bootstrap.3.4.1\LICENSE.txt" />
     <Content Include=".vs\DivyangPortalWeb\config\applicationhost.config" />
     <Content Include=".vs\DivyangPortalWeb\v16\.suo" />
+    <Content Include="Areas\Employee\Views\applicants\applicants.cshtml" />
+    <Content Include="Areas\Employee\Views\Candidates\Candidates.cshtml" />
+    <Content Include="Areas\Employee\Views\Companies\Companies.cshtml" />
+    <Content Include="Areas\Employee\Views\Companies\Companiesdetails.cshtml" />
+    <Content Include="Areas\Employee\Views\Companies\addnewcompany.cshtml" />
+    <Content Include="Areas\Employee\Views\DashboardJobs\DashboardJobs.cshtml" />
+    <Content Include="Areas\Employee\Views\Meetings\Meetings.cshtml" />
     <None Include="bin\DivyangPortalWeb.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />

@@ -1,0 +1,374 @@
+﻿
+@{
+    ViewBag.Title = "addnewcompany";
+    Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
+    <script src="https://unpkg.com/ckeditor5-inspector@4.1.0/build/inspector.js"></script>
+
+}
+
+<div class="wrapper">
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8">
+                    <div class="d-flex-div">
+                        <div><h1>Submit company</h1></div>
+                        <div class="button-warpper">
+                            <a href="javascript:;" class="civi-button button-outline">
+                                Cancel
+                            </a>
+                            <button type="submit" class="btn-submit-company civi-button" name="submit_company">
+                                <span>Publish</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Basic info</h2>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Company name <span>*</span></h4>
+                                    <input type="email" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Categories <span>*</span></h4>
+                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="" data-select2-id="1">Select an option</option>
+                                        <option value="Aviation" data-select2-id="2">Aviation</option>
+                                        <option value="Ecommerce" data-select2-id="3">Ecommerce</option>
+                                        <option value="Education" data-select2-id="4">Education</option>
+                                        <option value="Healthcare" data-select2-id="5">Healthcare</option>
+                                        <option value="Hospitality" data-select2-id="6">Hospitality</option>
+                                        <option value="IT" data-select2-id="7">IT</option>
+                                        <option value="IT / ITES" data-select2-id="8">IT / ITES</option>
+                                        <option value="Media" data-select2-id="9">Media</option>
+                                        <option value="Medical / Science" data-select2-id="10">Medical / Science</option>
+                                        <option value="Non Profit / NGO" data-select2-id="11">Non Profit / NGO</option>
+                                        <option value="Organic Food products" data-select2-id="12">Organic Food products</option>
+                                        <option value="Retail" data-select2-id="13">Retail</option>
+                                        <option value="software development" data-select2-id="14">software development</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="login-form">
+                                    <h4>Add New Categories</h4>
+                                    <input type="email" placeholder="Enter new Categories">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="login-form">
+                                    <h4>Company Url Slugs</h4>
+                                    <div class="company-url-warp">
+                                        <input class="input-url" type="text" placeholder="https://divyangcareer.com/companies/" disabled="">
+                                        <input class="input-slug" type="text" id="company_url" name="company_url" placeholder="company-name">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12">
+                                <div class="login-form">
+                                    <h4>About company <span>*</span></h4>
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Website</h4>
+                                    <input type="email" placeholder="www.domain.com">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Phone Number</h4>
+                                    <div class="input-group-sm">
+                                        <input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Email <span>*</span></h4>
+                                    <input type="email" placeholder="hello@domain.com">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Founded in</h4>
+                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="2010" data-select2-id="15">2010</option>
+                                        <option value="2011" data-select2-id="16">2011</option>
+                                        <option value="2012" data-select2-id="17">2012</option>
+                                        <option value="2013" data-select2-id="18">2013</option>
+                                        <option value="2014" data-select2-id="19">2014</option>
+                                        <option value="2015" data-select2-id="20">2015</option>
+                                        <option value="2016" data-select2-id="21">2016</option>
+                                        <option value="2017" data-select2-id="22">2017</option>
+                                        <option value="2018" data-select2-id="23">2018</option>
+                                        <option value="2019" data-select2-id="24">2019</option>
+                                        <option value="2020" data-select2-id="25">2020</option>
+                                        <option value="2021" data-select2-id="26">2021</option>
+                                        <option value="2022" data-select2-id="27">2022</option>
+                                        <option value="2023" data-select2-id="28">2023</option>
+                                        <option value="2024" data-select2-id="29">2024</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Company size</h4>
+                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="Select an option" data-select2-id="30">Select an option</option>
+                                        <option value="50-100" data-select2-id="30">50-100</option>
+                                        <option value="100-200" data-select2-id="32">100-200</option>
+                                        <option value="200-300" data-select2-id="33">200-300</option>
+                                        <option value="300-400" data-select2-id="34">300-400</option>
+                                        <option value="400-500" data-select2-id="35">400-500</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Media</h2>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="login-form">
+                                    <h4>Logo</h4>
+
+                                    <div class="media-container">
+                                        <span class="media-overlay">
+                                            <input type="file" id="media-input" accept="image/*">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </span>
+                                        <figure class="media-object">
+                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
+                                        </figure>
+                                    </div>
+                                    <div class="media-control">
+                                        <button class="btnupload edit-profile">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
+                                        </button>
+                                        <button class="btnupload save-profile">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-9">
+                                <div class="login-form">
+                                    <h4>Cover image</h4>
+
+                                    <div class="media-container">
+                                        <span class="media-overlay">
+                                            <input type="file" id="media-input" accept="image/*">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </span>
+                                        <figure class="media-object">
+                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
+                                        </figure>
+                                    </div>
+                                    <div class="media-control">
+                                        <button class="btnupload edit-profile">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
+                                        </button>
+                                        <button class="btnupload save-profile">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Social network</h2>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Twitter</h4>
+                                    <input type="email" placeholder="twitter.com/company">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Linkedins</h4>
+                                    <input type="email" placeholder="linkedin.com/company">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Facebook</h4>
+                                    <input type="email" placeholder="facebook.com/company">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Instagram</h4>
+                                    <input type="email" placeholder="instagram.com/company">
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Location</h2>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="login-form formlocation">
+                                    <h4>Location</h4>
+                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option value="Select an option" data-select2-id="50">Select an option</option>
+                                        <option value="Ab e Kamari" data-select2-id="51">Ab e Kamari</option>
+                                        <option value="Agartala" data-select2-id="52">Agartala</option>
+                                        <option value="Ahmedabad" data-select2-id="53">Ahmedabad</option>
+                                        <option value="Ashkasham" data-select2-id="54">Ashkasham</option>
+                                        <option value="Aurora" data-select2-id="55">Aurora</option>
+                                        <option value="Baner Pune" data-select2-id="56">Baner Pune</option>
+                                        <option value="Banu" data-select2-id="56">Banu</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Add New Location</h4>
+                                    <input type="text" placeholder="Enter new location">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Maps location</h4>
+                                    <input type="text" placeholder="Full Address">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div id="map">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3037.035014187959!2d-88.58546432398835!3d40.43022357143751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI1JzQ4LjgiTiA4OMKwMzQnNTguNCJX!5e0!3m2!1sen!2sin!4v1724764752238!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Longtitude</h4>
+                                    <input type="text" placeholder="-88.0616189">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="login-form">
+                                    <h4>Latitude</h4>
+                                    <input type="text" placeholder="41.8337734">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Gallery</h2>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="login-form">
+                                    <h4>Image</h4>
+
+
+                                    <div id="dnd-max-size" class="file-upload-wrapper">
+                                        <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-max-file-size="2M" data-mdb-file-upload-init="" accept=""><div class="file-upload-previews"></div></div>
+                                    </div>
+
+                                    <div class="uploadimgs">
+                                        sssssssssss
+                                    </div>
+
+                                    <div class="media-container">
+                                        <span class="media-overlay">
+                                            <input type="file" id="media-input" accept="image/*">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                        </span>
+                                        <figure class="media-object">
+                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
+                                        </figure>
+                                    </div>
+                                    <div class="media-control">
+                                        <button class="btnupload edit-profile">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
+                                        </button>
+                                        <button class="btnupload save-profile">
+                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="block-from">
+                        <h2>Video</h2>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="login-form">
+                                    <h4>Introduction video Url</h4>
+                                    <input type="email" placeholder="Enter url video">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="detailsright">
+                        <h4><a href="javascript:;">Information</a></h4>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

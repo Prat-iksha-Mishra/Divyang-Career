@@ -1,0 +1,184 @@
+﻿
+@{
+    ViewBag.Title = "Candidates";
+    Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<div class="wrapper">
+
+    <div class="tab-content tab-contents" id="nav-tabContent">
+        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <h1>Following</h1>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <h1>Followers</h1>
+        </div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+            <h1>Invite</h1>
+        </div>
+    </div>
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Following</button>
+                        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Followers</button>
+                        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Invite</button>
+                    </div>
+
+                    @*<div class="tab-content tab-contents" id="nav-tabContent">
+                        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <p>
+                                1
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <p>
+                                2
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <p>
+                                3
+                            </p>
+                        </div>
+                    </div>*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="Search-jobs-title">
+                        <input type="email" placeholder="Find by Name">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="sortby-col">
+                        <span>Sort By</span>
+                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option value="Newest" data-select2-id="11">Newest</option>
+                            <option value="Oldest" data-select2-id="12">Oldest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tables">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="30%">TITLE</th>
+                            <th width="14%">APPLICANTS</th>
+                            <th width="12%">STATUS</th>
+                            <th width="13%">POSTED</th>
+                            <th width="13%">EXPIRED</th>
+                            <th width="18%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+

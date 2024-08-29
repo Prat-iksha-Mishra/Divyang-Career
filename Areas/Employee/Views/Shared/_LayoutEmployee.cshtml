@@ -27,7 +27,7 @@
     <div id="mySidebar" class="sidebar">
         <div class="sidebar-header">
             <h3>
-                <a href="Home">
+                <a href="@Url.Action("", "Home", new { area = "" })">
                     <img src="~/Areas/Employee/Images/Divyang-career.png" />
                 </a>
             </h3>
@@ -37,15 +37,43 @@
         </div>
 
         <ul class="left-side-menu">
-            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+            <li>
+            <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class="active">
+                <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+            </a>
+            </li>
+            <li>
+                <a href="@Url.Action("DashboardJobs", "DashboardJobs", new { area = "Employee" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/applicant.svg" alt="applicant Icon" /><span>Applicants</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/candidate.svg" alt="Candidates Icon" /><span>Candidates</span>
+                </a>
+            </li>
             <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+            <li>
+                <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Companies", "Companies", new { area = "Employee" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
+                </a>
+            </li>
+            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item "> <span>Settings</span> </a></li>
+            <li>
+                <a href="@Url.Action("LogOut", "Home", new { area = "" })" class="nav-item ">
+                <img src="~/Areas/Employee/Images/logout.svg" alt="logout Icon" /><span>Logout</span>
+                </a>
+            </li>
         </ul>
 
     </div>
@@ -79,12 +107,9 @@
                                     <ul class="nav-sub-menus">
                                         <li>@Html.ActionLink("About Us", "About", "Home", new { area = "" }, null)</li>
                                         <li>@Html.ActionLink("Founder’s Note", "FounderNote", "FounderNote", new { area = "" }, null)</li>
-                                        <li>
-                                            @Html.ActionLink("Area", "Dashboard", "Dashboard", new { Area = "Employee" }, null)
-                                        </li>
                                     </ul>
                                 </li>
-                                <li><a href="Jobs">Jobs</a> </li>
+                                <li>@Html.ActionLink("Jobs", "Index", "Jobs", new { area = "" }, null) </li>
                                 <li class="menulist menulists">
                                     <a href="javascript:;">Categories <span class="caret"></span></a>
                                     <ul class="nav-sub-menu">
@@ -113,9 +138,9 @@
 
                                     </ul>
                                 </li>
-                                <li><a href="Blogs">Blog</a></li>
-                                <li><a href="Schemes">Schemes</a></li>
-                                <li><a href="Contactus">Contact Us</a></li>
+                                <li><a href="@Url.Action("", "Blogs", new { area = "" })">Blogs</a></li>
+                                <li><a href="@Url.Action("", "Schemes", new { area = "" })">Schemes</a></li>
+                                <li><a href="@Url.Action("", "Contactus", new { area = "" })">Contact Us</a></li>
 
                                 <div class="mobilescreen">
                                     <div class="login loginm">
@@ -146,15 +171,43 @@
 
                                     <div class="civi-nav-dashboard">
                                         <ul class="left-side-menu">
-                                            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                            <li>
+                                            <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class=" active">
+                                                <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                                            </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DashboardJobs", "DashboardJobs", new { area = "Employee" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/applicant.svg" alt="applicant Icon" /><span>Applicants</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/candidate.svg" alt="Candidates Icon" /><span>Candidates</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item "> <span>Messages</span> </a></li>
+                                            <li>
+                                                <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Companies", "Companies", new { area = "Employee" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item "> <span>Settings</span> </a></li>
+                                            <li>
+                                                <a href="@Url.Action("LogOut", "Home", new { area = "" })" class="nav-item ">
+                                                    <img src="~/Areas/Employee/Images/logout.svg" alt="logout Icon" /><span>Logout</span>
+                                                 </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </p>
@@ -171,9 +224,10 @@
         </header>
     
 
-    <div>
+       <div>
         @RenderBody()
-    </div>
-
+        </div>
+   </div>
+    
 </body>
 </html>

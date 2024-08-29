@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Companies</h1>
+
+    <div class="spacing">
+        
+        <div class="container">
+            <div class="tables">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="33%">Name</th>
+                            <th width="14%">STATUS</th>
+                            <th width="22%">Category</th>
+                            <th width="13%">Active Jobs</th>
+                            <th width="18%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="info-user">
+                                <div>
+                                    <a href="javascript:;">
+                                        <img src="~/Areas/Employee/Images/Divyang-career.png" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <h3 class="title-jobs-dashboard">
+                                        @Html.ActionLink("dfd", "Companiesdetails", "Companies", new { Area = "Employee" }, null)
+                                    </h3>
+                                    <p>Blood Disorder / Private</p>
+                                </div>
+                            </td>
+                            <td><span class="label-opening">Opening</span></td>
+                            <td>
+                                <p>Software development</p>
+                            </td>
+
+                            <td>
+                                <span class="start-time">10</span>
+                            </td>
+                            
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+        <div class="add-new-company">@Html.ActionLink("Add new company", "addnewcompany", "Companies", new { Area = "Employee" }, null)</div>
+
+    </div>
+
+</div>
+

@@ -66,13 +66,37 @@
                                                 <a href="Javascript:;">@Session["EmployeeUserName"].ToString()</a>
                                                 <div class="civi-nav-dashboard">
                                                     <ul class="left-side-menu">
-                                                        <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+                                                        <li>
+                                                            <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/applicant.svg" alt="applicant Icon" /><span>Applicants</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/candidate.svg" alt="Candidates Icon" /><span>Candidates</span>
+                                                            </a>
+                                                        </li>
                                                         <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+                                                        <li>
+                                                            <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="@Url.Action("Companies", "Companies", new { area = "Employee" })" class="nav-item active">
+                                                                <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
+                                                            </a>
+                                                        </li>
                                                         <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
                                                         <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
                                                     </ul>
@@ -155,13 +179,37 @@
                                     <a href="Javascript:;">@Session["EmployeeUserName"].ToString()</a>
                                     <div class="civi-nav-dashboard">
                                         <ul class="left-side-menu">
-                                            <li><a href="#" class="active"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Jobs</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Applicants</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/candidate.svg" class="nav-item active"> <span>Candidates</span> </a></li>
+                                            <li>
+                                                <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Dashboard", "Dashboard", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/applicant.svg" alt="applicant Icon" /><span>Applicants</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/candidate.svg" alt="Candidates Icon" /><span>Candidates</span>
+                                                </a>
+                                            </li>
                                             <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/company.svg" class="nav-item active"> <span>Company</span> </a></li>
+                                            <li>
+                                                <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Companies", "Companies", new { area = "Employee" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
+                                                </a>
+                                            </li>
                                             <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
                                             <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
                                         </ul>
@@ -204,13 +252,13 @@
                             <div class="login-form">
                                 <h4>@Html.LabelFor(U => U.EmployerDetails.Email)</h4>
                                 @*<input type="text" placeholder="Enter Account or Email" id="txtemail" />*@
-                                @Html.EditorFor(U => U.EmployerDetails.Email, new { htmlAttributes = new { @placeholder = "Enter Account or Email" } })
+                                @Html.EditorFor(U => U.EmployerDetails.Email, new { htmlAttributes = new { @placeholder = "Enter Account or Email", autocomplete = "off" } })
                                 @Html.ValidationMessageFor(U => U.EmployerDetails.Email)
                             </div>
                             <div class="login-form">
                                 <h4>@Html.LabelFor(U => U.EmployerDetails.Password)</h4>
                                 @*<input id="password-field" type="password" class="form-control" name="password">*@
-                                @Html.EditorFor(U => U.EmployerDetails.Password, new { htmlAttributes = new { placeholder = "Enter Password" } })
+                                @Html.EditorFor(U => U.EmployerDetails.Password, new { htmlAttributes = new { placeholder = "Enter Password", autocomplete = "off" } })
                                 @Html.ValidationMessageFor(U => U.EmployerDetails.Password)
                                 <span toggle="#EmployerDetails_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
@@ -253,14 +301,14 @@
                             <div class="col-6">
                                 <div class="signup-form">
                                     <h4> @Html.LabelFor(U => U.Firstname)</h4>
-                                    @Html.EditorFor(U => U.Firstname)
+                                    @Html.EditorFor(U => U.Firstname , new { htmlAttributes = new { autocomplete = "off" } })
                                     @Html.ValidationMessageFor(U => U.Firstname)
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="signup-form">
                                     <h4>@Html.LabelFor(U => U.Lastname)</h4>
-                                    @Html.EditorFor(U => U.Lastname)
+                                    @Html.EditorFor(U => U.Lastname , new { htmlAttributes = new { autocomplete = "off" } })
                                     @Html.ValidationMessageFor(U => U.Lastname)
                                 </div>
                             </div>
@@ -268,13 +316,13 @@
 
                             <div class="signup-form">
                                 <h4>@Html.LabelFor(U => U.Username)</h4>
-                                @Html.EditorFor(U => U.Username)
+                                @Html.EditorFor(U => U.Username , new { htmlAttributes = new { autocomplete = "off" } })
                                 @Html.ValidationMessageFor(U => U.Username)
                             </div>
 
                             <div class="signup-form">
                                 <h4>@Html.LabelFor(U => U.Email)</h4>
-                                @Html.EditorFor(U => U.Email)
+                                @Html.EditorFor(U => U.Email , new { htmlAttributes = new { autocomplete = "off" } })
                                 @Html.ValidationMessageFor(U => U.Email)
                             </div>
 
@@ -291,7 +339,7 @@
                                 <h4>@Html.LabelFor(U => U.Password)</h4>
                                 @*<input id="password-field1" type="password" class="form-control" name="password">
                                     <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>*@
-                                @Html.EditorFor(U => U.Password)
+                                @Html.EditorFor(U => U.Password , new { htmlAttributes = new { autocomplete = "off" } })
                                 <span toggle="#Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 @Html.ValidationMessageFor(U => U.Password)
                             </div>
