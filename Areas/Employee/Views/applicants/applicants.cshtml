@@ -1,0 +1,148 @@
+﻿
+@{
+    ViewBag.Title = "applicants";
+    Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<div class="wrapper">
+    <h1>All applicants</h1>
+
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                    <div class="circleLoading">
+                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option value="" data-select2-id="1">All Jobs</option>
+                            <option value="Opening" data-select2-id="2">Opening</option>
+                            <option value="Paused" data-select2-id="3">Paused</option>
+                            <option value="Closed" data-select2-id="4">Closed</option>
+                            <option value="Pending" data-select2-id="5">Pending</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="Search-jobs-title">
+                        <input type="email" placeholder="Find by Jobs">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="sortby-col">
+                        <span>Sort By</span>
+                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option value="Newest" data-select2-id="11">Newest</option>
+                            <option value="Oldest" data-select2-id="12">Oldest</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tables">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="30%">TITLE</th>
+                            <th width="14%">APPLICANTS</th>
+                            <th width="12%">STATUS</th>
+                            <th width="13%">POSTED</th>
+                            <th width="13%">EXPIRED</th>
+                            <th width="18%"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3 class="title-jobs-dashboard">
+                                    <a href="javascript:;">
+                                        dfd
+                                    </a>
+                                </h3>
+                                <p>Blood Disorder / Private</p>
+                            </td>
+                            <td>
+                                <span>1</span>
+                                <a href="javascript:;" class="Application">Application</a>
+                            </td>
+                            <td><span class="label-pause">Pause</span></td>
+                            <td>
+                                <span class="start-time">13/08/2024</span>
+                            </td>
+                            <td>
+                                <span class="expires-time">
+                                    12/09/2024
+                                </span>
+                            </td>
+                            <td style="text-align:right;">
+                                <a class="btn-edit" href="javascript:;"> Edit </a>
+                                <a class="Continue" href="javascript:;"> Continue </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
