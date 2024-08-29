@@ -23,6 +23,15 @@ namespace DivyangPortalWeb.Model.Application
             return res;
 
         }
+        public async Task<Message<int>> SaveSignUpWithcandidate(SignUp model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/AddCandidate"));
+            var res = await PostAsync<int, SignUp>(requestUrl, model);
+            return res;
+
+        }
         public async Task<Message<int>> CheckUsernameEmployer(CheckUserName model)
         {
             var message = new Message<int>();

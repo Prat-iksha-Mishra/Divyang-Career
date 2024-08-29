@@ -95,9 +95,6 @@
                                 <ul class="nav-sub-menus">
                                     <li><a href="Aboutus">About Us</a></li>
                                     <li><a href="FounderNote">Founder’s Note</a></li>
-                                    <li>
-                                        @Html.ActionLink("Area", "Dashboard", "Dashboard", new { Area = "Employee" }, null)
-                                    </li>
                                 </ul>
                             </li>
                             <li><a href="Jobs">Jobs</a> </li>
@@ -282,7 +279,7 @@
                             </div>
 
                             <div class="signup-form">
-                                <h4>Phone number</h4>
+                                <h4>Phone number*</h4>
                                 <div class="input-group-sm">
                                     @*<input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">*@
                                     @Html.TextBoxFor(U => U.PhoneNumber, new { @class = "form-control", id = "mobile", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
