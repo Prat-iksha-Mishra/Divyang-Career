@@ -23,6 +23,15 @@ namespace DivyangPortalWeb.Controllers
                     Session["EmployeeUserName"] = Model.Username;
                     return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
                 }
+                if(Model.UserType == "Candidate")
+                {
+                    var res = await ApiClientFactory.Instance.SaveSignUpWithcandidate(Model);
+                    //Session["CandidateEmail"] = Model.Email;
+                    //Session["CandidateUserName"] = Model.Username;
+                    Session["EmployeeEmail"] = Model.Email;
+                    Session["EmployeeUserName"] = Model.Username;
+                    return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
+                }
                 else
                 {
                     return RedirectToAction("employerlogin", "employerlogin");
