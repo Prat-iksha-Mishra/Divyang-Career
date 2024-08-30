@@ -420,3 +420,8 @@ ul.login-tabss li span{color:#fe6200 !important;}
 
 .login-form button {background: #fe6200;display: block;border-radius: 30px;font-size: 18px;color: #fff;padding:8px 30px 10px;border: 1px solid #fe6200; font-weight:500;}
 .login-form button:hover {border: 1px solid #fe6200;background: #fff;color: #000;}
+
+/*---------For Validation---------*/
+span.field-validation-error{font-size:14px; color:#f00; display:block !important; width:100% !important;}
+span.field-validation-error span{display:block !important; width:100% !important;}
+/*---------For Validation---------*/

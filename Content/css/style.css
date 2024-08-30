@@ -720,6 +720,8 @@ ul.login-tabss li span{color:#fe6200 !important;}
 .add-new-review a{font-size:18px; color:#fe6200; font-weight:500;}
 .add-new-review span{font-size:18px; color:#000; font-weight:500; padding:0px 2px;}
 /*--------------Job Details page css End ------------------------*/
-
-
+/*---------For Validation---------*/
+span.field-validation-error{font-size:14px; color:#f00; display:block !important; width:100% !important;}
+span.field-validation-error span{display:block !important; width:100% !important;}
+/*---------For Validation---------*/
 

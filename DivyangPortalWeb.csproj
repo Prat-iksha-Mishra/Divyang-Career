@@ -151,6 +151,7 @@
     <Compile Include="Areas\Employee\Controllers\MeetingsController.cs" />
     <Compile Include="Areas\Employee\Controllers\SettingController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
+    <Compile Include="Areas\Employee\Models\ChangePassword.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\employerloginController.cs" />
@@ -168,6 +169,8 @@
     <Compile Include="Models\CheckUserName.cs" />
     <Compile Include="Models\ContributeViewModel.cs" />
     <Compile Include="Models\EmployerDetails.cs" />
+    <Compile Include="Models\EmployerDetails1.cs" />
+    <Compile Include="Models\EmployerSignUp.cs" />
     <Compile Include="Models\SignUp.cs" />
     <Compile Include="Model\Application\ApiClientFactory.cs" />
     <Compile Include="Model\Application\ApplicationManagement.cs" />
@@ -192,6 +195,8 @@
     <Content Include="Areas\Employee\Scripts\js\bootstrap.bundle.js" />
     <Content Include="Areas\Employee\Scripts\js\intlTelInput.min.js" />
     <Content Include="Areas\Employee\Scripts\js\jquery-1.12.3.min.js" />
+    <Content Include="Areas\Employee\Scripts\js\jquery.validate.min.js" />
+    <Content Include="Areas\Employee\Scripts\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Employee\Scripts\js\min.js" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
@@ -1876,6 +1881,7 @@
     <Content Include="Scripts\js\baguetteBox.min.js" />
     <Content Include="Scripts\js\bootstrap.bundle.js" />
     <Content Include="Scripts\js\custom.js" />
+    <Content Include="Scripts\js\EmployerSignUp.js" />
     <Content Include="Scripts\js\gotop.js" />
     <Content Include="Scripts\js\intlTelInput.min.js" />
     <Content Include="Scripts\js\jquery-1.12.3.min.js" />

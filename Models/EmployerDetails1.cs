@@ -6,19 +6,19 @@ using System.Web;
 
 namespace DivyangPortalWeb.Models
 {
-    public class EmployerDetails
+    public class EmployerDetails1
     {
-        public string EmployeeId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string UserName { get; set; }
+        public string EmployeeIds { get; set; }
+        public string FirstNames { get; set; }
+        public string LastNames { get; set; }
+        public string UserNames { get; set; }
         [Required(ErrorMessage = "Please enter email", AllowEmptyStrings = false)]
         [Display(Name = "Account or Email")]
-        public string Email { get; set; }
-        public string UserType { get; set; }
+        public string Emails { get; set; }
+        public string UserTypes { get; set; }
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "Please enter password", AllowEmptyStrings = false)]
-        public string Password { get; set; }
+        public string Passwords { get; set; }
     }
 }

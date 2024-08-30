@@ -1,9 +1,9 @@
-﻿
+﻿@model DivyangPortalWeb.Models.EmployerSignUp
 @{
     ViewBag.Title = "employerlogin";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
 }
-
+<script src="~/Scripts/js/EmployerSignUp.js"></script>
 <div class="background-bg">
 
     <div class="container">
@@ -23,24 +23,39 @@
 
                         <div id="tab-11" class="tab-contentss currents">
                             <div class="tablogins">
-                                <div class="login-form">
-                                    <h4>Account or Email</h4>
-                                    <input type="email" placeholder="Enter Account or Email" />
-                                </div>
-                                <div class="login-form">
-                                    <h4>Password</h4>
-                                    <input id="password-field" type="password" class="form-control" name="password">
-                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div>
-                                <div class="login-form">
-                                    <div class="forgot-password">
-                                        <span>Forgot your password? </span>
-                                        <a class="btn-reset-password" href="javascript:;">Reset password.</a>
+                                @using (Html.BeginForm("LogIn", "employerlogin"))
+                                {
+                                    if (TempData["EmployerLogIn"] != null)
+                                    {
+                                        <div class="alert alert-danger" role="alert">
+                                            @TempData["EmployerLogIn"]
+                                        </div>
+                                    }
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(U => U.EmployerDetails.Emails)</h4>
+                                        @*<input type="email" placeholder="Enter Account or Email" />*@
+                                        @Html.EditorFor(U => U.EmployerDetails.Emails, new { htmlAttributes = new { @placeholder = "Enter Account or Email", autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.EmployerDetails.Emails)
                                     </div>
-                                </div>
-                                <div class="login-form">
-                                    <button type="submit" class="gl-button btn button" value="Sign in">Sign in</button>
-                                </div>
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(U => U.EmployerDetails.Passwords)</h4>
+                                        @*<input id="password-field" type="password" class="form-control" name="password">
+                                            <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>*@
+                                        @Html.EditorFor(U => U.EmployerDetails.Passwords, new { htmlAttributes = new { placeholder = "Enter Password", autocomplete = "off" } })
+                                        <span toggle="#EmployerDetails_Passwords" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        @Html.ValidationMessageFor(U => U.EmployerDetails.Passwords)
+                                    </div>
+                                    <div class="login-form">
+                                        <div class="forgot-password">
+                                            <span>Forgot your password? </span>
+                                            <a class="btn-reset-password" href="javascript:;">Reset password.</a>
+                                        </div>
+                                    </div>
+                                    <div class="login-form">
+                                        <button type="submit" class="gl-button btn button" value="Sign in">Sign in</button>
+                                    </div>
+                                }
+
 
                                 <div class="login-form">
                                     <div class="google-login">
@@ -59,53 +74,63 @@
                         <div id="tab-22" class="tab-contentss">
 
                             <div class="row">
-                                <div class="col-6">
+                                @using (Html.BeginForm("Signup", "employerlogin"))
+                                {
+                                    @Html.HiddenFor(U => U.UserTypes)
+                                    @Html.HiddenFor(U => U.CountryCodes)
                                     <div class="signup-form">
-                                        <h4>First Name</h4>
-                                        <input type="email" placeholder="Name" />
+                                        <div class="signup-form">
+                                            <h4>@Html.LabelFor(U => U.Firstnames)</h4>
+                                            @Html.EditorFor(U => U.Firstnames, new { htmlAttributes = new { autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(U => U.Firstnames)
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
                                     <div class="signup-form">
-                                        <h4>Last Name</h4>
-                                        <input type="email" placeholder="Name" />
+                                        <div class="signup-form">
+                                            <h4>@Html.LabelFor(U => U.Lastnames)</h4>
+                                            @Html.EditorFor(U => U.Lastnames, new { htmlAttributes = new { autocomplete = "off" } })
+                                            @Html.ValidationMessageFor(U => U.Lastnames)
+                                        </div>
                                     </div>
-                                </div>
-
-
-                                <div class="signup-form">
-                                    <h4>Username</h4>
-                                    <input type="text" placeholder="Enter Username" />
-                                </div>
-
-                                <div class="signup-form">
-                                    <h4>Email</h4>
-                                    <input type="Email" placeholder="Enter Email" />
-                                </div>
-
-                                <div class="signup-form">
-                                    <h4>Phone number</h4>
-                                    <div class="input-group-sm">
-                                        <input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">
+                                    <div class="signup-form">
+                                        <h4>@Html.LabelFor(U => U.Usernames)</h4>
+                                        @Html.EditorFor(U => U.Usernames, new { htmlAttributes = new { autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.Usernames)
                                     </div>
-                                </div>
 
-                                <div class="signup-form">
-                                    <h4>Password</h4>
-                                    <input id="password-field1" type="password" class="form-control" name="password">
-                                    <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div>
+                                    <div class="signup-form">
+                                        <h4>@Html.LabelFor(U => U.Emails)</h4>
+                                        @Html.EditorFor(U => U.Emails, new { htmlAttributes = new { autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.Emails)
+                                    </div>
 
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkboxRollingHomes" checked>
-                                    <label class="form-check-label" for="checkboxRollingHomes">
-                                        Rolling Homes <a class="btn-reset-password" href="#">Terms</a> and <a class="btn-reset-password" href="#">Privacy Policy</a>
-                                    </label>
-                                </div>
+                                    <div class="signup-form">
+                                        <h4>Phone number*</h4>
+                                        <div class="input-group-sm">
+                                            @Html.TextBoxFor(U => U.PhoneNumbers, new { @class = "form-control", id = "mobiles", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            @Html.ValidationMessageFor(U => U.PhoneNumbers)
+                                        </div>
+                                    </div>
 
-                                <div class="signup-form">
-                                    <button type="submit" class="gl-button btn button" value="Sign in">Sign Up</button>
-                                </div>
+                                    <div class="signup-form">
+                                        <h4>@Html.LabelFor(U => U.Passwords)</h4>
+                                        @Html.EditorFor(U => U.Passwords, new { htmlAttributes = new { autocomplete = "off" } })
+                                        <span toggle="#Passwords" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        @Html.ValidationMessageFor(U => U.Passwords)
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkboxRollingHomes1" checked>
+                                        <label class="form-check-label" for="checkboxRollingHomes">
+                                            Rolling Homes <a class="btn-reset-password" href="#">Terms</a> and <a class="btn-reset-password" href="#">Privacy Policy</a>
+                                        </label>
+                                    </div>
+
+                                    <div class="signup-form">
+                                        <button type="submit" class="gl-button btn button" value="Sign in">Sign Up</button>
+                                    </div>
+                                }
+
 
                             </div>
                         </div>
@@ -177,8 +202,8 @@
                                 <input type="text" placeholder="New Password" />
                             </div>
                             <div class="login-form">
-                                <input id="password-field2" type="password" class="form-control" name="password" placeholder="Confirm Password">
-                                <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <input id="password-field21" type="password" class="form-control" name="password" placeholder="Confirm Password">
+                                <span toggle="#password-field21" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="login-form">
                                 <button type="submit" class="gl-button btn button newtab3" value="Sign in">Continue</button>

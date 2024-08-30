@@ -259,8 +259,8 @@
                                 <h4>@Html.LabelFor(U => U.EmployerDetails.Password)</h4>
                                 @*<input id="password-field" type="password" class="form-control" name="password">*@
                                 @Html.EditorFor(U => U.EmployerDetails.Password, new { htmlAttributes = new { placeholder = "Enter Password", autocomplete = "off" } })
-                                @Html.ValidationMessageFor(U => U.EmployerDetails.Password)
                                 <span toggle="#EmployerDetails_Password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                @Html.ValidationMessageFor(U => U.EmployerDetails.Password)
                             </div>
                             <div class="login-form">
                                 <div class="forgot-password">

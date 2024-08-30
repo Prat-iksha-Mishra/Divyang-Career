@@ -44,12 +44,12 @@ namespace DivyangPortalWeb.Controllers
         }
         // GET: SignUp End Here
         //Here Check Email Is Exists Or Not Start Here
-        public async Task<JsonResult> CheckEmail(string Email, string Type)
+        public async Task<JsonResult> CheckEmail(string Email, string UserType)
         {
             bool ifEmailExist = true;
             CheckEmail ch = new CheckEmail();
             ch.Email = Email.ToString();
-            if (Type == "Employer")
+            if (UserType == "Employer")
             {
                 var var = await ApiClientFactory.Instance.CheckEmailEmployer(ch);
                 try
@@ -76,10 +76,10 @@ namespace DivyangPortalWeb.Controllers
         }
         //Here Check Email Is Exists Or Not End Here
         //Here Check UserName Is Exists Or Not Start Here
-        public async Task<JsonResult> CheckUser(string UserName, string Type)
+        public async Task<JsonResult> CheckUser(string UserName, string UserType)
         {
             bool ifEmailExist = true;
-            if(Type== "Employer")
+            if(UserType == "Employer")
             {
                 CheckUserName ch = new CheckUserName();
                 ch.UserName = UserName.ToString();

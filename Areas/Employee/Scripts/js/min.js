@@ -69,19 +69,20 @@ jQuery(document).ready(function ($) {
 
     function CustomizationPlugin(editor) {
     }
-    ClassicEditor
-    .create(document.querySelector('#editor'), {
-        extraPlugins: [CustomizationPlugin]
-    })
-    .then(newEditor => {
-        window.editor = newEditor;
-        CKEditorInspector.attach(newEditor, {
-            isCollapsed: true
-        });
-    })
-    .catch(error => {
-        console.error(error);
-    });
+    //Comment by Sugam Sharma
+    //ClassicEditor
+    //.create(document.querySelector('#editor'), {
+    //    extraPlugins: [CustomizationPlugin]
+    //})
+    //.then(newEditor => {
+    //    window.editor = newEditor;
+    //    CKEditorInspector.attach(newEditor, {
+    //        isCollapsed: true
+    //    });
+    //})
+    //.catch(error => {
+    //    console.error(error);
+    //});
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

@@ -1,8 +1,10 @@
-﻿
+﻿@model DivyangPortalWeb.Areas.Employee.Models.ChangePassword
 @{
     ViewBag.Title = "Setting";
     Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
 }
+<script src="~/Areas/Employee/Scripts/js/jquery.validate.min.js"></script>
+<script src="~/Areas/Employee/Scripts/js/jquery.validate.unobtrusive.min.js"></script>
 <div class="wrapper">
     <h1>Settings</h1>
     <h3>Personal info</h3>
@@ -79,34 +81,56 @@
                         <h2>Change password</h2>
 
                         <div class="row">
+                            @if (TempData["ChangeEmployeePassword"] != null)
+                            {
+                                if (@TempData["ChangeEmployeePassword"].ToString() == "Invalid current password")
+                                {
+                                    <div class="alert alert-danger" role="alert">
+                                        @TempData["ChangeEmployeePassword"]
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="alert alert-success" role="alert">
+                                        @TempData["ChangeEmployeePassword"]
+                                    </div>
+                                }
 
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Current password</h4>
-                                    <input id="password-field" type="password" class="form-control" name="password" placeholder="Enter Current password">
-                                    <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            }
+                            @using (Html.BeginForm("CheangePassword", "Setting"))
+                            {
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CurrentPassword)</h4>
+                                        @Html.EditorFor(C => C.CurrentPassword, new { htmlAttributes = new { placeholder = "Enter current password", autocomplete = "off" } })
+                                        <span toggle="#CurrentPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        @Html.ValidationMessageFor(C => C.CurrentPassword)
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>New password</h4>
-                                    <input id="password-field1" type="password" class="form-control" name="password" placeholder="Enter New password">
-                                    <span toggle="#password-field1" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.NewPassword)</h4>
+                                        @Html.EditorFor(C => C.NewPassword, new { htmlAttributes = new { placeholder = "Enter new password", autocomplete = "off" } })
+                                        <span toggle="#NewPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        @Html.ValidationMessageFor(C => C.NewPassword)
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Confirm new password</h4>
-                                    <input id="password-field2" type="password" class="form-control" name="password" placeholder="Enter Confirm password">
-                                    <span toggle="#password-field2" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.ConfirmPassword)</h4>
+                                        @Html.EditorFor(C => C.ConfirmPassword, new { htmlAttributes = new { placeholder = "Enter confirm password", autocomplete = "off" } })
+                                        <span toggle="#ConfirmPassword" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                        @Html.ValidationMessageFor(C => C.ConfirmPassword)
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="login-form">
-                                <button type="submit" class="gl-button btn button" value="Sign in">Save changes</button>
-                            </div>
+                                <div class="login-form">
+                                    <button type="submit" class="gl-button btn button" value="Sign in">Save changes</button>
+                                </div>
+                            }
+
 
                         </div>
                     </div>

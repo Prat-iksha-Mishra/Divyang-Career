@@ -83,6 +83,17 @@ jQuery(document).ready(function ($) {
             document.getElementById("code").innerHTML = code;
             document.getElementById("mobile-number").innerHTML = phoneNumber;
         });
+        $('#mobiles').val(code);
+        $('#mobiles').intlTelInput({
+            autoHideDialCode: true,
+            autoPlaceholder: "ON",
+            dropdownContainer: document.body,
+            formatOnDisplay: true,
+            initialCountry: "us",
+            placeholderNumberType: "MOBILE",
+            preferredCountries: ['us', 'gb', 'in'],
+            separateDialCode: true
+        });
     });
 
 
