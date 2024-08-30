@@ -6,9 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.WebControls;
-//using SaleScrmUserPanel.Common;
-//using SaleScrmUserPanel.Model;
-//using SaleScrmUserPanel.Models;
+using DivyangPortalWeb.Areas.Employee.Models;
 
 namespace DivyangPortalWeb.Model.Application
 {
@@ -54,6 +52,15 @@ namespace DivyangPortalWeb.Model.Application
                 "/api/Employee/logindata"));
             var res = await GetAsync<Message<EmployerDetails>, string, string>(requestUrl, Email, Password, "Email", "Password");
             return res;
+        }
+        public async Task<Message<int>> ChangeEmployerPassword(Areas.Employee.Models.ChangePassword model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/ChangeEmplyeePassword"));
+            var res = await PostAsync<int, Areas.Employee.Models.ChangePassword>(requestUrl, model);
+            return res;
+
         }
         //public async Task<Message<int>> userlogin(string email, string password)
         //{
