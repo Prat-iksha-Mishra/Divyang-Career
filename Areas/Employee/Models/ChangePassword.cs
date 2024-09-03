@@ -8,6 +8,7 @@ namespace DivyangPortalWeb.Areas.Employee.Models
 {
     public class ChangePassword
     {
+        public EmployeeDetails EmployeeDetails { get; set; }
         public string Email { get; set; }
 
         [Display(Name = "Current password*")]

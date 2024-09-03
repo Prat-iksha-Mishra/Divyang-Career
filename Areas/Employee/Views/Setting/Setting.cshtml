@@ -16,66 +16,100 @@
                     <div class="block-from">
                         <h2>Personal info</h2>
 
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="login-form">
-                                    <h4>Your photo</h4>
-                                    <div class="uploadimgs">
-                                        <input type="file" name="images[]" id="images3" multiple class="form-control" required>
-                                        <div class="uploadimg">
-                                            <div class="uploadimg-middle">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                                <p>Upload</p>
+                        @if (TempData["UpdateProfile"] != null)
+                        {
+                            if (@TempData["UpdateProfile"].ToString() == "Try again later")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["UpdateProfile"]
+                                </div>
+                            }
+                            else if (@TempData["UpdateProfile"].ToString() == "Fill mandatory fields")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["UpdateProfile"]
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @TempData["UpdateProfile"]
+                                </div>
+                            }
+
+                        }
+                        @using (Html.BeginForm("UpdateEmployeDetails", "Setting", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.HiddenFor(U => U.EmployeeDetails.EmployeeId)
+                            @Html.HiddenFor(U => U.EmployeeDetails.CountryCode)
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="login-form">
+                                        <h4>Your photo</h4>
+                                        <div class="uploadimgs">
+                                            @*<input type="file" name="images[]" id="images3" multiple class="form-control" required>*@
+
+                                            @Html.TextBoxFor(U => U.EmployeeDetails.ProfileImagePath, new { type = "file", @class = "form-control", id = "images3", accept = "image/png, image/jpeg" })
+
+                                            <div class="uploadimg">
+                                                <div class="uploadimg-middle">
+                                                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                    <p>Upload</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group uploadimg">
+                                                <div id="image_preview3" style="width:100%;">
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group uploadimg">
-                                            <div id="image_preview3" style="width:100%;">
-                                            </div>
+                                        @Html.ValidationMessageFor(U => U.EmployeeDetails.ProfileImagePath)
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="des-avatar">Update your photo manually, if the photo is not set the default Avatar will be the same as your login email account.</div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.EmployeeDetails.Firstnames)</h4>
+                                        @Html.EditorFor(U => U.EmployeeDetails.Firstnames, new { htmlAttributes = new { autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.EmployeeDetails.Firstnames)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.EmployeeDetails.Lastnames)</h4>
+                                        @Html.EditorFor(U => U.EmployeeDetails.Lastnames, new { htmlAttributes = new { autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.EmployeeDetails.Lastnames)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(U => U.EmployeeDetails.Email)</h4>
+                                        @Html.EditorFor(U => U.EmployeeDetails.Email, new { htmlAttributes = new { autocomplete = "off" } })
+                                        @Html.ValidationMessageFor(U => U.EmployeeDetails.Email)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Phone Number</h4>
+                                        <div class="input-group-sm">
+                                            @Html.TextBoxFor(U => U.EmployeeDetails.PhoneNumber, new { @class = "form-control", id = "mobile", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            @Html.ValidationMessageFor(U => U.EmployeeDetails.PhoneNumber)
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-8">
-                                <div class="des-avatar">Update your photo manually, if the photo is not set the default Avatar will be the same as your login email account.</div>
-                            </div>
-
-                            <div class="col-md-6">
                                 <div class="login-form">
-                                    <h4>First name</h4>
-                                    <input type="text" placeholder="First name">
+                                    <button type="submit" class="gl-button btn button" value="Sign in" id="btnsubmit">Save changes</button>
                                 </div>
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Last name</h4>
-                                    <input type="text" placeholder="Last name">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Email address</h4>
-                                    <input type="Email" placeholder="amankumar.35113307319@gmail.com">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Phone Number</h4>
-                                    <div class="input-group-sm">
-                                        <input id="mobile2" type="tel" name="mobile2" placeholder="+91" class="form-control" autofocus required">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="login-form">
-                                <button type="submit" class="gl-button btn button" value="Sign in">Save changes</button>
-                            </div>
-
-                        </div>
+                        }
                     </div>
+                       
 
                     <div class="block-from">
                         <h2>Change password</h2>
@@ -144,24 +178,4 @@
 
 </div>
 
-
-<script>
-    var code = "";
-    $('#mobile2').val(code);
-    $('#mobile2').intlTelInput({
-        autoHideDialCode: true,
-        autoPlaceholder: "ON",
-        dropdownContainer: document.body,
-        formatOnDisplay: true,
-        initialCountry: "us",
-        placeholderNumberType: "MOBILE2",
-        preferredCountries: ['us', 'gb', 'in'],
-        separateDialCode: true
-    });
-    $('#btn-submit').on('click', function () {
-        var code = $("#mobile2").intlTelInput("getSelectedCountryData").dialCode;
-        var phoneNumber = $('#mobile2').val();
-        document.getElementById("code").innerHTML = code;
-        document.getElementById("mobile-number").innerHTML = phoneNumber;
-    });
-</script>
+<script src="~/Areas/Employee/Scripts/js/Setting.js"></script>
