@@ -44,7 +44,7 @@
 .sidebar {width: 70px;}
 .sidebar .sidebar-header h3 {display: none;}
 .sidebar a span {display: none;}
-#main {margin-left: 70px;}
+#main {margin-left: 70px; width:100%;}
 .sidebar.open {width: 250px;}
 .sidebar.open .sidebar-header h3 {display: block;}
 .sidebar.open a span {display: inline;}
@@ -52,27 +52,50 @@
 }
 
 @media screen and (max-width: 767px) {
+    .wrapper {padding: 15px 10px; margin-top:40px;}
+    .button-warpper a{font-size:16px; padding:6px 20px; margin:5px 10px;}
+    .button-warpper button span{font-size:16px; padding:6px 20px; margin:5px 10px;}
+    .d-flex-div{display:block; margin-bottom:20px;}
+    .wrapper h1 {font-size:22px; padding:10px 8px;}
     header{background: #000; padding:0px;}
     .logo{width:70%;}
-    .hamburger{display:block; position: absolute; top:8px; right:22px; z-index:9999;}
-    .hamburger .line{background-color:#fe6200;}
+    .hamburger{display:block; position: fixed; top:0px; right:0px; z-index:9999; background:#fe6200; padding:0px 8px;}
+    .hamburger .line {width:40px; margin:9px auto;}
+    .hamburger .line{background-color:#fff;}
     .menu > li{display:block; padding:5px 16px;}
-    .menu > li > a{padding:4px 3px;}
+    .menu > li > a{padding:4px 3px; color:#fff;}
+    #hamburger-1.is-active .line:nth-child(1){transform:translateY(10px) rotate(45deg)}
+    #hamburger-1.is-active .line:nth-child(3) {transform:translateY(-12px) rotate(-45deg);}
+    .caret{color:#fff;}
     .nav-sub-menus{width:100%; border-radius:10px; z-index:999 !important;  position:relative; display:none;}
     .menu > li.menulists{display:none;}
-    .menu{position: fixed; width:75%; background: #000;  left: 0;  top: 0;  bottom: 0; padding:0px; height:100vh;}
+    .menu{position: fixed; width:75%; background: #000;  left: 0;  top: 0;  bottom: 0; padding:0px;}
     .nav-sub-menu{width:100%; position:relative; display:none;}
 
     .mobile-bd-color{background:rgb(255 255 255 / 0.84); position:fixed; width:100%; height:100%; top:0; left:0; right:0; z-index:99; display:none;}
     .mobilescreen{display:block;}
     .mobilescreen .login{display:block; text-align:left; padding:10px 2px; margin-bottom:20px; border-bottom:1px solid #ddd;}
     .mobilescreen .login.loginm {display:block; text-align:left; margin-top:20px; border-top:1px solid #ddd; border-bottom:none;}
-    .mobilescreen .login.loginm li.active a{display:block; text-align:left; padding:10px 30px; margin-top:20px; margin-left:15px;}
+    .mobilescreen .login.loginm li.active a{display:block; text-align:left; padding:10px 6px; margin-top:20px; margin-left:15px; color:#fff;}
     .login{display:none;}
 
      .login-form-popups:hover .civi-nav-dashboard {display: block;  z-index: 9999999999999;  position: absolute; top: 77px; width: 100%;}
     .civi-notification{display:none;}
 
+    .chat-icon {display: block; margin-right: 5px;}
+    .chatlist {width: 100%;}
+    .chatbox {width: 100%;position: absolute;left: 1000px;right: 0;background: #fff;transition: all 0.5s ease;border-left: none;}
+    .showbox {left: 0 !important;transition: all 0.5s ease;}
+    .msg-head h3 {font-size: 14px;}
+    .msg-head p {font-size: 12px;}
+    .msg-head .flex-shrink-0 img {height: 30px;}
+    .send-box button {width: 28%;}
+    .send-box .form-control {width: 70%;}
+    .chat-list h3 {font-size: 14px;}
+    .chat-list p {font-size: 12px;}
+    .msg-body ul li.sender p {font-size: 14px;padding: 8px;border-bottom-left-radius: 6px;border-top-right-radius: 6px;border-bottom-right-radius: 6px;}
+    .msg-body ul li.repaly p {font-size: 13px;padding: 8px;border-top-left-radius: 6px;border-top-right-radius: 6px;border-bottom-left-radius: 6px;}
+    .login li a{color:#fff;}
 
     }
 

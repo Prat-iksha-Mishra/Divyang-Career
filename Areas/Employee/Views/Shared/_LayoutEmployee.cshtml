@@ -57,7 +57,11 @@
                     <img src="~/Areas/Employee/Images/candidate.svg" alt="Candidates Icon" /><span>Candidates</span>
                 </a>
             </li>
-            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+            <li>
+                <a href="@Url.Action("Messages", "Messages", new { area = "Employee" })">
+                    <img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> 
+                </a>
+            </li>
             <li>
                 <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })" class="nav-item ">
                     <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
@@ -145,7 +149,7 @@
                                 <div class="mobilescreen">
                                     <div class="login loginm">
                                         <ul>
-                                            <li class="active"><a href="employerlogin">Post a job</a></li>
+                                            <li class="active"><a href="@Url.Action("postjobs", "postjobs", new { area = "Employee" })">Post a job</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -213,7 +217,7 @@
                                 </p>
                             </div>
                             <div class="post-a-job">
-                                <a href="employerlogin">Post a job</a></>
+                                <a href="@Url.Action("postjobs", "postjobs", new { area = "Employee" })">Post a job</a></>
                             </div>
                         </div>
 
