@@ -62,11 +62,11 @@ namespace DivyangPortalWeb.Model.Application
             return res;
 
         }
-        public async Task<Message<EmployeeDetails>> GetEmployerDetails(string Email)
+        public async Task<Message<EmployeeDetails2>> GetEmployerDetails(string Email)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "/api/Employee/GetEmployerDetails"));
-            var res = await GetAsync<Message<EmployeeDetails>, string>(requestUrl, Email,  "Email");
+            var res = await GetAsync<Message<EmployeeDetails2>, string>(requestUrl, Email,  "Email");
             return res;
         }
         public async Task<Message<int>> UpdateEmployerDetails(EmployeeDetails2 model)

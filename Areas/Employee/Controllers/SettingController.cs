@@ -26,7 +26,7 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
                     Firstnames = res.Data.Firstnames,
                     Lastnames = res.Data.Lastnames,
                     Email = res.Data.Email,
-                    ProfileImagePath = res.Data.ProfileImagePath,
+                    //ProfileImagePath = Convert. res.Data.ProfileImagePath,
                     PhoneNumber = res.Data.PhoneNumber,
                     ImageName= res.Data.ImageName
                 }
