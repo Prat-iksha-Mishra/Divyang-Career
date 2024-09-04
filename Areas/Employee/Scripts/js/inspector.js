@@ -1,4 +1,5 @@
 
+
 jQuery(document).ready(function ($) {
     
     $(".hamburger").click(function () {
@@ -78,6 +79,8 @@ jQuery(document).ready(function ($) {
     });
 
 
+    
+  
     $(function () {
         var code = "";
         $('#mobile').val(code);
@@ -210,21 +213,23 @@ jQuery(document).ready(function ($) {
                     fileArr.splice(i, 1);
                 }
             }
-            $('#images3').files = FileListItem(fileArr);
+            document.getElementById('images3').files = FileListItem(fileArr);
             evt.preventDefault();
         });
 
+
+       
+
         
     });
-
-
-  /*upload image*/
+    /*upload image*/
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
+  
 });
 
 function toggleNav() {
@@ -234,4 +239,13 @@ function toggleNav() {
     if (window.innerWidth <= 768) {
         sidebar.classList.toggle("open");
     }
+
 }
+
+
+
+
+
+
+
+

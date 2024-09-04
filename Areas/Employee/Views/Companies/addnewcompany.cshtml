@@ -6,6 +6,8 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
     <script src="https://unpkg.com/ckeditor5-inspector@4.1.0/build/inspector.js"></script>
 
+    <script src="~/Areas/Employee/Scripts/js/ckeditor.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/inspector.js"></script>
 }
 
 <div class="wrapper">
@@ -154,26 +156,24 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="login-form">
-                                    <h4>Logo</h4>
+                                    <h4>Image</h4>
 
-                                    <div class="media-container">
-                                        <span class="media-overlay">
-                                            <input type="file" id="media-input" accept="image/*">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </span>
-                                        <figure class="media-object">
-                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
-                                        </figure>
-                                    </div>
-                                    <div class="media-control">
-                                        <button class="btnupload edit-profile">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
-                                        </button>
-                                        <button class="btnupload save-profile">
-                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
-                                        </button>
+                                    <div class="uploadimgs">
+                                        <input type="file" name="images[]" id="images" multiple class="form-control" required>
+                                        <div class="uploadimg">
+                                            <div class="uploadimg-middle">
+                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                <p>Upload</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group uploadimg">
+                                            <div id="image_preview" style="width:100%;">
+
+                                            </div>
+                                        </div>
                                     </div>
 
+                                    <div class="field-note">Maximum file size: 800kb.</div>
 
                                 </div>
                             </div>
@@ -182,23 +182,22 @@
                                 <div class="login-form">
                                     <h4>Cover image</h4>
 
-                                    <div class="media-container">
-                                        <span class="media-overlay">
-                                            <input type="file" id="media-input" accept="image/*">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </span>
-                                        <figure class="media-object">
-                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
-                                        </figure>
+                                    <div class="uploadimgs">
+                                        <input type="file" name="images[]" id="images2" multiple class="form-control" required>
+                                        <div class="uploadimg">
+                                            <div class="uploadimg-middle">
+                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                <p>Click here <span>or drop files to upload</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group uploadimg">
+                                            <div id="image_preview2" style="width:100%;">
+
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="media-control">
-                                        <button class="btnupload edit-profile">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
-                                        </button>
-                                        <button class="btnupload save-profile">
-                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
-                                        </button>
-                                    </div>
+
+                                    <div class="field-note">The cover image size should be max 1920 x 400px</div>
 
                                 </div>
                             </div>
@@ -307,39 +306,25 @@
                                 <div class="login-form">
                                     <h4>Image</h4>
 
-
-                                    <div id="dnd-max-size" class="file-upload-wrapper">
-                                        <div class="file-upload"><div class="file-upload-message"><i class="fas fa-cloud-upload-alt file-upload-cloud-icon"></i><p class="file-upload-default-message">Drag and drop a file here or click</p><p class="file-upload-main-error"></p></div><div class="file-upload-mask"></div><ul class="file-upload-errors"></ul><input type="file" class="file-upload-input" data-mdb-max-file-size="2M" data-mdb-file-upload-init="" accept=""><div class="file-upload-previews"></div></div>
-                                    </div>
-
                                     <div class="uploadimgs">
-                                        sssssssssss
+                                        <input type="file" name="images[]" id="images3" multiple class="form-control" required>
+                                        <div class="uploadimg">
+                                            <div class="uploadimg-middle">
+                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                <p>Upload</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group uploadimg">
+                                            <div id="image_preview3" style="width:100%;">
+
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="media-container">
-                                        <span class="media-overlay">
-                                            <input type="file" id="media-input" accept="image/*">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        </span>
-                                        <figure class="media-object">
-                                            <img class="img-object" src="https://www.amazingneo.com/public/images/logo.png">
-                                        </figure>
-                                    </div>
-                                    <div class="media-control">
-                                        <button class="btnupload edit-profile">
-                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile
-                                        </button>
-                                        <button class="btnupload save-profile">
-                                            <i class="fa fa-floppy-o" aria-hidden="true"></i> Save Profile
-                                        </button>
-                                    </div>
-
+                                    <div class="field-note">Maximum file size: 800kb.</div>
 
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
 
@@ -360,9 +345,69 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="detailsright">
-                        <h4><a href="javascript:;">Information</a></h4>
+                    <div class="spacing">
+                        <div class="detailsright">
+                            <h4><a href="javascript:;">Preview</a></h4>
 
+                            <div class="info-user">
+                                <div>
+                                    <a href="javascript:;">
+                                        <img src="/Areas/Employee/Images/Divyang-career.png">
+                                    </a>
+                                </div>
+                                <div class="Preview-user">
+                                    <div class="entry-overview">
+                                        <div class="rating-bars rating-bars-wp">
+                                            <div class="rating-bars-item">
+                                                <div class="rating-bars-name">
+                                                    <abbr>Company name</abbr>
+                                                    <div class="tip" data-tip-content="">
+                                                        <div class="tip-content">
+                                                            <b>Conditions for a green tick:</b>
+                                                            <abbr>Website not been verified</abbr>
+                                                            <abbr>Phone not been verified</abbr>
+                                                            <abbr>Location not been verified</abbr>
+                                                        </div>
+                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Location</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="info-user">
+                                <div>
+                                    <a href="javascript:;">
+                                        <img src="/Areas/Employee/Images/Divyang-career.png">
+                                    </a>
+                                </div>
+                                <div class="Preview-user">
+                                    <div class="entry-overview">
+                                        <div class="rating-bars rating-bars-wp">
+                                            <div class="rating-bars-item">
+                                                <div class="rating-bars-name">
+                                                    <abbr>Company name</abbr>
+                                                    <div class="tip" data-tip-content="">
+                                                        <div class="tip-content">
+                                                            <b>Conditions for a green tick:</b>
+                                                            <abbr>Website not been verified</abbr>
+                                                            <abbr>Phone not been verified</abbr>
+                                                            <abbr>Location not been verified</abbr>
+                                                        </div>
+                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Location</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

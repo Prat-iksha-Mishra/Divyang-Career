@@ -11,7 +11,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="DashboardJobs">
+                    <a href="@Url.Action("DashboardJobs", "DashboardJobs", new { area = "Employee" })">
                         <div class="action-wrapper">
                             <div class="jobs-civi-boxdb">
                                 <div class="entry-detai">
@@ -26,11 +26,11 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="javascript:;">
+                    <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })">
                         <div class="action-wrapper">
                             <div class="jobs-civi-boxdb">
                                 <div class="entry-detai">
-                                    <h3 class="entry-title">Posted Jobs</h3>
+                                    <h3 class="entry-title">applicants</h3>
                                     <span class="entry-number">2</span>
                                 </div>
                                 <div class="icon-total2">
@@ -41,11 +41,11 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="javascript:;">
+                    <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })">
                         <div class="action-wrapper">
                             <div class="jobs-civi-boxdb">
                                 <div class="entry-detai">
-                                    <h3 class="entry-title">Posted Jobs</h3>
+                                    <h3 class="entry-title">Mettings</h3>
                                     <span class="entry-number">3</span>
                                 </div>
                                 <div class="icon-total3">
@@ -56,11 +56,11 @@
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="javascript:;">
+                    <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })">
                         <div class="action-wrapper">
                             <div class="jobs-civi-boxdb">
                                 <div class="entry-detai">
-                                    <h3 class="entry-title">Posted Jobs</h3>
+                                    <h3 class="entry-title">My Follow</h3>
                                     <span class="entry-number">4</span>
                                 </div>
                                 <div class="icon-total4">
@@ -107,7 +107,7 @@
 
                         <p class="No-item-found">No item found</p>
 
-                        <p class="allapplicants-btn"> <a href="javascript:;"> All applicants </a> </p>
+                        <p class="allapplicants-btn"> <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })"> All applicants </a> </p>
 
                     </div>
                 </div>
@@ -115,8 +115,6 @@
         </div>
 
     </div>
-
-
 
 </div>
 

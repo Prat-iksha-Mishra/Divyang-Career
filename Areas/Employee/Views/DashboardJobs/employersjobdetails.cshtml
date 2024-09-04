@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "employersjobdetails";
+    Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+}
+
+<div class="lightbgcolor">
+    <div class="middlewrapper">
+        <a href="#" class="btn-close"></a>
+
+        <div class="login-section">
+            <div class="login-tabs">
+                <h5>Create Meeting</h5>
+            </div>
+
+             <div class="tablogins">
+                    <div class="login-form">
+                        <h4>Type</h4>
+                        <select name="" class="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option value="Zoom" data-select2-id="1">Zoom</option>
+                        </select>
+                    </div>
+                    <div class="login-form">
+                        <h4>Date</h4>
+                        <input type="date" id="date_meetings" name="date_meetings">
+                    </div>
+
+                    <div class="login-form">
+                        <h4>Time</h4>
+                        <input type="Time" id="date_meetings" name="date_meetings">
+                    </div> 
+                    
+                    <div class="login-form">
+                        <h4>Time Duration</h4>
+                        <input type="number" value="" name="" placeholder="Minute">
+                    </div> 
+                    
+                    <div class="login-form">
+                        <h4>Note</h4>
+                        <textarea rows="4" cols="50" id="message_meetings" name="message_meetings" placeholder="Note"></textarea>
+                    </div>
+
+                    <div class="login-form" style="text-align:center; margin:0 auto;">
+                        <button type="submit" class="Canclebutton" value="Sign in">Cancle</button>
+                        <button type="submit" class="savedbutton" value="Sign in">Send Metting</button>
+                    </div>
+
+                </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+
+    <h1>Atri Baba</h1>
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="tabs-header">
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Statics</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Applicants (1)</button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="tab-content tab-contents" id="nav-tabContent">
+                        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="action-wrapper">
+                                <div class="civi-nav-filter">
+                                    <div class="civi-filter-toggle">
+                                        <span>Page views</span>
+                                    </div>
+                                    <div class="circleLoading">
+                                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <option value="" data-select2-id="3">7 Days</option>
+                                            <option value="day" data-select2-id="21">15 Days</option>
+                                            <option value="week" data-select2-id="22">30 Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="chart">
+                                    <img decoding="async" src="/Areas/Employee/images/chart.png" class="w-100" alt="chart">
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="Search-jobs-title">
+                                            <input type="email" placeholder="Find by name">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="sortby-col">
+                                            <span>Sort By</span>
+                                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option value="Newest" data-select2-id="11">Newest</option>
+                                                <option value="Oldest" data-select2-id="12">Oldest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="tables">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Name</th>
+                                            <th width="25%">STATUS</th>
+                                            <th width="20%">Information</th>
+                                            <th width="25%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="info-user">
+                                                <div>
+                                                    <a href="javascript:;">
+                                                        <img src="/Areas/Employee/Images/Divyang-career.png">
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h3 class="title-jobs-dashboard">
+                                                        <a href="@Url.Action("candidatedetails", "DashboardJobs", new { area = "Employee" })">Test1</a>
+                                                    </h3>
+                                                    <p>Applied <a href="@Url.Action("candidatedetails", "DashboardJobs", new { area = "Employee" })">What is Lorem Ipsum?  <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
+                                                </div>
+                                            </td>
+                                            <td class="approve-reject">
+                                                @*<abbr class="approve">Approved</abbr>*@
+                                                <abbr class="reject">Rejected</abbr>
+                                                <label>Applied:13/08/2024</label>
+                                            </td>
+                                            <td class="approve-reject">
+                                                <label>sugam.v2infotech@gmail.com</label>
+                                                <label>+9142554455455</label>
+                                            </td>
+
+                                            <td style="text-align:right;">
+                                                <div class="info-user-end">
+                                                    <div class="tooltip mettings">
+                                                        <span class="tooltipText fb">Mettings</span>
+                                                        <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                                    </div>
+
+                                                    <div class="tooltip Download">
+                                                        <span class="tooltipText fb">Download CV</span>
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </div>
+
+                                                    <a class="Approved" href="javascript:;">Approved </a>
+                                                    @*<a class="Rejected" href="javascript:;">Rejected </a>*@
+
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="info-user">
+                                                <div>
+                                                    <a href="javascript:;">
+                                                        <img src="/Areas/Employee/Images/Divyang-career.png">
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h3 class="title-jobs-dashboard">
+                                                        <a href="@Url.Action("candidatedetails", "DashboardJobs", new { area = "Employee" })">Test1</a>
+                                                    </h3>
+                                                    <p>Applied <a href="@Url.Action("candidatedetails", "DashboardJobs", new { area = "Employee" })">What is Lorem Ipsum?  <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></p>
+                                                </div>
+                                            </td>
+                                            <td class="approve-reject">
+                                                <abbr class="approve">Approved</abbr>
+                                                @*<abbr class="reject">Rejected</abbr>*@
+
+                                                <label>Applied:13/08/2024</label>
+                                            </td>
+                                            <td class="approve-reject">
+                                                <label>sugam.v2infotech@gmail.com</label>
+                                                <label>+9142554455455</label>
+                                            </td>
+
+                                            <td style="text-align:right;">
+                                                <div class="info-user-end">
+                                                    <div class="tooltip mettings">
+                                                        <span class="tooltipText fb">Mettings</span>
+                                                        <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                                    </div>
+
+                                                    <div class="tooltip Download">
+                                                        <span class="tooltipText fb">Download CV</span>
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </div>
+
+                                                    @*<a class="Approved" href="javascript:;">Approved </a>*@
+                                                    <a class="Rejected" href="javascript:;">Rejected </a>
+
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
