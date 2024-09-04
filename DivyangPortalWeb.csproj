@@ -143,6 +143,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Employee\Controllers\candidatedetailsController.cs" />
+    <Compile Include="Areas\Employee\Controllers\employersjobdetailsController.cs" />
+    <Compile Include="Areas\Employee\Controllers\MessagesController.cs" />
+    <Compile Include="Areas\Employee\Controllers\postjobsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Employee\Controllers\applicantsController.cs" />
     <Compile Include="Areas\Employee\Controllers\CandidatesController.cs" />
@@ -1676,6 +1680,12 @@
     <Content Include="Areas\Employee\Views\DashboardJobs\DashboardJobs.cshtml" />
     <Content Include="Areas\Employee\Views\Meetings\Meetings.cshtml" />
     <Content Include="Areas\Employee\Views\Setting\Setting.cshtml" />
+    <Content Include="Areas\Employee\Views\DashboardJobs\employersjobdetails.cshtml" />
+    <Content Include="Areas\Employee\Views\DashboardJobs\candidatedetails.cshtml" />
+    <Content Include="Areas\Employee\Views\candidatedetails\candidatedetails.cshtml" />
+    <Content Include="Areas\Employee\Views\employersjobdetails\employersjobdetails.cshtml" />
+    <Content Include="Areas\Employee\Views\Messages\Messages.cshtml" />
+    <Content Include="Areas\Employee\Views\postjobs\postjobs.cshtml" />
     <None Include="bin\DivyangPortalWeb.dll.config" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />

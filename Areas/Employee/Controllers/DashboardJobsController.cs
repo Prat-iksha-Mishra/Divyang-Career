@@ -13,5 +13,15 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
         {
             return View();
         }
+        
+        public ActionResult employersjobdetails()
+        {
+            return View();
+        }
+        
+        public ActionResult candidatedetails()
+        {
+            return View();
+        }
     }
 }
