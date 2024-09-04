@@ -143,6 +143,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Employee\Controllers\AccountController.cs" />
     <Compile Include="Areas\Employee\Controllers\applicantsController.cs" />
     <Compile Include="Areas\Employee\Controllers\CandidatesController.cs" />
     <Compile Include="Areas\Employee\Controllers\CompaniesController.cs" />
@@ -152,6 +153,9 @@
     <Compile Include="Areas\Employee\Controllers\SettingController.cs" />
     <Compile Include="Areas\Employee\EmployeeAreaRegistration.cs" />
     <Compile Include="Areas\Employee\Models\ChangePassword.cs" />
+    <Compile Include="Areas\Employee\Models\EmployeeDetails.cs" />
+    <Compile Include="Areas\Employee\Models\EmployeeDetails2.cs" />
+    <Compile Include="Areas\Employee\Models\ValidateFileExtensionAttribute.cs" />
     <Compile Include="Common\Message.cs" />
     <Compile Include="Controllers\BlogsController.cs" />
     <Compile Include="Controllers\employerloginController.cs" />
@@ -198,6 +202,7 @@
     <Content Include="Areas\Employee\Scripts\js\jquery.validate.min.js" />
     <Content Include="Areas\Employee\Scripts\js\jquery.validate.unobtrusive.min.js" />
     <Content Include="Areas\Employee\Scripts\js\min.js" />
+    <Content Include="Areas\Employee\Scripts\js\Setting.js" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\DivyangPortalWeb.dll" />
@@ -2054,6 +2059,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Images\ProfileImage\" />
+    <Folder Include="Areas\Employee\Views\Account\" />
     <Folder Include="ckeditor\adapters\" />
     <Folder Include="ckeditor\plugins\link\images\hidpi\" />
     <Folder Include="Views\FounderNote\" />

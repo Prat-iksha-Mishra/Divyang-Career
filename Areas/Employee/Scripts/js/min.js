@@ -184,7 +184,7 @@ jQuery(document).ready(function ($) {
                     fileArr.splice(i, 1);
                 }
             }
-            document.getElementById('images3').files = FileListItem(fileArr);
+            $('#images3').files = FileListItem(fileArr);
             evt.preventDefault();
         });
 

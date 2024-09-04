@@ -62,17 +62,30 @@ namespace DivyangPortalWeb.Model.Application
             return res;
 
         }
-        //public async Task<Message<int>> userlogin(string email, string password)
-        //{
-        //    //Login obj = new Login();
-        //    //obj.email = email;
-        //    //obj.password = password;
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/logindata"));
-        //    var res = await PostAsync<int, string>(requestUrl, email);
-        //    return res;
-        //}
+        public async Task<Message<EmployeeDetails>> GetEmployerDetails(string Email)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/GetEmployerDetails"));
+            var res = await GetAsync<Message<EmployeeDetails>, string>(requestUrl, Email,  "Email");
+            return res;
+        }
+        public async Task<Message<int>> UpdateEmployerDetails(EmployeeDetails2 model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/UpdateEmployerDetails"));
+            var res = await PostAsync<int, EmployeeDetails2>(requestUrl, model);
+            return res;
 
+        }
+        public async Task<Message<int>> CheckUserExistOrNot(CheckEmail model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/CheckTPAUser"));
+            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
+            return res;
+        }
         ////--- this method is  used to login for admin
         //public async Task<Message<UserLogin>> Login(string EmailId, string password)
         //{
