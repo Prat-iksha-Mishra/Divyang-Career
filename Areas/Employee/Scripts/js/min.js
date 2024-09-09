@@ -79,7 +79,7 @@ jQuery(document).ready(function ($) {
 
 
     $(function () {
-        var code = "";
+        var code = "+91";
         $('#mobile').val(code);
         $('#mobile').intlTelInput({
             autoHideDialCode: true,
@@ -151,7 +151,7 @@ jQuery(document).ready(function ($) {
 
 
 
-        var fileArr = [];
+        //var fileArr = [];
         $("#images2").change(function () {
             if (fileArr.length > 0) fileArr = [];
 
@@ -183,7 +183,7 @@ jQuery(document).ready(function ($) {
         });
 
 
-        var fileArr = [];
+       // var fileArr = [];
         $("#images3").change(function () {
             if (fileArr.length > 0) fileArr = [];
 

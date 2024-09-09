@@ -46,6 +46,14 @@ namespace DivyangPortalWeb.Model.Application
            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
             return res;
         }
+        public async Task<Message<int>> CheckEmailEmployerUpdate(CheckEmail model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/CheckEmailUpdate"));
+            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
+            return res;
+        }
         public async Task<Message<EmployerDetails>> LogIn(string Email, string Password)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -85,6 +93,79 @@ namespace DivyangPortalWeb.Model.Application
                 "/api/Employee/CheckTPAUser"));
             var res = await PostAsync<int, CheckEmail>(requestUrl, model);
             return res;
+        }
+        public async Task<Message<List<CompanyCategories>>> CompanyCategories()
+        {
+            var message = new Message<List<CompanyCategories>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/CompanyCategories"));
+            var res = await GetAsync<Message<List<CompanyCategories>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<CompanySize>>> CompanySize()
+        {
+            var message = new Message<List<CompanySize>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindCompanySize"));
+            var res = await GetAsync<Message<List<CompanySize>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<State>>> BindState()
+        {
+            var message = new Message<List<State>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindState"));
+            var res = await GetAsync<Message<List<State>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<District>>> BindDistict(string StateId)
+        {
+            var message = new Message<List<District>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindDistrict"));
+            var res = await GetAsync<Message<List<District>>,string>(requestUrl,StateId, "StateId");
+            return res;
+        }
+        public async Task<Message<int>> AddCompay(Areas.Employee.Models.FinalCompany model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/AddNewCompany"));
+            var res = await PostAsync<int, Areas.Employee.Models.FinalCompany>(requestUrl, model);
+            return res;
+
+        }
+        public async Task<Message<List<FinalCompany>>> GetCompanyList(string Email)
+        {
+            var message = new Message<List<FinalCompany>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetCompanyForListPage"));
+            var res = await GetAsync<Message<List<FinalCompany>>, string>(requestUrl, Email, "Email");
+            return res;
+        }
+        public async Task<Message<int>> DeleteCompany(string CompanyId)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/DeleteCompany"));
+            var res = await GetAsync<Message<int>, string>(requestUrl, CompanyId, "CompanyId");
+            return res;
+        }
+        public async Task<Message<FinalCompany>> GetCompanyEdit(string Id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetCompanyForEdit"));
+            var res = await GetAsync<Message<FinalCompany>, string>(requestUrl, Id, "Id");
+            return res;
+        }
+        public async Task<Message<int>> UpdateCompay(Areas.Employee.Models.FinalCompany model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/UpdateNewCompany"));
+            var res = await PostAsync<int, Areas.Employee.Models.FinalCompany>(requestUrl, model);
+            return res;
+
         }
         ////--- this method is  used to login for admin
         //public async Task<Message<UserLogin>> Login(string EmailId, string password)

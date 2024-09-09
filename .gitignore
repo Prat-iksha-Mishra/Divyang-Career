@@ -366,3 +366,8 @@ FodyWeavers.xsd
 *.Web.config
 Web.config
 web.config
+
+# Ignore Visual Studio related files
+.vs/DivyangPortalWeb/config/applicationhost.config
+# Ignore build outputs
+obj/Debug/DivyangPortalWeb.csproj.CoreCompileInputs.cache

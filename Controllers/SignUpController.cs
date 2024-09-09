@@ -49,6 +49,7 @@ namespace DivyangPortalWeb.Controllers
             bool ifEmailExist = true;
             CheckEmail ch = new CheckEmail();
             ch.Email = Email.ToString();
+            ch.CurrentEmail = "";
             if (UserType == "Employer")
             {
                 var var = await ApiClientFactory.Instance.CheckEmailEmployer(ch);

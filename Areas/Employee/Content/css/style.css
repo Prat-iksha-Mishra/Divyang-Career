@@ -998,3 +998,18 @@ display: none;
 .about-jobs-dashboard p span{font-size:18px; color:#fe6200; font-weight:500;}
 .about-jobs-dashboard p abbr{font-size:16px; color:#fe6200; font-weight:600; padding:3px 20px 6px; background:#f1f1f1; border-radius:30px; margin-top:0px; display:inline-block;}
     .about-jobs-dashboard p abbr i{font-size:16px; padding:0px 2px; color:#fe6200;}
+
+/*for popup css start here*/
+.button-warpper a{font-size:18px; color:#222; border-radius:30px; background:#fff; margin:15px 10px; padding:8px 30px; border-block:1px solid #ccc; font-weight:500; display:inline-block;}
+.button-warpper a:hover{background:#fe6200; color:#fff; border:1px solid #fe6200;}
+.button-warpper button{border:none; background:none;}
+.button-warpper button span{font-size:18px; color:#fff; border-radius:30px; margin:10px 0px; padding:8px 30px; border-block:1px solid #fe6200; font-weight:500; background:#fe6200;}
+.Complete-message{text-align:center;}
+.Complete-message img{width:80px; margin:20px auto; display:block;}
+.Complete-message h5{font-size:22px; color:#000; font-weight:500; padding:10px 0px;}
+.Complete-message p{font-size:18px; color:#000; font-weight:500; padding:10px 0px;}
+/*for popup css End here*/
+/*---------For Validation---------*/
+span.field-validation-error{font-size:14px; color:#f00; display:block !important; width:100% !important;}
+span.field-validation-error span{display:block !important; width:100% !important;}
+/*---------For Validation---------*/

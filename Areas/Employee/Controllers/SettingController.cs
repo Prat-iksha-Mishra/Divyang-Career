@@ -108,7 +108,8 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
             bool ifEmailExist = true;
             CheckEmail ch = new CheckEmail();
             ch.Email = model.EmployeeDetails.Email.ToString();
-            var var = await ApiClientFactory.Instance.CheckEmailEmployer(ch);
+            ch.CurrentEmail= Session["EmployeeEmail"].ToString();
+            var var = await ApiClientFactory.Instance.CheckEmailEmployerUpdate(ch);
                 try
                 {
                     if (var.ReturnMessage == "Already")

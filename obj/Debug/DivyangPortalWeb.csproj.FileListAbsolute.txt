@@ -429,8 +429,8 @@ D:\DivyangBackup\29-08-2024\Divyang-Career\bin\roslyn\vbc.exe.config
 D:\DivyangBackup\29-08-2024\Divyang-Career\bin\roslyn\vbc.rsp
 D:\DivyangBackup\29-08-2024\Divyang-Career\bin\roslyn\VBCSCompiler.exe
 D:\DivyangBackup\29-08-2024\Divyang-Career\bin\roslyn\VBCSCompiler.exe.config
-D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.CoreCompileInputs.cache
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.CopyComplete
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.dll
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.pdb
+D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
