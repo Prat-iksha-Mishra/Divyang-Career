@@ -1,14 +1,55 @@
-﻿
+﻿@model DivyangPortalWeb.Areas.Employee.Models.Jobs
 @{
     ViewBag.Title = "postjobs";
     Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
+    <script src="~/ckeditor/samples/js/sample.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
 
+    <script src="~/Areas/Employee/Scripts/js/jquery.validate.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/jquery.validate.unobtrusive.min.js"></script>
     <link href="~/Areas/Employee/Content/css/select2.min.css" rel="stylesheet" />
     <link href="~/Areas/Employee/Content/css/select2-bootstrap4.css" rel="stylesheet" />
     <script src="~/Areas/Employee/Scripts/js/ckeditor.js"></script>
     <script src="~/Areas/Employee/Scripts/js/select2.min.js"></script>
+    @*<script src="~/Areas/Employee/Scripts/js/jquery.validate.min.js"></script>
+        <script src="~/Areas/Employee/Scripts/js/jquery.validate.unobtrusive.min.js"></script>*@
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        .form-control {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+
 
     <script>
+        $(document).ready(function () {
+            // Initialize the datepicker with the desired format
+            $("#ApplyStartDate").datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
+            $("#applyLastDate").datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
+
+            // Set the current date as the default value
+            $("#ApplyStartDate").datepicker("setDate", new Date());
+            $("#applyLastDate").datepicker("setDate", new Date());
+              if ('@Model.Description' != null && '@Model.Description' != "") {
+
+                debugger;
+                let description = '@Html.Raw(Model.Description ?? "")';
+                CKEDITOR.instances['Description'].setData(description);
+            }
+
+            ckeditordescription5();
+            CKEDITOR.config.toolbar_desc = [['Bold', 'Italic', 'Underline', 'Link']];
+        });
+
         $(function () {
             $('select').each(function () {
                 $(this).select2({
@@ -19,6 +60,31 @@
                 });
             });
         });
+        function checkValidation() {
+            debugger;
+            let cK_EDITOR_DESCRIPTION = CKEDITOR.instances['Description'].getData();
+            document.getElementById('Description').value = cK_EDITOR_DESCRIPTION;
+            $('#formId').submit();
+        }
+        //$(function () {
+        //    $("#ApplyStartDate").datepicker({ dateFormat: 'yy-mm-dd', "setDate", new Date() });
+        //    $("#applyLastDate").datepicker({ dateFormat: 'yy-mm-dd' });
+        //});
+        function ckeditordescription5() {
+            CKEDITOR.replace('Description', {
+                extraPlugins: 'wordcount',
+                wordcount: {
+                    showParagraphs: true,
+                    showWordCount: false,
+                    showCharCount: true,
+                    countSpacesAsChars: false,
+                    countHTML: false,
+                    maxWordCount: -1,
+                    maxCharCount: 3000
+                },
+                toolbar: 'desc'
+            });
+        }
     </script>
 
 }
@@ -28,379 +94,377 @@
 
     <div class="spacing">
         <div class="container">
-            <div class="row">
+            @*//@using (Html.BeginForm("CreateJob", "postjobs", FormMethod.Post, new { enctype = "multipart/form-data" }))*@
+            @using (Html.BeginForm("CreateJob", "postjobs", FormMethod.Post, new { enctype = "multipart/form-data", id = "formId" }))
+            {
+                <div class="row">
 
-                <div class="col-md-8">
-                    <div class="d-flex-div">
-                        <div><h1>Create a job post</h1></div>
-                        <div class="button-warpper">
-                            <a href="javascript:;" class="civi-button button-outline">
-                                Cancel
-                            </a>
-                            <a href="javascript:;" class="civi-button button-outline">
-                                Save as draft
-                            </a>
-                            <button type="submit" class="btn-submit-company civi-button" name="submit_company">
-                                <span>Post Job</span>
-                            </button>
+
+                    <div class="col-md-8">
+                        <div class="d-flex-div">
+
+                            <div><h1>Create a job post</h1></div>
+                            <div class="button-warpper">
+                                <a href="javascript:;" class="civi-button button-outline">
+                                    Cancel
+                                </a>
+
+                                @if (Model.Id != default(int))
+                                {
+                                    @Html.HiddenFor(model => model.Id)
+                                    <button type="submit" class="btn-submit-company civi-button" name="submit_company" onclick="checkValidation();">
+                                        <span>Update Job</span>
+                                    </button>
+                                }
+                                else
+                                {
+                                    <a href="javascript:;" class="civi-button button-outline">
+                                        Save as draft
+                                    </a>
+                                    <button type="submit" class="btn-submit-company civi-button" name="submit_company" onclick="checkValidation();">
+                                        <span>Post Job</span>
+                                    </button>
+                                }
+
+
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="block-from">
-                        <h2>Basic info</h2>
+                        <div class="block-from">
+                            <h2>Basic info</h2>
 
-                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>Job title <span>*</span></h4>
+                                        @Html.TextBoxFor(U => U.JobTitle, new { @class = "form-control", id = "jobtitle", placeholder = "Name", value = Model.JobTitle })
+                                        @Html.ValidationMessageFor(U => U.JobTitle)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Jobs Categories <span>*</span></h4>
+                                        @Html.DropDownList("JobCategories", new SelectList(Model.DropdownValuesResponse.JobCategories, "Id", "Name"), "Select category", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Job type <span>*</span></h4>
+                                        @Html.DropDownList("JobType", new SelectList(Model.DropdownValuesResponse.JobType, "Id", "Name"), "Select Type", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>Description  <span>*</span></h4>
+                                        <div id="editor"></div>
+                                        @Html.TextBoxFor(U => U.Description, new { @class = "form-control", id = "Description", placeholder = "Description", value = Model.Description })
+                                        @Html.ValidationMessageFor(U => U.Description)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Career level</h4>
+                                        @Html.DropDownList("CareerLevel", new SelectList(Model.DropdownValuesResponse.CareerLevel, "Id", "Name"), "Select Career Level", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Experience</h4>
+                                        @Html.DropDownList("Experience", new SelectList(Model.DropdownValuesResponse.Experience, "Id", "Name"), "Select Experience", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Qualification</h4>
+                                        @Html.DropDownList("Qualification", new SelectList(Model.DropdownValuesResponse.Qualification, "Id", "Name"), "Select Qualification", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Gender</h4>
+
+                                        @Html.DropDownList("PrefrenceGender", new SelectList(Model.DropdownValuesResponse.PrefrenceGender, "Id", "Name"), "Select Gender", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Apply Start Date</h4>
+                                        <input type="text" id="ApplyStartDate" name="ApplyStartDate" class="form-control" placeholder="Select Start Date" value="@Model.ApplyStartDate">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Apply Last Date</h4>
+                                        <input type="text" id="applyLastDate" name="ApplyLastDate" class="form-control" placeholder="Select Last Date" value="@Model.ApplyLastDate">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Salary</h2>
+
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Show pay by</h4>
+                                        @Html.DropDownList("SalaryPayBy", new SelectList(Model.DropdownValuesResponse.SalaryPayBy, "Id", "Name"), "Select pay by", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Range Currency</h4>
+                                        @Html.DropDownList("Currency", new SelectList(Model.DropdownValuesResponse.Currency, "Id", "Name"), "Select Currency", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Minimum</h4>
+                                        @Html.TextBoxFor(U => U.MinSalary, new { @class = "form-control", id = "MinSalary", placeholder = "MinSalary", value = Model.MinSalary })
+
+                                        @*<input type="text" name="MinSalary" placeholder="">*@
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Maximum</h4>
+                                        @Html.TextBoxFor(U => U.MaxSalary, new { @class = "form-control", id = "MaxSalary", placeholder = "MaxSalary", value = Model.MaxSalary })
+
+                                        @*<input type="text" name="MaxSalary" placeholder="">*@
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Rate</h4>
+                                        @Html.DropDownList("SalaryPaidPer", new SelectList(Model.DropdownValuesResponse.SalaryPaidPer, "Id", "Name"), "Select Paid per", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Job apply type</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Select type</h4>
+                                        <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                            <option value="56" data-select2-id="56">By email</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>Job apply email</h4>
+                                        <input type="email" placeholder="Enter email">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="block-from">
+                            <h2>Company</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        @*<h4>Select company</h4>*@
+                                        @*<select name="CompanyName" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                            <option value="" data-select2-id="1">None</option>
+                            <option value="56" data-select2-id="56">Com_1234</option>
+                        </select>*@
+                                        @Html.DropDownList("CompanyName", new SelectList(Model.DropdownValuesResponse.Company, "Id", "Name"), "Select Company", new { @class = "form-control" })
+
+
+                                        <p class="Create-new-company-btn"><a href="@Url.Action("addnewcompany", "Companies", new { area = "Employee" })" target="_blank">Create new company</a></p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="block-from">
+                            <h2>Location</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Location</h4>
+                                        @Html.DropDownList("Location", new SelectList(Model.DropdownValuesResponse.Locations, "Id", "Name"), "Select location", new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        @*<div class="block-from">
                             <div class="col-md-12">
                                 <div class="login-form">
-                                    <h4>Job title <span>*</span></h4>
-                                    <input type="text" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Jobs Categories <span>*</span></h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Blood Disorder</option>
-                                        <option value="2" data-select2-id="2">Haemophilia</option>
-                                        <option value="3" data-select2-id="3">Sickle Cell Disease</option>
-                                        <option value="4" data-select2-id="4">Thalassemia</option>
-                                        <option value="5" data-select2-id="5">Chronic Neurological</option>
-                                        <option value="6" data-select2-id="6">Multiple Sclerosis</option>
-                                        <option value="7" data-select2-id="7">Parkinson’s Disease</option>
-                                        <option value="8" data-select2-id="8">Intellectual Disability</option>
-                                        <option value="9" data-select2-id="9">Autism Spectrum Disorder</option>
-                                        <option value="10" data-select2-id="10">Specific Learning Disabilities</option>
-                                        <option value="11" data-select2-id="11">Mental Illness</option>
-                                        <option value="12" data-select2-id="12">Multiple Disabilities</option>
-                                        <option value="13" data-select2-id="13">Physical Disability</option>
-                                        <option value="14" data-select2-id="14">Hearing Impairment</option>
-                                        <option value="15" data-select2-id="15">Locomotor Disability</option>
-                                        <option value="16" data-select2-id="16">Speech and Language Disability</option>
-                                        <option value="17" data-select2-id="17">Visual Impairment</option>
-                                    </select>
-                                </div>
-                            </div>
+                                    <h4>Cover image</h4>
 
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Job type <span>*</span></h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Select an option</option>
-                                        <option value="18" data-select2-id="18">Government</option>
-                                        <option value="19" data-select2-id="19">NGOt</option>
-                                        <option value="20" data-select2-id="20">Private</option>
+                                    <div class="uploadimgs">
+                                        <input type="file" id="images2" class="form-control" name="CoverImage">
+                                        @Html.TextBoxFor(U => U.CoverImagePath, new { type = "file", @class = "form-control", id = "images3", accept = "image/png, image/jpeg" })
+                                        <div class="uploadimg">
+                                            <div class="uploadimg-middle">
+                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                <p>Click here <span>or drop files to upload</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group uploadimg">
+                                            <div id="image_preview2" style="width:100%;">
 
-                                    </select>
-                                </div>
-                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Description  <span>*</span></h4>
-                                    <div id="editor"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Career level</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Select an option</option>
-                                        <option value="21" data-select2-id="21">Accounts / Taxation</option>
-                                        <option value="22" data-select2-id="22">BFSI</option>
-                                        <option value="23" data-select2-id="23">Ecommerce</option>
-                                        <option value="24" data-select2-id="24">Education</option>
-                                        <option value="25" data-select2-id="25">Hospitality</option>
-                                        <option value="26" data-select2-id="26">IT / ITES</option>
-                                        <option value="27" data-select2-id="27">Manufacturing</option>
-                                        <option value="28" data-select2-id="28">Retail</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Experience</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Select an option</option>
-                                        <option value="29" data-select2-id="29">0 - 1 Years</option>
-                                        <option value="30" data-select2-id="30">1 - 2 Years</option>
-                                        <option value="31" data-select2-id="31">3 - 5 Years</option>
-                                        <option value="32" data-select2-id="32">6 - 9 Years</option>
-                                        <option value="33" data-select2-id="33">10+ Years</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Qualification</h4>
-                                    <select multiple placeholder="Choose skills" data-allow-clear="1">
-                                        <option value="" data-select2-id="101">Select an option</option>
-                                        <option value="34" data-level="1" data-select2-id="34">10th Pass</option>
-                                        <option value="35" data-level="1" data-select2-id="35">12th Pass</option>
-                                        <option value="36" data-level="1" data-select2-id="36">Below 10th</option>
-                                        <option value="37" data-level="1" data-select2-id="37">Certificate</option>
-                                        <option value="38" data-level="1" data-select2-id="38">Degree</option>
-                                        <option value="39" data-level="1" data-select2-id="39">Diploma</option>
-                                        <option value="40" data-level="1" data-select2-id="40">Doctorate</option>
-                                        <option value="41" data-level="1" data-select2-id="41">Graduate</option>
-                                        <option value="42" data-level="1" data-select2-id="42">Master</option>
-                                        <option value="43" data-level="1" data-select2-id="43">Post Graduate</option>
-                                        <option value="44" data-level="1" data-select2-id="44">Under graduate</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Gender</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Select an option</option>
-                                        <option value="45" data-select2-id="45">Female</option>
-                                        <option value="46" data-select2-id="46">Male</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Salary</h2>
-
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Show pay by</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Range</option>
-                                        <option value="47" data-select2-id="47">Starting amount</option>
-                                        <option value="48" data-select2-id="48">Maximum amount</option>
-                                        <option value="49" data-select2-id="49">Negotiable Price</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Range Currency</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">(₹) - INR</option>
-                                        <option value="50" data-select2-id="50">(₹) - INR</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Minimum</h4>
-                                    <input type="number" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Maximum</h4>
-                                    <input type="number" placeholder="">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Rate</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">None</option>
-                                        <option value="51" data-select2-id="51">Per Hour</option>
-                                        <option value="52" data-select2-id="52">Per Day</option>
-                                        <option value="53" data-select2-id="53">Per Week</option>
-                                        <option value="54" data-select2-id="54">Per Month</option>
-                                        <option value="55" data-select2-id="55">Per Year</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Job apply type</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Select type</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="56" data-select2-id="56">By email</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Job apply email</h4>
-                                    <input type="email" placeholder="Enter email">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Company</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Select company</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">None</option>
-                                        <option value="56" data-select2-id="56">Com_1234</option>
-                                    </select>
-
-                                    <p class="Create-new-company-btn"><a href="@Url.Action("addnewcompany", "Companies", new { area = "Employee" })" target="_blank">Create new company</a></p>
+                                    <div class="field-note">The cover image size should be max 1920 x 200px</div>
 
                                 </div>
                             </div>
+                        </div>*@
 
-                        </div>
-                    </div>
+                        <div class="block-from">
+                            <h2>Cover image</h2>
 
-                    <div class="block-from">
-                        <h2>Location</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Location</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">None</option>
-                                        <option value="57" data-select2-id="57">Agartala</option>
-                                        <option value="58" data-select2-id="58">Agra</option>
-                                        <option value="59" data-select2-id="59">Ahmedabad</option>
-                                        <option value="60" data-select2-id="60">All India</option>
-                                        <option value="61" data-select2-id="61">Bangalore</option>
-                                        <option value="62" data-select2-id="62">Batala</option>
-                                        <option value="63" data-select2-id="63">Bengaluru</option>
-                                        <option value="64" data-select2-id="64">Chennai</option>
-                                        <option value="65" data-select2-id="65">Delhi</option>
-                                        <option value="66" data-select2-id="66">Gurugram</option>
-                                        <option value="67" data-select2-id="67">Guwahati</option>
-                                        <option value="68" data-select2-id="68">Haryana</option>
-                                        <option value="69" data-select2-id="69">Itanagar</option>
-                                        <option value="70" data-select2-id="70">Jaipur</option>
-                                        <option value="71" data-select2-id="71">Kerala</option>
-                                        <option value="72" data-select2-id="72">Kolkata</option>
-                                        <option value="73" data-select2-id="73">Lucknow</option>
-                                        <option value="74" data-select2-id="74">Mathura</option>
-                                        <option value="75" data-select2-id="75">Mumbai</option>
-                                        <option value="76" data-select2-id="76">Navi Mumbai</option>
-                                        <option value="77" data-select2-id="77">New Delhi</option>
-                                        <option value="78" data-select2-id="78">Noida</option>
-                                        <option value="79" data-select2-id="79">Patna</option>
-                                        <option value="80" data-select2-id="80">Pratapgarh</option>
-                                        <option value="81" data-select2-id="81">Visakhapatnam</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    <div class="block-from">
-                        <div class="col-md-12">
-                            <div class="login-form">
-                                <h4>Cover image</h4>
-
-                                <div class="uploadimgs">
-                                    <input type="file" name="images[]" id="images2" multiple class="form-control" required>
+                            <div class="row">
+                                <div class="col-md-3 uploadimgs">
+                                    @Html.TextBoxFor(U => U.CoverImagePath, new { type = "file", @class = "form-control", id = "images2", accept = "image/png, image/jpeg" })
                                     <div class="uploadimg">
                                         <div class="uploadimg-middle">
                                             <i class="fa fa-arrow-up" aria-hidden="true"></i>
                                             <p>Click here <span>or drop files to upload</span></p>
                                         </div>
                                     </div>
-                                    <div class="form-group uploadimg">
-                                        <div id="image_preview2" style="width:100%;">
 
-                                        </div>
-                                    </div>
                                 </div>
-
-                                <div class="field-note">The cover image size should be max 1920 x 200px</div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Gallery</h2>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="login-form">
-                                    <h4>Image</h4>
-
-                                    <div class="uploadimgs">
-                                        <input type="file" name="images[]" id="images3" multiple class="form-control" required>
-                                        <div class="uploadimg">
-                                            <div class="uploadimg-middle">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                                <p>Upload</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group uploadimg">
-                                            <div id="image_preview3" style="width:100%;">
+                                <div class="col-md-9">
+                                    <div class="login-form">
+                                        <h4>Image</h4>
+                                        <div class="form-group">
+                                            <div id="image_preview2" style="width:100%;">
 
                                             </div>
                                         </div>
+                                        <img src="@Url.Content("~/Areas/Employee/Images/JobImages/" + Model.CoverImage)" style="width:50%" alt="Job Image">
+
+
+                                        <div class="field-note">The cover image size should be max 1920 x 200px</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Gallery</h2>
+
+                            <div class="row">
+                                <div class="col-md-3 uploadimgs">
+                                    @Html.TextBoxFor(U => U.GalleryImagePath, new { type = "file", @class = "form-control", id = "images3", accept = "image/png, image/jpeg" })
+                                    <div class="uploadimg">
+                                        <div class="uploadimg-middle">
+                                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                            <p>Upload</p>
+                                        </div>
                                     </div>
 
-                                    <div class="field-note">Maximum file size: 800kb.</div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="login-form">
+                                        <h4>Image</h4>
+                                        <div class="form-group">
+                                            <div id="image_preview3" class="d-flex justify-content-between" style="width:100%;">
 
+                                            </div>
+                                        </div>
+                                        <img src="@Url.Content("~/Areas/Employee/Images/JobImages/" + Model.GalleryImage)" style="width:50%" alt="Job Image">
+
+
+                                        <div class="field-note">Maximum file size: 800kb.</div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="block-from">
-                        <h2>Video</h2>
+                        <div class="block-from">
+                            <h2>Video</h2>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Introduction video Url</h4>
-                                    <input type="email" placeholder="Enter url video">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>Introduction video Url</h4>
+                                        @*<input type="file" placeholder="Enter url video" name="IntroductionVideo">*@
+                                        @Html.TextBoxFor(U => U.IntroductionVideoPath, new { type = "Text", @class = "form-control", id = "videos", accept = "video/mp4, video/avi, video/mkv, video/webm" })
+                                    </div>
                                 </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        <h4>Status</h4>
+                                        @Html.DropDownList("IsActives ", new SelectList(Model.DropdownValuesResponse.IsActive, "Id", "Name"), "Select Status", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="spacing">
+                            <p class="detailsright-heading">About this job</p>
+                            <div class="about-jobs-dashboard">
+                                @if (Model.Id != default(int))
+                                {
+                                    <img src="/Areas/Employee/Images/Divyang-career.png">
+                                    <h5>@Model.JobTitle</h5>
+                                    <p>by <b>@Model.CompanyName</b> in <span>@Model.JobCategories</span></p>
+                                    <p><abbr>@Model.Location</abbr></p>
+                                    <p><abbr> <i class="fa fa-money" aria-hidden="true"></i>@Model.Currency/</abbr></p>
+                                }
+                                else
+                                {
+
+                                    <img src="/Areas/Employee/Images/Divyang-career.png">
+                                    <h5>Title of job</h5>
+                                    <p>by <b>Company Name</b> in <span>Category</span></p>
+                                    <p><abbr>Agartala</abbr></p>
+                                    <p><abbr> <i class="fa fa-money" aria-hidden="true"></i> ₹ - ₹ /</abbr></p>
+
+                                }
+
                             </div>
 
                         </div>
                     </div>
 
+
+
+
                 </div>
-
-                <div class="col-md-4">
-                    <div class="spacing">
-                        <p class="detailsright-heading">About this job</p>
-                        <div class="about-jobs-dashboard">
-                            <img src="/Areas/Employee/Images/Divyang-career.png">
-                            <h5>Title of job</h5>
-
-                            <p>by <b>Company Name</b> in <span>Category</span></p>
-
-                            <p><abbr>Agartala</abbr></p>
-
-                            <p><abbr> <i class="fa fa-money" aria-hidden="true"></i> ₹ - ₹ /</abbr></p>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </div>
 </div>
-
-

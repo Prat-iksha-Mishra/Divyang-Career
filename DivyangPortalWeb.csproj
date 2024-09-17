@@ -147,6 +147,10 @@
     <Compile Include="Areas\Employee\Controllers\employersjobdetailsController.cs" />
     <Compile Include="Areas\Employee\Controllers\MessagesController.cs" />
     <Compile Include="Areas\Employee\Controllers\postjobsController.cs" />
+    <Compile Include="Areas\Employee\Models\AddCompany.cs" />
+    <Compile Include="Areas\Employee\Models\DropDownValues.cs" />
+    <Compile Include="Areas\Employee\Models\DropdownValuesResponse.cs" />
+    <Compile Include="Areas\Employee\Models\JobModelAsApi.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Areas\Employee\Controllers\applicantsController.cs" />
     <Compile Include="Areas\Employee\Controllers\CandidatesController.cs" />
@@ -174,11 +178,15 @@
     </Compile>
     <Compile Include="Models\CandidateDetails.cs" />
     <Compile Include="Models\CheckEmail.cs" />
+    <Compile Include="Models\CheckEmployeeId.cs" />
+    <Compile Include="Models\CheckJobId.cs" />
     <Compile Include="Models\CheckUserName.cs" />
     <Compile Include="Models\ContributeViewModel.cs" />
     <Compile Include="Models\EmployerDetails.cs" />
     <Compile Include="Models\EmployerDetails1.cs" />
     <Compile Include="Models\EmployerSignUp.cs" />
+    <Compile Include="Areas\Employee\Models\Jobs.cs" />
+    <Compile Include="Models\JobIndex.cs" />
     <Compile Include="Models\SignUp.cs" />
     <Compile Include="Model\Application\ApiClientFactory.cs" />
     <Compile Include="Model\Application\ApplicationManagement.cs" />
@@ -2069,6 +2077,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Images\JobImages\" />
     <Folder Include="Areas\Employee\Images\ProfileImage\" />
     <Folder Include="Areas\Employee\Views\Account\" />
     <Folder Include="ckeditor\adapters\" />

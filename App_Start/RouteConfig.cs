@@ -17,6 +17,13 @@ namespace DivyangPortalWeb
               url: "faqs",
               defaults: new { controller = "faqs", action = "Index", id = UrlParameter.Optional }
             );
+            //Added By iksha
+            routes.MapRoute(
+    name: "DashboardJobs",
+    url: "DashboardJobs/{action}/{id}",
+    defaults: new { controller = "DashboardJobs", action = "DashboardJobs", id = UrlParameter.Optional }
+);
+
 
             routes.MapRoute(
               name: "Blogs",

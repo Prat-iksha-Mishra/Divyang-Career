@@ -69,6 +69,13 @@ namespace DivyangPortalWeb.Model.Application
             var res = await GetAsync<Message<EmployeeDetails>, string>(requestUrl, Email,  "Email");
             return res;
         }
+        public async Task<Message<int>> GetEmployerIdDetails(string Email)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/GetEmployerIdDetails"));
+            var res = await GetAsync<Message<int>, string>(requestUrl, Email, "Email");
+            return res;
+        }
         public async Task<Message<int>> UpdateEmployerDetails(EmployeeDetails2 model)
         {
             var message = new Message<int>();
@@ -86,6 +93,107 @@ namespace DivyangPortalWeb.Model.Application
             var res = await PostAsync<int, CheckEmail>(requestUrl, model);
             return res;
         }
+        public async Task<Message<int>> CheckUserExistOrNot(CheckEmployeeId model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/GetCurrentUserId"));
+            var res = await PostAsync<int, CheckEmployeeId>(requestUrl, model);
+            return res;
+        }
+
+        // For jobs
+        public async Task<Message<int>> CreateJob(JobModelAsApi model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/AddJob"));
+            var res = await PostAsync<int, JobModelAsApi>(requestUrl, model);
+            return res;
+
+        }
+        public async Task<Message<int>> UpdateJob(JobModelAsApi model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/UpdateJobDetails"));
+            var res = await PostAsync<int, JobModelAsApi>(requestUrl, model);
+            return res;
+
+        }
+        public async Task<Message<int>> DeleteJob(string id)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/DeleteJobs"));
+            var res = await PostAsync<int, string>(requestUrl, id);
+            return res;
+
+        }
+        public async Task<Message<Jobs>> GetJobByItsId(string id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetJobById"));
+            var res = await GetAsync<Message<Jobs>, string>(requestUrl, id, "id");
+            return res;
+        }
+        public async Task<Message<Jobs>> GetJobByItsIdForCandidateDetails(string id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetJobById"));
+            var res = await GetAsync<Message<Jobs>, string>(requestUrl, id, "id");
+            return res;
+        }
+
+        public async Task<Message<List<Jobs>>> GetAllActiveJobsLists()
+        {
+            var message = new Message<List<Jobs>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetAllActiveJobs"));
+            var res = await GetAsync<Message<List<Jobs>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Jobs>>> GetAllJobsLists()
+        {
+            var message = new Message<List<Jobs>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetAllJobs"));
+            var res = await GetAsync<Message<List<Jobs>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<AddCompany>>> GetAllCompany()
+        {
+            var message = new Message<List<AddCompany>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetAllCompany"));
+            var res = await GetAsync<Message<List<AddCompany>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<AddCompany>> GetCompanyByItsId(string id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetCompanyByItsId"));
+            var res = await GetAsync<Message<AddCompany>, string>(requestUrl, id, "id");
+            return res;
+        }
+        public async Task<Message<List<Jobs>>> GetSearchedJobsLists(string jobTitle)
+        {
+            var message = new Message<List<Jobs>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/JobSearchedByTitle"));
+            var res = await GetAsync<Message<List<Jobs>>,string>(requestUrl, jobTitle, "jobTitle");
+            return res;
+        }
+        public async Task<Message<List<DropDownValues>>> GetAllDropDownValues()
+        {
+            var message = new Message<List<DropDownValues>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Job/GetAllValues"));
+            var res = await GetAsync<Message<List<DropDownValues>>>(requestUrl);
+            return res;
+        }
+      
+
         ////--- this method is  used to login for admin
         //public async Task<Message<UserLogin>> Login(string EmailId, string password)
         //{

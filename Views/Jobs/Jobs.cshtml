@@ -1,4 +1,5 @@
-﻿
+﻿@model DivyangPortalWeb.Models.SignUp
+
 @{
     ViewBag.Title = "Jobs";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
@@ -13,6 +14,115 @@
             background: #fff7e9;
         }
 </style>
+<script>
+    $(document).ready(function () {
+        debugger;
+        var applyLastDateStr = $('#applyLastDate').data('date');
+
+        var applyLastDate = new Date(applyLastDateStr);
+
+        var currentDate = new Date();
+
+        var timeDiff = applyLastDate - currentDate;
+        var daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+
+        if (daysLeft <= 0) {
+            $('#applyLastDate').text('Job Expired');
+        } else {
+            $('#applyLastDate').text(daysLeft + ' days left to apply');
+        }
+    });
+    function FilterData() {
+        debugger;
+        let order = document.getElementById('order').value;
+
+        // Construct the URL without the status parameter
+        window.location.href = "/Jobs/Jobs?order=" + encodeURIComponent(order);
+    }
+    function CheckCategory(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+    function CheckType(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+
+    function CheckCareer(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+
+    function Checkqualify(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+
+    function Checkexperience(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+
+    function Checkgender(Key, uniqueIdOrTerm) {
+        debugger;
+        let key = Key;
+        let uniqueParam = uniqueIdOrTerm;
+        // Construct the URL with the unique ID/term included
+        window.location.href = "/Jobs/Jobs?key=" + encodeURIComponent(key) + "&uniqueParam=" + encodeURIComponent(uniqueParam);
+    }
+
+    function updateSalaryFilter() {
+        debugger;
+        // Get the values from the input fields and select dropdown
+        let minSalary = document.getElementById('salaryMin').value;
+        let maxSalary = document.getElementById('salaryMax').value;
+        let rate = document.getElementById('salaryRate').value;
+
+        // Construct the URL with the filter values
+        let url = `/Jobs/Jobs?`;
+
+        if (minSalary) {
+            url += `minSalary=${encodeURIComponent(minSalary)}&`;
+        }
+
+        if (maxSalary) {
+            url += `maxSalary=${encodeURIComponent(maxSalary)}&`;
+        }
+
+        if (rate) {
+            url += `rate=${encodeURIComponent(rate)}&`;
+        }
+
+        // Remove trailing '&' if it exists
+        url = url.endsWith('&') ? url.slice(0, -1) : url;
+
+        // Redirect to the new URL
+        window.location.href = url;
+    }
+
+    
+
+</script>
 <div class="spacing-top jobsbg">
     <div class="container">
         <div class="row">
@@ -20,7 +130,7 @@
             <div class="col-md-4">
                 <div class="filter-box-bg">
                     <div class="civi-nav-filter active">
-                        
+
                         <div class="civi-filter-toggle">
                             <span class="listpng"><img src="~/Images/list.png" /></span>
                             <span>Filter</span>
@@ -36,40 +146,10 @@
                                 <h2>Jobs Categories</h2>
 
                                 <ul class="checkboxs">
-                                    <li>
-                                        <label><input type="checkbox" value="option" />Blood Disorder</label>
-                                        <ul class="checkboxs">
-                                            <li><label><input type="checkbox" value="option" />Haemophilia</label></li>
-                                            <li><label><input type="checkbox" value="option" />Sickle Cell Disease</label></li>
-                                            <li><label><input type="checkbox" value="option" />Thalassemia</label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <label><input type="checkbox" value="option" />Chronic Neurological</label>
-                                        <ul class="checkboxs">
-                                            <li><label><input type="checkbox" value="option" />Multiple Sclerosis</label></li>
-                                            <li><label><input type="checkbox" value="option" />Parkinson’s Disease</label></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <label><input type="checkbox" value="option" />Intellectual Disability</label>
-                                        <ul class="checkboxs">
-                                            <li><label><input type="checkbox" value="option" />Autism Spectrum Disorder</label></li>
-                                            <li><label><input type="checkbox" value="option" />Specific Learning Disabilities</label></li>
-                                        </ul>
-                                    </li>
-                                    <li><label><input type="checkbox" value="option" />Mental Illness</label></li>
-                                    <li><label><input type="checkbox" value="option" />Multiple Disabilities</label></li>
-                                    <li>
-                                        <label><input type="checkbox" value="option" />Physical Disability</label>
-                                        <ul class="checkboxs">
-                                            <li><label><input type="checkbox" value="option" />Hearing Impairment</label></li>
-                                            <li><label><input type="checkbox" value="option" />Locomotor Disability</label></li>
-                                            <li><label><input type="checkbox" value="option" />Speech and Language Disability</label></li>
-                                            <li><label><input type="checkbox" value="option" />Visual Impairmenty</label></li>
-                                        </ul>
-                                    </li>
-
+                                    @foreach (var category in Model.DropdownValuesResponse.JobCategories)
+                                    {
+                                        <li><label><input type="checkbox" value="@category.Id" id="@category.Id" onclick="CheckCategory('@category.Id', 'Category');" />@category.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
@@ -77,9 +157,10 @@
                                 <h2>Jobs Type</h2>
 
                                 <ul class="checkboxs">
-                                    <li><label><input type="checkbox" value="option" />Government</label></li>
-                                    <li><label><input type="checkbox" value="option" />NGO</label></li>
-                                    <li><label><input type="checkbox" value="option" />Private</label></li>
+                                    @foreach (var type in Model.DropdownValuesResponse.JobType)
+                                    {
+                                        <li><label><input type="checkbox" value="@type.Id" id="@type.Id" onclick="CheckType('@type.Id' ,'Type');" />@type.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
@@ -87,31 +168,20 @@
                                 <h2>Jobs Career</h2>
 
                                 <ul class="checkboxs">
-                                    <li><label><input type="checkbox" value="option" />Accounts / Taxation</label></li>
-                                    <li><label><input type="checkbox" value="option" />BFSI</label></li>
-                                    <li><label><input type="checkbox" value="option" />Ecommerce</label></li>
-                                    <li><label><input type="checkbox" value="option" />Education</label></li>
-                                    <li><label><input type="checkbox" value="option" />Hospitality</label></li>
-                                    <li><label><input type="checkbox" value="option" />IT / ITES</label></li>
-                                    <li><label><input type="checkbox" value="option" />Manufacturing</label></li>
-                                    <li><label><input type="checkbox" value="option" />Retail</label></li>
+                                    @foreach (var career in Model.DropdownValuesResponse.CareerLevel)
+                                    {
+                                        <li><label><input type="checkbox" value="@career.Id" id="@career.Id" onclick="CheckCareer('@career.Id','Career');" />@career.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
                             <div class="filter-sections">
                                 <h2>Jobs Qualification</h2>
                                 <ul class="checkboxs">
-                                    <li><label><input type="checkbox" value="option" />10th Pass</label></li>
-                                    <li><label><input type="checkbox" value="option" />12th Pass</label></li>
-                                    <li><label><input type="checkbox" value="option" />Below 10th</label></li>
-                                    <li><label><input type="checkbox" value="option" />Certificate</label></li>
-                                    <li><label><input type="checkbox" value="option" />Degree</label></li>
-                                    <li><label><input type="checkbox" value="option" />Diploma</label></li>
-                                    <li><label><input type="checkbox" value="option" />Doctorate</label></li>
-                                    <li><label><input type="checkbox" value="option" />Graduate</label></li>
-                                    <li><label><input type="checkbox" value="option" />Master</label></li>
-                                    <li><label><input type="checkbox" value="option" />Post Graduate</label></li>
-                                    <li><label><input type="checkbox" value="option" />Under graduate</label></li>
+                                    @foreach (var qualify in Model.DropdownValuesResponse.Qualification)
+                                    {
+                                        <li><label><input type="checkbox" value="@qualify.Id" id="@qualify.Id" onclick="Checkqualify('@qualify.Id','Qualify');" />@qualify.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
@@ -119,11 +189,10 @@
                             <div class="filter-sections">
                                 <h2>Jobs Experience</h2>
                                 <ul class="checkboxs">
-                                    <li><label><input type="checkbox" value="option" />0 - 1 Years</label></li>
-                                    <li><label><input type="checkbox" value="option" />1 - 2 Years</label></li>
-                                    <li><label><input type="checkbox" value="option" />3 - 5 Years</label></li>
-                                    <li><label><input type="checkbox" value="option" />6 - 9 Years</label></li>
-                                    <li><label><input type="checkbox" value="option" />10+ Years</label></li>
+                                    @foreach (var experience in Model.DropdownValuesResponse.Experience)
+                                    {
+                                        <li><label><input type="checkbox" value="@experience.Id" id="@experience.Id" onclick="Checkexperience('@experience.Id','Experience');" />@experience.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
@@ -132,30 +201,33 @@
 
                                 <div class="salary-filter">
                                     <div class="filter">
-                                        <input type="number" name="jobs_filter_salary_min" placeholder="Min">
+                                        <input type="number" id="salaryMin" name="jobs_filter_salary_min" placeholder="Min" onchange="updateSalaryFilter()">
                                     </div>
                                     <div class="filter">
-                                        <input type="number" name="jobs_filter_salary_max" placeholder="Max">
+                                        <input type="number" id="salaryMax" name="jobs_filter_salary_max" placeholder="Max" onchange="updateSalaryFilter()">
                                     </div>
                                     <div class="filter">
-                                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                            <option value="" data-select2-id="3">Rate</option>
-                                            <option value="hour" data-select2-id="20">Hour</option>
-                                            <option value="day" data-select2-id="21">Day</option>
-                                            <option value="week" data-select2-id="22">Week</option>
-                                            <option value="month" data-select2-id="23">Month</option>
-                                            <option value="year" data-select2-id="24">Year</option>
+                                        <select id="salaryRate" name="jobs_filter_rate" class="civi-select2 select2-hidden-accessible" onchange="updateSalaryFilter()">
+                                            <option value="">Rate</option>
+                                            <option value="0">Hour</option>
+                                            <option value="1">Day</option>
+                                            <option value="2">Week</option>
+                                            <option value="3">Month</option>
+                                            <option value="4">Year</option>
                                         </select>
                                     </div>
                                 </div>
+
 
                             </div>
 
                             <div class="filter-sections">
                                 <h2>Jobs Gender</h2>
                                 <ul class="checkboxs">
-                                    <li><label><input type="checkbox" value="option" />Female</label></li>
-                                    <li><label><input type="checkbox" value="option" />Male</label></li>
+                                    @foreach (var gender in Model.DropdownValuesResponse.PrefrenceGender)
+                                    {
+                                        <li><label><input type="checkbox" value="@gender.Id" id="@gender.Id" onclick="Checkgender('@gender.Id','Gender');" />@gender.Name</label></li>
+                                    }
                                 </ul>
                             </div>
 
@@ -164,6 +236,7 @@
 
                 </div>
             </div>
+
             <div class="col-md-8">
                 <div class="civi-nav-filter active">
                     <div class="civi-filter-toggle">
@@ -172,142 +245,56 @@
                     <div class="circleLoading">
                         <i class="fa fa-refresh fa-spin" aria-hidden="true"></i>
                         <span>Clear All</span>
-                        @*<i class="fa fa-th-large" aria-hidden="true"></i>
-                        <i class="fa fa-list" aria-hidden="true"></i>*@
                         <abbr>Sort by</abbr>
 
                         <div class="dropdowns">
-                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                <option value="" data-select2-id="3">Newest</option>
-                                <option value="Oldest" data-select2-id="20">Oldest</option>
+                            <select name="order" id="order" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true" onchange="FilterData();">
                                 <option value="Featured" data-select2-id="21">Featured</option>
+                                <option value="Newest" data-select2-id="3">Newest</option>
+                                <option value="Oldest" data-select2-id="20">Oldest</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="Explore-job-box Explore-job-box-bg">
-                            <div class="jobs-archive-header">
-                                <a href="JobsDetails"><img src="images/camera.png" alt="" /></a>
-                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                    @foreach (var jobs in Model.jobs)
+                    {
+                        <div class="col-md-6">
+                            <div class="Explore-job-box Explore-job-box-bg">
+                                <div class="jobs-archive-header">
+                                    <a href="JobsDetails"> <img src="@Url.Content("~/Areas/Employee/Images/JobImages/" + jobs.CoverImage)" /></a>
+                                    <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <div class="Explore-job-text">
+                                    <h6><a href="@Url.Action("JobsDetails", "Jobs", new { area = "", id = jobs.Id })">@jobs.JobTitle</a></h6>
+                                    <p><a href="javascript:;"><span>By</span>@jobs.CompanyName<span>in</span></a></p>
+                                    <b><a href="JobsDetails">@jobs.JobCategories</a></b>
+                                </div>
+
+                                <div class="jobs-archive-footer">
+                                    <a href="javascript:;" class="active">Private</a>
+                                    <a href="javascript:;">@jobs.Location</a>
+                                </div>
+
+                                <div class="salary-wrapper">
+                                    <span><a href="javascript:;">@jobs.MinSalary<span> @jobs.Currency</span> - @jobs.MaxSalary<span> @jobs.Currency</span></a></span>
+                                </div>
+
+                                <div class="days">
+                                    <a href="JobsDetails">
+                                        <span id="applyLastDate" data-date="@jobs.ApplyLastDate">Job Expired</span>
+                                    </a>
+                                </div>
+
+
+                                <div class="clearfix"></div>
                             </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="Explore-job-text">
-                                <h6><a href="JobsDetails">Office work</a></h6>
-                                <p><a href="javascript:;"><span>By</span>Nuclear Power Corporation of India Ltd <span>in</span></a></p>
-                                <b><a href="JobsDetails">Physical Disability</a></b>
-                            </div>
-
-                            <div class="jobs-archive-footer">
-                                <a href="javascript:;" class="active">Private</a>
-                                <a href="javascript:;">Kerala</a>
-                            </div>
-
-                            <div class="salary-wrapper">
-                                <span><a href="javascript:;">2₹ - 6₹</a></span>
-                            </div>
-
-                            <div class="days">
-                                <a href="JobsDetails"><span> 6 </span>days left to apply</a>
-                            </div>
-
-                            <div class="clearfix"></div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="Explore-job-box Explore-job-box-bg">
-                            <div class="jobs-archive-header">
-                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
-                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="Explore-job-text">
-                                <h6><a href="javascript:;">Office work</a></h6>
-                                <b><a href="javascript:;">Physical Disability</a></b>
-                            </div>
-
-                            <div class="jobs-archive-footer">
-                                <a href="javascript:;" class="active">Private</a>
-                                <a href="javascript:;">Kerala</a>
-                            </div>
-
-                            <div class="salary-wrapper">
-                                <span><a href="javascript:;">2₹ - 6₹</a></span>
-                            </div>
-
-                            <div class="days">
-                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
-                            </div>
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="Explore-job-box Explore-job-box-bg">
-                            <div class="jobs-archive-header">
-                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
-                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="Explore-job-text">
-                                <h6><a href="javascript:;">Office work</a></h6>
-                                <b><a href="javascript:;">Physical Disability</a></b>
-                            </div>
-
-                            <div class="jobs-archive-footer">
-                                <a href="javascript:;" class="active">Private</a>
-                                <a href="javascript:;">Kerala</a>
-                            </div>
-
-                            <div class="salary-wrapper">
-                                <span><a href="javascript:;">2₹ - 6₹</a></span>
-                            </div>
-
-                            <div class="days">
-                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
-                            </div>
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="Explore-job-box Explore-job-box-bg">
-                            <div class="jobs-archive-header">
-                                <a href="javascript:;"><img src="images/camera.png" alt="" /></a>
-                                <span class="tooltip"><span class="tooltipText fb">Wishlist</span><img src="images/heart.png" alt="" /></span>
-                            </div>
-
-                            <div class="clearfix"></div>
-
-                            <div class="Explore-job-text">
-                                <h6><a href="javascript:;">Office work</a></h6>
-                                <b><a href="javascript:;">Physical Disability</a></b>
-                            </div>
-
-                            <div class="jobs-archive-footer">
-                                <a href="javascript:;" class="active">Private</a>
-                                <a href="javascript:;">Kerala</a>
-                            </div>
-
-                            <div class="salary-wrapper">
-                                <span><a href="javascript:;">2₹ - 6₹</a></span>
-                            </div>
-
-                            <div class="days">
-                                <a href="javascript:;"><span> 6 </span>days left to apply</a>
-                            </div>
-
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
+                    }
+                    
                 </div>
 
                 <nav>

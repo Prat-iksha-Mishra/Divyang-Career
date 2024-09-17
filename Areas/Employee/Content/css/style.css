@@ -998,3 +998,16 @@ display: none;
 .about-jobs-dashboard p span{font-size:18px; color:#fe6200; font-weight:500;}
 .about-jobs-dashboard p abbr{font-size:16px; color:#fe6200; font-weight:600; padding:3px 20px 6px; background:#f1f1f1; border-radius:30px; margin-top:0px; display:inline-block;}
     .about-jobs-dashboard p abbr i{font-size:16px; padding:0px 2px; color:#fe6200;}
+/*---------For Validation---------*/
+span.field-validation-error {
+    font-size: 14px;
+    color: #f00;
+    display: block !important;
+    width: 100% !important;
+}
+
+    span.field-validation-error span {
+        display: block !important;
+        width: 100% !important;
+    }
+/*---------For Validation---------*/

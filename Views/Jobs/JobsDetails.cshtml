@@ -1,20 +1,42 @@
-﻿
-@{
+﻿@model DivyangPortalWeb.Models.SignUp
+@{ 
     ViewBag.Title = "JobsDetails";
-    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
-}
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml"; 
+    }
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var applyLastDateStr = $('#applyLastDate').data('date');
+
+        var applyLastDate = new Date(applyLastDateStr);
+
+        var currentDate = new Date();
+
+        var timeDiff = applyLastDate - currentDate;
+        var daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
+
+        if (daysLeft <= 0) {
+            $('#applyLastDate').text('Job Expired');
+        } else {
+            $('#applyLastDate').text(daysLeft + ' days left to apply');
+        }
+    });
+</script>
 
 <div class="spacing-top">
     <div class="container">
         <div class="row">
             <div class="col-md-8">
                 <div class="jobleftsection">
-                    <img src="~/Images/jobDetailsBanner.jpg" class="w-100" alt="banner" />
+                    @*<img src="~/Images/jobDetailsBanner.jpg" class="w-100" alt="banner" />*@
+                    <img src="@Url.Content("~/Areas/Employee/Images/JobImages/" + Model.Job.CoverImage)" class="w-100" alt="banner" />
 
                     <div class="civi-jobs-header-top">
                         <div class="civi-header-left">
-                            <h1>PRP Writer Analyst – Bengali Speakers</h1>
-                            <p>By <a href="javascript:;" class="colorblak">TELUS International AI</a> in <a href="jobs">TELUS International AI</a> <i class="fa fa-fw fa-eye"></i>  32 (views)</p>
+                            @*<h1>PRP Writer Analyst – Bengali Speakers</h1>*@
+                            <h1>@Model.Job.JobTitle </h1>
+                            <p>By <a href="javascript:;" class="colorblak">@Model.Job.CompanyName</a> in <a href="jobs">TELUS International AI</a> <i class="fa fa-fw fa-eye"></i>  32 (views)</p>
                         </div>
                         <div class="civi-header-right">
                             <div class="toggle-social">
@@ -43,10 +65,10 @@
                     <div class="civi-jobs-header-bottom">
                         <div class="left">
                             <a class="label label-location" href="jobs">
-                                Mumbai
+                                @Model.Job.Location
                             </a>
                             <a class="label label-type" href="jobs">
-                                Private
+                                @Model.Job.JobType
                             </a>
                         </div>
                     </div>
@@ -64,7 +86,7 @@
                                 </div>
                                 <div class="infotext">
                                     <h4>Hiring location</h4>
-                                    <p>Mumbai</p>
+                                    <p>@Model.Job.Location</p>
                                 </div>
                             </div>
                             <div class="info">
@@ -75,7 +97,7 @@
                                 </div>
                                 <div class="infotext">
                                     <h4>Qualification</h4>
-                                    <p>Degree</p>
+                                    <p>@Model.Job.Qualification</p>
                                 </div>
                             </div>
                             <div class="info">
@@ -86,7 +108,7 @@
                                 </div>
                                 <div class="infotext">
                                     <h4>Experience</h4>
-                                    <p>1 - 2 Years</p>
+                                    <p>@Model.Job.Experience</p>
                                 </div>
                             </div>
                         </div>
@@ -98,44 +120,46 @@
                         </div>
 
                         <div class="Descriptions">
-                            <p>TELUS International is seeking Writers, Reviewers, and Evaluators with Bengali and English speaking fluency and domain expertise across a range of subject matter domains to assist in the development of AI technologies.</p>
 
-                            <h5>Role Responsibilities:</h5>
+                            @Model.Job.Description
+                            @*<p>TELUS International is seeking Writers, Reviewers, and Evaluators with Bengali and English speaking fluency and domain expertise across a range of subject matter domains to assist in the development of AI technologies.</p>
 
-                            <ul>
-                                <li>Research, create, and edit short-form written content (examples are short blog posts, emails, brief essays, story synopses, summaries, cover letters, etc.) while adhering to factual accuracy and style guidelines for voice and creativity</li>
-                                <li>Analyze and evaluate short-form written content for factual accuracy and adherence to style guidelines</li>
-                            </ul>
+        <h5>Role Responsibilities:</h5>
 
-                            <h5>Required Experience, Skills & Competencies:</h5>
+        <ul>
+            <li>Research, create, and edit short-form written content (examples are short blog posts, emails, brief essays, story synopses, summaries, cover letters, etc.) while adhering to factual accuracy and style guidelines for voice and creativity</li>
+            <li>Analyze and evaluate short-form written content for factual accuracy and adherence to style guidelines</li>
+        </ul>
 
-                            <ul>
-                                <li>Minimum C1 proficiency in Bengali and English</li>
-                                <li>Excellent writing skills, as evidenced by writing samples, work history, and academic coursework</li>
-                                <li>Must have at least 1+ year of experience in Technical/Content Writing</li>
-                                <li>Bachelor’s degree and / or relevant experience, with certification or graduate degrees preferred in selected subject matter domains</li>
-                                <li>High level of creativity, logic, and reasoning skills</li>
-                                <li><b>Subject matter expertise</b> in one or more domains or fields of study (popular culture, social sciences, STEM and professional services)</li>
-                            </ul>
+        <h5>Required Experience, Skills & Competencies:</h5>
 
-                            <p><i>Popular Culture:</i> Beauty, Fitness, Pop Music, Entertainment, Sports, Current Events, Travel, etc.</p>
-                            <p><i>Social Sciences:</i> Fine Arts, History, Anthropology, Political Science, Sociology, Education, etc.</p>
+        <ul>
+            <li>Minimum C1 proficiency in Bengali and English</li>
+            <li>Excellent writing skills, as evidenced by writing samples, work history, and academic coursework</li>
+            <li>Must have at least 1+ year of experience in Technical/Content Writing</li>
+            <li>Bachelor’s degree and / or relevant experience, with certification or graduate degrees preferred in selected subject matter domains</li>
+            <li>High level of creativity, logic, and reasoning skills</li>
+            <li><b>Subject matter expertise</b> in one or more domains or fields of study (popular culture, social sciences, STEM and professional services)</li>
+        </ul>
 
-                            <p><i>STEM+:</i> Biology, Chemistry, Physics, Mathematics, Statistics, etc.</p>
-                            <p><i>Professional Services:</i> Healthcare, Law, Finance, Software Engineering, etc.</p>
+        <p><i>Popular Culture:</i> Beauty, Fitness, Pop Music, Entertainment, Sports, Current Events, Travel, etc.</p>
+        <p><i>Social Sciences:</i> Fine Arts, History, Anthropology, Political Science, Sociology, Education, etc.</p>
 
-                            <ul>
-                                <li>Able to work independently and with a low level of supervision</li>
-                                <li>Attention to detail and strong communication skills</li>
-                            </ul>
+        <p><i>STEM+:</i> Biology, Chemistry, Physics, Mathematics, Statistics, etc.</p>
+        <p><i>Professional Services:</i> Healthcare, Law, Finance, Software Engineering, etc.</p>
 
-                            <p><b>Job Type:</b> Full-time</p>
-                            <p><b>Location:</b> On-site</p>
-                            <p><b>Schedule:</b> Monday to Friday business hours</p>
+        <ul>
+            <li>Able to work independently and with a low level of supervision</li>
+            <li>Attention to detail and strong communication skills</li>
+        </ul>
 
-                            <p>If you are interested, please complete this brief registration and upload your resume or CV.</p>
-                            <p>We’ll review your qualifications and get back to you with further details and next steps.</p>
-                            <p>*All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or protected veteran status</p>
+        <p><b>Job Type:</b> Full-time</p>
+        <p><b>Location:</b> On-site</p>
+        <p><b>Schedule:</b> Monday to Friday business hours</p>
+
+        <p>If you are interested, please complete this brief registration and upload your resume or CV.</p>
+        <p>We’ll review your qualifications and get back to you with further details and next steps.</p>
+        <p>*All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability, or protected veteran status</p>*@
 
                         </div>
 
@@ -148,7 +172,7 @@
                             <h4>Photos</h4>
                         </div>
                         <div class="object-fit">
-                            <img src="~/Images/ai-community.jpg" alt="ai-community" />
+                            <img src="@Url.Content("~/Areas/Employee/Images/JobImages/" + Model.Job.CoverImage)" alt="ai-community" />
                         </div>
                     </div>
 
@@ -158,7 +182,7 @@
                 <div class="jobs-apply-details">
                     <div class="info-apply">
                         <h4>Interested in this job?</h4>
-                        <p><span> 29 </span>days left to apply</p>
+                        <p id="applyLastDate" data-date="@Model.Job.ApplyLastDate">Job Expired</p>
                     </div>
                     <div class="accountlogged-out">
                         <a href="#popup-form" class="login-form-popup">Apply now</a>
@@ -172,7 +196,7 @@
                 <div class="jobs-apply-detailstop">
                     <div class="info-apply">
                         <h4>Interested in this job?</h4>
-                        <p><span> 29 </span>days left to apply</p>
+                        <p id="applyLastDate" data-date="@Model.Job.ApplyLastDate">Job Expired</p>
                     </div>
                     <div class="accountlogged-out">
                         <a href="#popup-form" class="login-form-popup">Apply now</a>
@@ -180,8 +204,8 @@
                 </div>
 
                 <div class="detailsright">
-                    <h4><a href="javascript:;">TELUS International AI</a></h4>
-                    <h6>View company profile</h6>
+                    <h4><a href="javascript:;">@Model.Job.CompanyName</a></h4>
+                    <h6>View company profile</h6>                             @*@-------------------*//Add Url*-------------------------------@*@
 
 
                     <ul class="login-tabss">
@@ -194,7 +218,7 @@
                             <p>TELUS International AI Data Solutions partners with a diverse and vibrant community to help our customers enhance their AI and machine learning models. The work…</p>
 
                             <h5>Categories</h5>
-                            <b>IT / ITES</b>
+                            <b>@Model.Job.JobCategories</b>
 
                             <h5>Company size</h5>
                             <span>400-500</span>

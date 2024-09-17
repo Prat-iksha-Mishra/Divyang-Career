@@ -30,7 +30,7 @@ namespace DivyangPortalWeb.Controllers
                     //Session["CandidateUserName"] = Model.Username;
                     Session["EmployeeEmail"] = Model.Email;
                     Session["EmployeeUserName"] = Model.Username;
-                    return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
+                    return RedirectToAction("Dashboard", "Dashboard", new { area = "" });
                 }
                 else
                 {
@@ -125,7 +125,7 @@ namespace DivyangPortalWeb.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
+                        return RedirectToAction("Home", "Index", new { area = "" });
                     }
                 }
                 else

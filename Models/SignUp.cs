@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using DivyangPortalWeb.Areas.Employee.Models;
 
 namespace DivyangPortalWeb.Models
 {
     public class SignUp
     {
+        public List<Jobs> jobs { get; set; }
+        public Jobs Job { get; set; }
+        public DropdownValuesResponse DropdownValuesResponse { get; set; }
         public EmployerDetails EmployerDetails { get; set; }
         public CandidateDetails CandidateDetails { get; set; }
         public EmployerSignUp EmployerSignUp { get; set; }

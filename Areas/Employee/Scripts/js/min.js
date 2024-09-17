@@ -102,19 +102,19 @@ jQuery(document).ready(function ($) {
 
     function CustomizationPlugin(editor) {
     }
-    ClassicEditor
-    .create(document.querySelector('#editor'), {
-        extraPlugins: [CustomizationPlugin]
-    })
-    .then(newEditor => {
-        window.editor = newEditor;
-        CKEditorInspector.attach(newEditor, {
-            isCollapsed: true
-        });
-    })
-    .catch(error => {
-        console.error(error);
-    });
+    //ClassicEditor
+    //.create(document.querySelector('#editor'), {
+    //    extraPlugins: [CustomizationPlugin]
+    //})
+    //.then(newEditor => {
+    //    window.editor = newEditor;
+    //    CKEditorInspector.attach(newEditor, {
+    //        isCollapsed: true
+    //    });
+    //})
+    //.catch(error => {
+    //    console.error(error);
+    //});
 
     /*upload image*/
     $(document).ready(function () {
@@ -216,6 +216,26 @@ jQuery(document).ready(function ($) {
 
         
     });
+    //Added By Iksha-
+
+    var fileArr = [];
+    $("#images3").change(function () {
+        debugger;
+        if (fileArr.length > 0) fileArr = [];
+
+        // $('#image_preview3').html("");
+        var total_file = document.getElementById("images3").files;
+        if (!total_file.length) return;
+        for (var i = 0; i < total_file.length; i++) {
+            if (total_file[i].size > 1048576) {
+                return false;
+            } else {
+                fileArr.push(total_file[i]);
+                $('#image_preview3').append("<div class='img-div3' id='img-div3" + i + "'><img src='" + URL.createObjectURL(event.target.files[i]) + "' class='image3' title='" + total_file[i].name + "'><div class='middle3'><button id='action-icon3' type='button' value='img-div3" + i + "' class='btn btn-danger' role='" + total_file[i].name + "'><i class='fa fa-trash'></i></button></div></div>");
+            }
+        }
+    });
+
 
 
   /*upload image*/

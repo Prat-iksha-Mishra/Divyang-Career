@@ -94,7 +94,7 @@ namespace DivyangPortalWeb.Controllers
                         Session["EmployeeUserName"] = userInfo.Name;
                         return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
                     }
-                    else
+                    else 
                     {
                         TempData["CheckLogIn"] = "Invalid Email or Password";
                         TempData["ShowLoginPopup"] = "true"; // Indicate that the popup should be shown again

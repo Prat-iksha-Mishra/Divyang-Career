@@ -5,116 +5,120 @@
 }
 
 
-    <div class="wrapper">
-        <h1>Welcome back! @Session["EmployeeUserName"].ToString()</h1>
+<div class="wrapper">
+    @if (Session["EmployeeUserName"] != null && !string.IsNullOrEmpty(Session["EmployeeUserName"].ToString()))
+    {
+        <h1>Welcome back! @Session["EmployeeUserName"]</h1>
+    }
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <a href="@Url.Action("DashboardJobs", "DashboardJobs", new { area = "Employee" })">
-                        <div class="action-wrapper">
-                            <div class="jobs-civi-boxdb">
-                                <div class="entry-detai">
-                                    <h3 class="entry-title">Posted Jobs</h3>
-                                    <span class="entry-number">1</span>
-                                </div>
-                                <div class="icon-total">
-                                    <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-01.svg" alt="jobs">
-                                </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="@Url.Action("DashboardJobs", "DashboardJobs", new { area = "Employee" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">Posted Jobs</h3>
+                                <span class="entry-number">1</span>
+                            </div>
+                            <div class="icon-total">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-01.svg" alt="jobs">
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })">
-                        <div class="action-wrapper">
-                            <div class="jobs-civi-boxdb">
-                                <div class="entry-detai">
-                                    <h3 class="entry-title">applicants</h3>
-                                    <span class="entry-number">2</span>
-                                </div>
-                                <div class="icon-total2">
-                                    <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-02.svg" alt="jobs">
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">applicants</h3>
+                                <span class="entry-number">2</span>
+                            </div>
+                            <div class="icon-total2">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-02.svg" alt="jobs">
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })">
-                        <div class="action-wrapper">
-                            <div class="jobs-civi-boxdb">
-                                <div class="entry-detai">
-                                    <h3 class="entry-title">Mettings</h3>
-                                    <span class="entry-number">3</span>
-                                </div>
-                                <div class="icon-total3">
-                                    <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-03.svg" alt="jobs">
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Meetings", "Meetings", new { area = "Employee" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">Mettings</h3>
+                                <span class="entry-number">3</span>
+                            </div>
+                            <div class="icon-total3">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-03.svg" alt="jobs">
                             </div>
                         </div>
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })">
-                        <div class="action-wrapper">
-                            <div class="jobs-civi-boxdb">
-                                <div class="entry-detai">
-                                    <h3 class="entry-title">My Follow</h3>
-                                    <span class="entry-number">4</span>
-                                </div>
-                                <div class="icon-total4">
-                                    <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-04.svg" alt="jobs">
-                                </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Candidates", "Candidates", new { area = "Employee" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">My Follow</h3>
+                                <span class="entry-number">4</span>
+                            </div>
+                            <div class="icon-total4">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-04.svg" alt="jobs">
                             </div>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="action-wrapper">
-                        <div class="civi-nav-filter">
-                            <div class="civi-filter-toggle">
-                                <span>Page views</span>
-                            </div>
-                            <div class="circleLoading">
-                                <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                    <option value="" data-select2-id="3">7 Days</option>
-                                    <option value="day" data-select2-id="21">15 Days</option>
-                                    <option value="week" data-select2-id="22">30 Days</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="chart">
-                            <img decoding="async" src="~/Areas/Employee/images/chart.png" class="w-100" alt="chart">
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="action-wrapper">
-                        <div class="civi-nav-filter">
-                            <div class="civi-filter-toggle">
-                                <span>New applicants</span>
-                            </div>
-                        </div>
-
-
-                        <p class="No-item-found">No item found</p>
-
-                        <p class="allapplicants-btn"> <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })"> All applicants </a> </p>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="action-wrapper">
+                    <div class="civi-nav-filter">
+                        <div class="civi-filter-toggle">
+                            <span>Page views</span>
+                        </div>
+                        <div class="circleLoading">
+                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option value="" data-select2-id="3">7 Days</option>
+                                <option value="day" data-select2-id="21">15 Days</option>
+                                <option value="week" data-select2-id="22">30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <img decoding="async" src="~/Areas/Employee/images/chart.png" class="w-100" alt="chart">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="action-wrapper">
+                    <div class="civi-nav-filter">
+                        <div class="civi-filter-toggle">
+                            <span>New applicants</span>
+                        </div>
+                    </div>
+
+
+                    <p class="No-item-found">No item found</p>
+
+                    <p class="allapplicants-btn"> <a href="@Url.Action("applicants", "applicants", new { area = "Employee" })"> All applicants </a> </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </div>
 

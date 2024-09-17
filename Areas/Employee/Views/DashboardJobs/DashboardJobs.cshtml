@@ -1,8 +1,118 @@
-﻿
+﻿@model List<DivyangPortalWeb.Areas.Employee.Models.Jobs>
 @{
     ViewBag.Title = "DashboardJobs";
     Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
 }
+<script>
+    $(document).ready(function () {
+        //setTimeout(function () {
+        //    closeAlertMessagess();
+        //}, 10000); // 10 seconds = 10000 milliseconds
+
+
+    });
+
+    //function FilterData() {
+    //    debugger;
+
+    //    // Get the values from the input fields
+    //    let order = document.getElementById('order').value;
+    //    let status = document.getElementById('status').value; // Assuming there's an input field with id 'status'
+    //    let jobTitle = document.getelementbyid('jobTile').value; // get the jobtitle value
+
+    //    // Build the URL with all query parameters
+    //    let url = `/Employee/DashboardJobs/DashboardJobs?order=${encodeURIComponent(order)}&status=${encodeURIComponent(status)}&jobTile=${encodeURIComponent(jobTile)}`;
+
+    //    // Redirect to the new URL
+    //    window.location.href = url;
+    //}
+    function FilterData() {
+        debugger;
+
+        // Get the values from the input fields
+        let order = document.getElementById('order').value;
+        let status = document.getElementById('status').value; // Assuming there's an input field with id 'status'
+        let jobTile = document.getElementById('jobTile').value; // Corrected case
+
+        // Build the URL with all query parameters
+        let url = `/Employee/DashboardJobs/DashboardJobs?order=${encodeURIComponent(order)}&status=${encodeURIComponent(status)}&jobTile=${encodeURIComponent(jobTile)}`;
+
+        // Redirect to the new URL
+        window.location.href = url;
+    }
+
+
+
+    function deleteJob() {
+        debugger;
+        var id = document.getElementById('jobid').value;
+        if (id > 0) {
+            $.ajax({
+                url: '../postjobs/DeleteJobs',
+                type: 'POST',
+                data: { id: id },
+                success: function (response) {
+
+                    $('#deletejobmodel').modal('hide');
+                    //alert('Job deleted successfully!');
+                    $('#pageactionid').show();
+                    document.getElementById('messageid').innerText = "Job is deleted successfully.";
+
+
+
+                },
+                error: function () {
+                    closeModal();
+                    $('#pageactionid').show();
+                    document.getElementById('messageid').innerText = "Job is deleted successfully.";
+                }
+            });
+        }
+    }
+
+    //function EditJob(element) {
+    //    var id = $(element).data('id');
+    //    $.ajax({
+    //        url: '../postjobs/EditJobs', // Replace with your controller's URL
+    //        type: 'POST',
+    //        data: { id: id },
+    //        success: function (response) {
+    //            debugger; window.location.href = '/postjobs/postjobs?model=' + response;
+    //            console.log(response);
+    //        },
+    //        error: function () {
+    //            // Handle error
+    //            alert('An error occurred while deleting the job.');
+    //        }
+    //    });
+    //}
+
+    function DeleteJobModal(id) {
+        debugger;
+        document.getElementById('jobid').value = id;
+        $('#deletejobmodel').modal('show');
+    }
+    function closeModal() {
+        debugger;
+        $('#deletejobmodel').modal('hide');
+    }
+</script>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-primary alert-dismissible fade show mt-2 mx-4" id="messageAlert" role="alert">
+        @TempData["Message"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+}
+
+<div class="alert alert-primary alert-dismissible fade show mt-2 mx-4" id="pageactionid" role="alert" style="display:none">
+    <span id="messageid"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
 
 <div class="wrapper">
     <h1>Manage jobs</h1>
@@ -13,28 +123,28 @@
             <div class="row">
                 <div class="col-md-1">
                     <div class="circleLoading">
-                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <select name="status" id="status" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true" onchange="FilterData()">
                             <option value="" data-select2-id="1">All Jobs</option>
-                            <option value="Opening" data-select2-id="2">Opening</option>
-                            <option value="Paused" data-select2-id="3">Paused</option>
-                            <option value="Closed" data-select2-id="4">Closed</option>
-                            <option value="Pending" data-select2-id="5">Pending</option>
+                            <option value="1" data-select2-id="2">Opening</option>
+                            <option value="2" data-select2-id="3">Paused</option>
+                            <option value="3" data-select2-id="4">Closed</option>
+                            <option value="4" data-select2-id="5">Pending</option>
                         </select>
                     </div>
                 </div>
                 <div class="col-md-2">
                     <div class="Search-jobs-title">
-                        <input type="email" placeholder="Search jobs title">
+                        <input type="text" id="jobTile" name="jobTile" placeholder="Search jobs title" oninput="FilterData()">
                         <i class="fa fa-search"></i>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="sortby-col">
                         <span>Sort By</span>
-                        <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                            <option value="Newest" data-select2-id="11">Newest</option>
-                            <option value="Oldest" data-select2-id="12">Oldest</option>
+                        <select name="order" id="order" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true" onchange="FilterData()">
                             <option value="Featured" data-select2-id="13">Featured</option>
+                            <option value="Oldest" data-select2-id="12">Oldest</option>
+                            <option value="Newest" data-select2-id="11">Newest</option>
                         </select>
                     </div>
                 </div>
@@ -54,63 +164,43 @@
                             <th width="18%"></th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h3 class="title-jobs-dashboard">
-                                    <a href="@Url.Action("employersjobdetails", "DashboardJobs", new { area = "Employee" })">
-                                        Atri Baba
-                                    </a>
-                                </h3>
-                                <p>Blood Disorder / Private</p>
-                            </td>
-                            <td>
-                                <span>1</span>
-                                <a href="javascript:;" class="Application">Application</a>
-                            </td>
-                            <td><span class="label-pause">Pause</span></td>
-                            <td>
-                                <span class="start-time">13/08/2024</span>
-                            </td>
-                            <td>
-                                <span class="expires-time">
-                                    12/09/2024
-                                </span>
-                            </td>
-                            <td style="text-align:right;">
-                                <a class="btn-edit" href="javascript:;"> Edit </a>
-                                <a class="Continue" href="javascript:;"> Continue </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h3 class="title-jobs-dashboard">
-                                    <a href="@Url.Action("employersjobdetails", "DashboardJobs", new { area = "Employee" })">
-                                        Atri Baba
-                                    </a>
-                                </h3>
-                                <p>Blood Disorder / Private</p>
-                            </td>
-                            <td>
-                                <span>1</span>
-                                <a href="javascript:;" class="Application">Application</a>
-                            </td>
-                            <td><span class="label-pause">Pause</span></td>
-                            <td>
-                                <span class="start-time">13/08/2024</span>
-                            </td>
-                            <td>
-                                <span class="expires-time">
-                                    12/09/2024
-                                </span>
-                            </td>
-                            <td style="text-align:right;">
-                                <a class="btn-edit" href="javascript:;"> Edit </a>
-                                <a class="Continue" href="javascript:;"> Continue </a>
-                            </td>
-                        </tr>
-                        
-                    </tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h3 class="title-jobs-dashboard">
+                                        @item.JobTitle
+                                        @*<a href="@Url.Action("employersjobdetails", "DashboardJobs", new { area = "Employee" })">
+                                                Atri Baba
+                                            </a>*@
+                                    </h3>
+                                    <p>Blood Disorder / Private</p>
+                                </td>
+                                <td>
+                                    <span>1</span>
+                                    <a href="javascript:;" class="Application">Application</a>
+                                </td>
+                                <td><span class="label-pause">Pause</span></td>
+                                <td>
+                                    <span class="start-time">@item.ApplyStartDate</span>
+                                </td>
+                                <td>
+                                    <span class="expires-time">
+                                        @item.ApplyLastDate
+                                    </span>
+                                </td>
+                                <td style="text-align:right;">
+                                    <a class="btn-edit" href="@Url.Action("postjobs", "postjobs", new { area = "Employee", id = item.Id })" data-id="@item.Id">Edit</a>
+
+                                    <a class="Continue" href="javascript:;"> Continue </a>
+                                    <a class="btn-edit" href="javascript:;" data-id="@item.Id" onclick="DeleteJobModal(@item.Id)"> Delete </a>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
                 </table>
 
 
@@ -120,4 +210,20 @@
     </div>
 
 </div>
-
+<div class="modal" tabindex="-1" role="dialog" id="deletejobmodel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h5 class="modal-title">Delete Job</h5>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure ? You want to delete this job, once deleted it data will be permanantly removed from the portal.</p>
+                <input type="hidden" value="" id="jobid" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="deleteJob()">Yes</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="closeModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
