@@ -20,7 +20,7 @@ header {width:100%; background:#000; padding:6px 0px;}
 .menu > li > a:hover {background-color: rgba(0,0,0,0.17);}
 .caret {display: inline-block; width: 0; height: 0; margin-left: 2px; vertical-align: middle; border-top: 4px dashed; border-top: 4px solid\9; border-right: 4px solid transparent;  border-left: 4px solid transparent; color:#fff;}
 .spacing {padding: 20px 0px;}
-li.login-form-popup{position:relative;}
+li.login-form-submenu{position:relative;}
 
 .left-side-menu{padding:10px 10px;}
 .sidebar-header h3 a img{width:150px;}
@@ -36,6 +36,7 @@ ul.left-side-menu{list-style:none;}
 .left-side-menu li a img{margin-right:5px;}
 .civi-nav-dashboard{display:none; cursor:pointer; background:#fff; width:250px; padding:0px; text-align:left; position:absolute; top:100%; left:0; right:0; box-shadow:rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; border-radius:6px; z-index:99;}
 civi-nav-dashboard .left-side-menu{padding:5px 15px;}
+.login-form-submenu:hover .civi-nav-dashboard{display:block;}
 .login-form-popup:hover .civi-nav-dashboard{display:block;}
 .login-form-popups:hover .civi-nav-dashboard{display:block;}
 
@@ -720,6 +721,36 @@ ul.login-tabss li span{color:#fe6200 !important;}
 .add-new-review a{font-size:18px; color:#fe6200; font-weight:500;}
 .add-new-review span{font-size:18px; color:#000; font-weight:500; padding:0px 2px;}
 /*--------------Job Details page css End ------------------------*/
+/*--------------our team css start ------------------------*/
+.elementor-widget-wrap{width:100%; padding:0px 0px;}
+.elementor-widget-containers{display:table; height:750px; width:350px; margin:0 auto;}
+.civi-modern-heading{display:table-cell; vertical-align:middle; height:100%;}
+.civi-modern-heading h1{font-size:20px; color:#000; font-weight:500; text-align:left;}
+.civi-modern-heading h2{font-size:55px; color:#000; font-weight:500; padding:15px 0px; text-align:left;}
+.civi-modern-heading span{background:#fe6200; font-size:18px; color:#fff; border-radius:30px; padding:6px 20px; text-align:left;}
+.civi-modern-heading span path{fill:#fff; padding:0px 2px;}
+.elementor-widget-wrap .row{padding:0px; margin:0px;}
+.elementor-widget-wrap .row .col-md-6{padding:0px;}
+
+.civi-team-member-civi-box{margin:40px 0px 15px; text-align:center;}
+.civi-team-member-civi-box h3{font-size:18px; color:#000; font-weight:500; padding:3px 0px;}
+.civi-team-member-civi-box p{font-size:18px; color:#000; font-weight:400; padding:2px 0px;}
+
+.about-team-img {overflow: hidden; padding: 0; width:300px; height: 300px; object-fit: cover; border-radius: 100%; margin:0 auto 15px auto;}
+.about-team-img img {transition-duration: 2s;  margin: 0 auto;  display: block;  object-fit: cover; width:100%;}
+.about-team-img img:hover {transform: scale(1.4); -webkit-transform: scale(1.2);}
+.social-networks{margin:20px 0px;}
+.social-networks .inner{text-align:center; display:block}
+.social-networks .inner a svg{width:200px;}
+.social-networks .inner a{display:block;}
+
+
+.bg-about-team{margin:20px 0px; padding:50px 15px; text-align:center; background: url('../../Images/bg-about-team-01.jpg') no-repeat; background-size:cover; background-size:100% 100%;}
+.bg-about-team b{font-size:18px; color:#fff; padding:10px 0px; font-weight:500}
+.bg-about-team h4{font-size:50px; color:#fff; padding:30px 0px; font-weight:600;}
+.bg-about-team a{font-size:18px; color:#222; padding:10px 30px; font-weight:500; background:#fff; border-radius:30px; display:inline-block; margin:15px 0px; border:1px solid #fff;}
+.bg-about-team a:hover{background:#ddd;}
+/*--------------our team css End ------------------------*/
 /*---------For Validation---------*/
 span.field-validation-error{font-size:14px; color:#f00; display:block !important; width:100% !important;}
 span.field-validation-error span{display:block !important; width:100% !important;}

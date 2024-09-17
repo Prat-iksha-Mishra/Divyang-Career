@@ -49,10 +49,12 @@ namespace DivyangPortalWeb.Areas.Employee.Models
         public string State { get; set; }
         public string District { get; set; }
         public string CompanyFullAddress { get; set; }
+       
         public IEnumerable<SelectListItem> CompanyCategoriesOptions { get; set; }
         public IEnumerable<SelectListItem> CompanySizeDropDown { get; set; }
         public IEnumerable<SelectListItem> StateDropDown { get; set; }
         public IEnumerable<SelectListItem> DistrictDropDown { get; set; }
+      
         public string PhoneCountryCode { get; set; }
         public string CompanyLogoName { get; set; }
         public string CompanyCoverImagesName { get; set; }

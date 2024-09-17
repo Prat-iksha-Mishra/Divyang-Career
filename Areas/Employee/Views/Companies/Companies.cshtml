@@ -34,8 +34,7 @@
                                     </div>
                                     <div>
                                         <h3 class="title-jobs-dashboard">
-                                            @*@Html.ActionLink("dfd", "Companiesdetails", "Companies", new { Area = "Employee" }, null)*@
-                                            @company.CompanyName
+                                            @Html.ActionLink(@company.CompanyName, "Companiesdetails", "Companies", new { Area = "Employee" ,id= company.Id }, null)
                                         </h3>
                                         <p>@company.State</p>
                                     </div>

@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "CandidateDashboard";
+    Layout = "~/Areas/Candidate/Views/Shared/LayoutCandidate.cshtml";
+}
+
+<div class="wrapper">
+    <h1>Welcome back! Shashi Thakur</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <a href="@Url.Action("ssssssssssssssss", "ssssssss", new { area = "Candidate" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">Applied Jobs</h3>
+                                <span class="entry-number">3</span>
+                            </div>
+                            <div class="icon-total">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-05.svg" alt="jobs">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="@Url.Action("Meetings", "Meetings", new { area = "Candidate" })">
+                    <div class="action-wrapper">
+                        <div class="jobs-civi-boxdb">
+                            <div class="entry-detai">
+                                <h3 class="entry-title">Meetings</h3>
+                                <span class="entry-number">0</span>
+                            </div>
+                            <div class="icon-total4">
+                                <img decoding="async" src="~/Areas/Employee/images/icon-dashboard-06.svg" alt="jobs">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="action-wrapper">
+                    <div class="civi-nav-filter">
+                        <div class="civi-filter-toggle">
+                            <span>Your Profile Views</span>
+                        </div>
+                        <div class="circleLoading">
+                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                <option value="" data-select2-id="3">7 Days</option>
+                                <option value="day" data-select2-id="21">15 Days</option>
+                                <option value="week" data-select2-id="22">30 Days</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="chart">
+                        <img decoding="async" src="~/Areas/Employee/images/chart.png" class="w-100" alt="chart">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="action-wrapper">
+                    <div class="civi-nav-filter">
+                        <div class="civi-filter-toggle">
+                            <span>Recently Applied jobs</span>
+                        </div>
+                    </div>
+
+                    <div class="info-user">
+                        <div>
+                            <a href="javascript:;">
+                                <img src="/Areas/Employee/Images/user-image.jpg">
+                            </a>
+                        </div>
+                        <div class="Preview-user">
+                            <div class="rating-bars-name">
+                                <abbr>
+                                    <a href="javascript:;">Packer for eCommerce company <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+                                </abbr>
+                            </div>
+                            <p> Physical Disability / Private / Bengaluru</p>
+                        </div>
+                    </div>
+                    <div class="info-user">
+                        <div>
+                            <a href="javascript:;">
+                                <img src="/Areas/Employee/Images/user-image.jpg">
+                            </a>
+                        </div>
+                        <div class="Preview-user">
+                            <div class="rating-bars-name">
+                                <abbr>
+                                    <a href="javascript:;">Office work <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a>
+                                </abbr>
+                            </div>
+                            <p> Physical Disability / Government / All India</p>
+                        </div>
+                    </div>
+
+                    <p class="allapplicants-btn"> <a href="@Url.Action("ssssssss", "ssssssssssss", new { area = "Employee" })"> All applicants </a> </p>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+

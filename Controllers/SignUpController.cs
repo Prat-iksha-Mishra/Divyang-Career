@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using DivyangPortalWeb.Model.Application;
 using DivyangPortalWeb.Models;
 
@@ -16,7 +17,9 @@ namespace DivyangPortalWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(Model.UserType == "Employer")
+                Session.Abandon();
+                Session.Clear();
+                if (Model.UserType == "Employer")
                 {
                     var res = await ApiClientFactory.Instance.SaveSignUp(Model);
                     Session["EmployeeEmail"] = Model.Email;
@@ -26,11 +29,9 @@ namespace DivyangPortalWeb.Controllers
                 if(Model.UserType == "Candidate")
                 {
                     var res = await ApiClientFactory.Instance.SaveSignUpWithcandidate(Model);
-                    //Session["CandidateEmail"] = Model.Email;
-                    //Session["CandidateUserName"] = Model.Username;
-                    Session["EmployeeEmail"] = Model.Email;
-                    Session["EmployeeUserName"] = Model.Username;
-                    return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
+                    Session["CandidateEmail"] = Model.Email;
+                    Session["CandidateUserName"] = Model.Username;
+                    return RedirectToAction("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" });
                 }
                 else
                 {
@@ -126,7 +127,10 @@ namespace DivyangPortalWeb.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Dashboard", "Dashboard", new { area = "Employee" });
+                        Session["CandidateEmail"] = res.Data.Email;
+                        Session["CandidateUserName"] = res.Data.UserName;
+                        Session["CandidateId"] = res.Data.EmployeeId;
+                        return RedirectToAction("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" });
                     }
                 }
                 else

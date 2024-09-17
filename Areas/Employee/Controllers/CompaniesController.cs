@@ -21,9 +21,19 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
             customers = Data.Data;
             return View(customers);
         }
-        public ActionResult Companiesdetails()
+        public async Task<ActionResult> Companiesdetails(int Id)
         {
-            return View();
+            FinalCompany Details = new FinalCompany();
+            var res = await ApiClientFactory.Instance.GetCompanyDataForDetail(Id.ToString());
+            Details = res.Data;
+            if(res.Data== null)
+            {
+                return RedirectToAction("employerlogin", "employerlogin", new { area = "" });
+            }
+            else
+            {
+                return View(Details);
+            }
         }
 
         public async Task<ActionResult> addnewcompany(int Id=0)

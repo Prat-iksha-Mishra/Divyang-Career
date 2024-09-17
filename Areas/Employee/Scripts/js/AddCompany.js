@@ -4,8 +4,6 @@ $(document).ready(function () {
    
     ckeditordescription5();
     CKEDITOR.config.toolbar_desc = [['Bold', 'Italic', 'Underline', 'Link']];
-/*    $('#stateDropdown option:first').attr('disabled', true).attr('selected', true);*/
-   
     $('#stateDropdown').change(function () {
         var StateId = $(this).val();
 
@@ -46,9 +44,6 @@ $(document).ready(function () {
         
     })
     var CompanyAbout = $('#hfCompanyAboutUs').val();
-    //if (CompanyCategories == '') {
-    //     $('#CompanyCategories  option:first').attr('disabled', true).attr('selected', true);
-    //}
     if (CompanyAbout != '') {
         CKEDITOR.instances['Aboutckeditor'].setData(CompanyAbout);
     }
@@ -137,7 +132,7 @@ function ckeditordescription5() {
             countSpacesAsChars: false,
             countHTML: false,
             maxWordCount: -1,
-            maxCharCount: 1260
+            maxCharCount: 3000
         },
         toolbar: 'desc'
     });
