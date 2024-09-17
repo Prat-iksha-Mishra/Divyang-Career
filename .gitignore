@@ -367,11 +367,13 @@ FodyWeavers.xsd
 Web.config
 web.config
 
+# Ignore Visual Studio files
+.vs/
+
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore cache files
+*.cache
 *.suo
-*DivyangPortalWeb.dll
-*DivyangPortalWeb.pdb
-*DesignTimeResolveAssemblyReferencesInput.cache
-*DivyangPortalWeb.csproj.AssemblyReference.cache
-*DivyangPortalWeb.csproj.CoreCompileInputs.cache
-*DivyangPortalWeb.dll
-*DivyangPortalWeb.pdb
