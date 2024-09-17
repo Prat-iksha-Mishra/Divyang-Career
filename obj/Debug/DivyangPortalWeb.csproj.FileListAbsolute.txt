@@ -434,3 +434,4 @@ C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.CopyComplete
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.pdb
+C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
