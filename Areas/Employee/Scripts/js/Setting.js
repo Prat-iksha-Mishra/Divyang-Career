@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
-    var code = "";
-    $('#mobile2').val(code);
-    $('#mobile2').intlTelInput({
+    var code = "+91";
+    $('#mobile').val(code);
+    $('#mobile').intlTelInput({
         autoHideDialCode: true,
         autoPlaceholder: "ON",
         dropdownContainer: document.body,

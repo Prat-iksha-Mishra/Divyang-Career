@@ -26,7 +26,7 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
                     Firstnames = res.Data.Firstnames,
                     Lastnames = res.Data.Lastnames,
                     Email = res.Data.Email,
-                    ProfileImagePath = res.Data.ProfileImagePath,
+                    //ProfileImagePath = Convert. res.Data.ProfileImagePath,
                     PhoneNumber = res.Data.PhoneNumber,
                     ImageName= res.Data.ImageName
                 }
@@ -108,7 +108,8 @@ namespace DivyangPortalWeb.Areas.Employee.Controllers
             bool ifEmailExist = true;
             CheckEmail ch = new CheckEmail();
             ch.Email = model.EmployeeDetails.Email.ToString();
-            var var = await ApiClientFactory.Instance.CheckEmailEmployer(ch);
+            ch.CurrentEmail= Session["EmployeeEmail"].ToString();
+            var var = await ApiClientFactory.Instance.CheckEmailEmployerUpdate(ch);
                 try
                 {
                     if (var.ReturnMessage == "Already")

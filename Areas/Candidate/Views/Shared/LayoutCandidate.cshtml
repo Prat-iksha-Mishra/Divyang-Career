@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Areas/Candidate/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Areas/Candidate/Content/css/baguetteBox.min.css" rel="stylesheet" />
+    <link href="~/Areas/Candidate/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Areas/Candidate/Content/css/intlTelInput.css" rel="stylesheet" />
+    <link href="~/Areas/Candidate/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Areas/Candidate/Content/css/responsives.css" rel="stylesheet" />
+
+    <script src="~/Areas/Candidate/Scripts/js/jquery-1.12.3.min.js"></script>
+    <script src="~/Areas/Candidate/Scripts/js/bootstrap.bundle.js"></script>
+    <script src="~/Areas/Candidate/Scripts/js/baguetteBox.min.js"></script>
+    <script src="~/Areas/Candidate/Scripts/js/intlTelInput.min.js"></script>
+    <script src="~/Areas/Candidate/Scripts/js/min.js"></script>
+
+</head>
+<body>
+    @{
+        if (Session["CandidateEmail"] == null) // Check if the session is null
+        {
+            Response.Redirect(Url.Action("employerlogin", "employerlogin", new { area = "" })); // Redirect to the login page
+        }
+    }
+    <div id="mySidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>
+                <a href="@Url.Action("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" })">
+                    <img src="~/Areas/Employee/Images/Divyang-career.png" />
+                </a>
+            </h3>
+            <button class="toggle-btn" onclick="toggleNav()">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="left-side-menu">
+            <li>
+                <a href="@Url.Action("MyJobs", "CandidateDashboard", new { area = "Candidate" })" class="active">
+                    <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21" fill="none">
+                        <path d="M0 21C0 18.8783 0.842855 16.8434 2.34315 15.3431C3.84344 13.8429 5.87827 13 8 13C10.1217 13 12.1566 13.8429 13.6569 15.3431C15.1571 16.8434 16 18.8783 16 21H14C14 19.4087 13.3679 17.8826 12.2426 16.7574C11.1174 15.6321 9.5913 15 8 15C6.4087 15 4.88258 15.6321 3.75736 16.7574C2.63214 17.8826 2 19.4087 2 21H0ZM8 12C4.685 12 2 9.315 2 6C2 2.685 4.685 0 8 0C11.315 0 14 2.685 14 6C14 9.315 11.315 12 8 12ZM8 10C10.21 10 12 8.21 12 6C12 3.79 10.21 2 8 2C5.79 2 4 3.79 4 6C4 8.21 5.79 10 8 10Z" fill="#999999" />
+                    </svg> <span>Profile</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("MyJobs", "MyJobs", new { area = "Candidate" })">
+                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>My Jobs</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Messages", "Messages", new { area = "Candidate" })">
+                    <img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Meetings", "Meetings", new { area = "Candidate" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Setting", "Setting", new { area = "Candidate" })">
+                    <img src="~/Areas/Employee/Images/setting.svg" class="nav-item ">
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("LogOut", "Home", new { area = "" })" class="nav-item ">
+                    <img src="~/Areas/Employee/Images/logout.svg" alt="logout Icon" /><span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+
+    </div>
+
+    <div id="main">
+        <header>
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-7">
+                        <div class="hamburger" id="hamburger-1">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+
+                        <div class="mobile-bd-color">
+                            <ul class="menu">
+
+                                <div class="mobilescreen">
+                                    <div class="login">
+                                        <ul>
+                                            <li class="login-form-popup"><a href="Javascript:;">Login</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <li class="menulist">
+                                    <a href="javascript:;">Company <span class="caret"></span></a>
+                                    <ul class="nav-sub-menus">
+                                        <li>@Html.ActionLink("About Us", "About", "Home", new { area = "" }, null)</li>
+                                        <li>@Html.ActionLink("Founder’s Note", "FounderNote", "FounderNote", new { area = "" }, null)</li>
+                                    </ul>
+                                </li>
+                                <li>@Html.ActionLink("Jobs", "Index", "Jobs", new { area = "" }, null)</li>
+                                <li class="menulist menulists">
+                                    <a href="javascript:;">Categories <span class="caret"></span></a>
+                                    <ul class="nav-sub-menu">
+
+                                        <ul class="tabs">
+                                            <li class="tab-link current" data-tab="tab-1">Job by Disability</li>
+                                            <li class="tab-link" data-tab="tab-2">Job by Sector</li>
+                                        </ul>
+
+                                        <div id="tab-1" class="tab-content current">
+                                            <span><a href="#!">Physical Disability</a></span>
+                                            <span><a href="#!">Intellectual Disability</a></span>
+                                            <span><a href="#!">Mental Illness</a></span>
+                                            <span><a href="#!">Chronic Neurological</a></span>
+                                            <span><a href="#!">Blood Disorder</a></span>
+                                            <span><a href="#!">Multiple Disabilities</a></span>
+                                        </div>
+                                        <div id="tab-2" class="tab-content">
+                                            <span><a href="#!">Ecommerce</a></span>
+                                            <span><a href="#!">Hospitality</a></span>
+                                            <span><a href="#!">IT / ITES</a></span>
+                                            <span><a href="#!">BFSI</a></span>
+                                            <span><a href="#!">Manufacturing</a></span>
+                                            <span><a href="#!">Retail</a></span>
+                                        </div>
+
+                                    </ul>
+                                </li>
+                                <li>@Html.ActionLink("Blog", "Index", "Blogs", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Schemes", "Index", "Schemes", new { area = "" }, null)</li>
+                                <li>@Html.ActionLink("Contact Us", "Contact", "Home", new { area = "" }, null)</li>
+
+                                <div class="mobilescreen">
+                                    <div class="login loginm">
+                                        <ul>
+                                            <li class="active"><a href="@Url.Action("ssss", "ssss", new { area = "Employee" })">Update Profile</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-5">
+
+                        <div class="civi-notification text-sm-end">
+                            <div class="icon-noti">
+                                <a href="#">
+                                    <i class="fa fa-bell"></i>
+                                    <span>1</span>
+                                </a>
+                            </div>
+                            <div class="user-show">
+                                <p>
+                                    <img src="https://secure.gravatar.com/avatar/5d2e029467d752f9911fb0961199db17?s=96&amp;d=mm&amp;r=g" title="user" alt="user">
+                                    <abbr>@Session["CandidateUserName"].ToString()</abbr>
+
+                                    <div class="civi-nav-dashboard">
+                                        <ul class="left-side-menu">
+                                            <li><a href="@Url.Action("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/dashboard.svg"> <span>Dashboard</span> </a></li>
+                                            <li><a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/job.svg" class="nav-item active"> <span>Profile</span> </a></li>
+                                            <li><a href="@Url.Action("MyJobs", "MyJobs", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/applicant.svg" class="nav-item active"><span>Jobs</span> </a></li>
+
+                                            <li><a href="@Url.Action("Messages", "Messages", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                            <li><a href="@Url.Action("Meetings", "Meetings", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/meeting.svg" class="nav-item active"> <span>Meetings</span> </a></li>
+
+                                            <li><a href="@Url.Action("Setting", "Setting", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                            <li><a href="@Url.Action("LogOut", "Home", new { area = "" })"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                        </ul>
+                                    </div>
+                                </p>
+                            </div>
+                            <div class="post-a-job">
+                                <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })">Update Profile</a></>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div>
+            @RenderBody()
+        </div>
+
+
+</body>
+</html>

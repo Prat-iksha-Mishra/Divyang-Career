@@ -1,0 +1,647 @@
+﻿@model DivyangPortalWeb.Areas.Candidate.Models.UserProfile
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Areas/Candidate/Views/Shared/LayoutCandidate.cshtml";
+}
+<link href="~/Content/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+<script src="~/Scripts/js/bootstrap-datepicker.min.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/ckeditor/samples/js/sample.js"></script>
+<script src="~/Areas/Candidate/Scripts/js/jquery.validate.min.js"></script>
+<script src="~/Areas/Candidate/Scripts/js/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Areas/Candidate/Scripts/js/Profile.js"></script>
+
+<div class="wrapper">
+
+    <h1>Profile Settings</h1>
+
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-Basic-tab" data-bs-toggle="tab" data-bs-target="#nav-Basic" type="button" role="tab" aria-controls="nav-Basic" aria-selected="true">Basic Info</button>
+                        <button class="nav-link" id="nav-Education-tab" data-bs-toggle="tab" data-bs-target="#nav-Education" type="button" role="tab" aria-controls="nav-Education" aria-selected="false">Education</button>
+                        <button class="nav-link" id="nav-Experience-tab" data-bs-toggle="tab" data-bs-target="#nav-Experience" type="button" role="tab" aria-controls="nav-Experience" aria-selected="false">Experience</button>
+                        <button class="nav-link" id="nav-Disability-Info-tab" data-bs-toggle="tab" data-bs-target="#nav-Disability-Info" type="button" role="tab" aria-controls="nav-Disability-Info" aria-selected="false">Disability Info</button>
+                    </div>
+                    <br />
+                    <div class="tab-content tab-contents" id="nav-tabContent">
+                        @if (TempData["UpdateCandidatePopUp"] != null)
+                        {
+                            if (@TempData["UpdateCandidatePopUp"].ToString() == "Error try again later")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["UpdateCandidatePopUp"]
+                                </div>
+                            }
+                            else if (@TempData["UpdateCandidatePopUp"].ToString() == "fill mandatory fields")
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @TempData["UpdateCandidatePopUp"]
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @TempData["UpdateCandidatePopUp"]
+                                </div>
+                            }
+
+                        }
+                        <div class="tab-pane fade active show" id="nav-Basic" role="tabpanel" aria-labelledby="nav-Basic-tab">
+                            @using (Html.BeginForm("UpdateProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.HiddenFor(U => U.CandidateId)
+                                @Html.HiddenFor(U => U.CountryCode)
+                                @Html.HiddenFor(U => U.Description)
+                                <div class="block-from">
+                                    <h2>Basic Information</h2>
+
+                                    <div class="row">
+
+                                        <div class="col-md-3">
+                                            <div class="login-form">
+                                                <h4>Your photo</h4>
+                                                <div class="uploadimgs">
+                                                    @Html.TextBoxFor(C => C.ProfileImage, new { type = "file", @class = "form-control", id = "images3", accept = "image/png, image/jpeg" })
+                                                    <div class="uploadimg">
+                                                        <div class="uploadimg-middle">
+                                                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                            <p>Upload</p>
+                                                        </div>
+                                                    </div>
+                                                    @{ var imageName = Model.ProfileImageName;}
+                                                    <div class="form-group uploadimg">
+                                                        <div id="image_preview3" style="width:100%;">
+                                                            @if (!string.IsNullOrEmpty(imageName))
+                                                            {
+                                                                <div class="img-div3" id="img-div30">
+                                                                    <img src="@Url.Content("~/Areas/Candidate/Images/ProfileImage/"+imageName)" class="image3" title="Profile Image" alt="Profile Image">
+                                                                    <div class="middle3">
+                                                                        <button id="action-icon3" value="img-div30" class="btn btn-danger" role="@imageName">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="field-note">Maximum file size: 800kb.</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>First name</h4>
+                                                @Html.EditorFor(U => U.FirstName, new { htmlAttributes = new { autocomplete = "off" } })
+                                                @Html.ValidationMessageFor(U => U.FirstName)
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Last name</h4>
+                                                @Html.EditorFor(U => U.LastName, new { htmlAttributes = new { autocomplete = "off" } })
+                                                @Html.ValidationMessageFor(U => U.LastName)
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Email address</h4>
+                                                @Html.EditorFor(U => U.Email, new { htmlAttributes = new { autocomplete = "off" } })
+                                                @Html.ValidationMessageFor(U => U.Email)
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Phone Number</h4>
+                                                <div class="input-group-sm">
+                                                    @Html.TextBoxFor(U => U.PhoneNumber, new { @class = "form-control", id = "mobile", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                                    @Html.ValidationMessageFor(U => U.PhoneNumber)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Gaurdian Name</h4>
+                                                @Html.EditorFor(U => U.GuardianName, new { htmlAttributes = new { autocomplete = "off" } })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="login-form">
+                                                @Html.HiddenFor(C => C.Description, new { @id = "hfCompanyAboutUs" })
+                                                <h4>Description</h4>
+                                                @Html.EditorFor(C => C.Description, new { htmlAttributes = new { autocomplete = "off", id = "Aboutckeditor", @class = "form-control" } })
+                                                @Html.ValidationMessageFor(C => C.Description)
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Date of Birth</h4>
+                                                @Html.TextBoxFor(C => C.DBO, new { @class = "form-control", @id = "DBO", @placeholder = "Select Year", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Primary language</h4>
+                                                @Html.DropDownListFor(C => C.PrimaryLanguage, Model.PrimaryLanguageOptions, new { @class = "" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Gender</h4>
+                                                @Html.DropDownListFor(C => C.Gender, Model.GenderOptions, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Employment Status</h4>
+                                                @Html.DropDownListFor(C => C.EmploymentStatus, Model.EmploymentStatusOptions, "Select a status", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="block-from">
+                                    <h2>Address Information</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Address</h4>
+                                                @Html.EditorFor(U => U.Address, new { htmlAttributes = new { autocomplete = "off", placeholder = "Enter address" } })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>State</h4>
+                                                @Html.DropDownListFor(C => C.State, Model.StateDropDown, "Select a state", new { @class = "", id = "stateDropdown" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>District</h4>
+                                                @Html.DropDownListFor(C => C.District, Model.DistrictDropDown, new { @class = "", id = "DistricDropdown" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>SubDistrict Taluka</h4>
+                                                @Html.DropDownListFor(C => C.SubDistrict, Model.SubDistrictDropDown, new { @class = "", id = "SubDistrictDropdown" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>City Village</h4>
+                                                @Html.DropDownListFor(C => C.Cities, Model.CitiesDropDown, new { @class = "", id = "CitiesDropDown" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Address Type</h4>
+                                                @Html.DropDownListFor(C => C.AddressType, Model.AddressTypeDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Address SubType</h4>
+                                                @Html.DropDownListFor(C => C.AddressSubType, Model.AddressSubTypeDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Territory Type</h4>
+                                                @Html.DropDownListFor(C => C.TerritoryTypes, Model.TerritoryTypesDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Pincode</h4>
+                                                @Html.TextBoxFor(C => C.PinCode, new { @class = "form-control", placeholder = "Enter pincode", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="block-from">
+                                    <h2>Basic Information</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="uploadresume">
+                                                @{ var Cv = Model.CVName;}
+                                                <h4>CV Attachment</h4>
+                                                @Html.TextBoxFor(C => C.CV, new { type = "file", @class = "form-control sr-only", id = "resume", accept = ".pdf,.doc" })
+                                                <label for="resume" class="btn" aria-hidden="true">Upload Resume</label>
+
+                                                @if (!string.IsNullOrEmpty(Cv))
+                                                {
+                                                    <div class="field-note" id="Uploadfilename">
+                                                        Upload file: @Cv
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="field-note" id="Uploadfilename">
+                                                        Upload file: no file upload
+                                                    </div>
+
+                                                }
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Marital Status</h4>
+                                                @Html.DropDownListFor(C => C.MaritalStatus, Model.MaritalStatusDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>ReligionID</h4>
+                                                @Html.DropDownListFor(C => C.Religions, Model.ReligionsDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Caste</h4>
+                                                @Html.DropDownListFor(C => C.Castes, Model.CastesDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Uid type</h4>
+                                                @Html.DropDownListFor(C => C.UIDType, Model.UIDTypeDropDown, "Select an option", new { @class = "", id = "" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Uid number</h4>
+                                                @Html.TextBoxFor(U => U.UIDNumber, new { @class = "form-control", placeholder = "Enter uid number", maxlength = "15" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex-div">
+                                    <div></div>
+                                    <div class="button-warpper">
+                                        <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="civi-button button-outline">
+                                            Cancel
+                                        </a>
+                                        <button type="submit" class="btn-submit-company civi-button" name="submit_company" id="btnpublishbasic">
+                                            <span>Publish</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+
+
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-Education" role="tabpanel" aria-labelledby="nav-Education-tab">
+
+
+                            @using (Html.BeginForm("EducationUpdateProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="block-from">
+                                    <h2>Education</h2>
+                                    <div class="row">
+                                        @Html.HiddenFor(U => U.CandidateId)
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Highest Education</h4>
+                                                @Html.DropDownListFor(C => C.HighestEducationAttained, Model.HighestEducationAttainedDropDown, "Select an option", new { @class = "", id = "HighestEducationAttained" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Education Qualification</h4>
+                                                @Html.DropDownListFor(C => C.EducationQualification, Model.EducationQualificationDropDown, new { @class = "", id = "EducationQualification" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Specialization Major</h4>
+                                                @Html.DropDownListFor(C => C.Specializations, Model.SpecializationsDropDown, new { @class = "", id = "Specializations" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Board University</h4>
+                                                @Html.DropDownListFor(C => C.BoardUniversities, Model.BoardUniversitiesDropDown, "Select an option", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Institute</h4>
+                                                @Html.TextBoxFor(U => U.Institute, new { @class = "form-control", placeholder = "Enter institute", maxlength = "100" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Passing Month</h4>
+                                                @Html.DropDownListFor(C => C.Month, Model.MonthDropDown, "Select month", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Passing Year</h4>
+                                                @Html.TextBoxFor(C => C.Years, new { @class = "form-control", @id = "Years", @placeholder = "Select Year", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Grade Percentage Percentile Type</h4>
+                                                @Html.DropDownListFor(C => C.GradePercentagePercentileType, Model.GradeTypesDropDown, "Select grade percentage percentile type", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Grade Percentage Percentile Value</h4>
+                                                @Html.TextBoxFor(U => U.GradePercentagePercentileValue, new { @class = "form-control", placeholder = "Enter gradepercentagepercentilevalue", maxlength = "5" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Nature Of Course</h4>
+                                                @Html.DropDownListFor(C => C.CourseNature, Model.CourseNatureDropDown, "Select nature of course", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Medium Of Education</h4>
+                                                @Html.DropDownListFor(C => C.MediumOfEducation, Model.MediumOfEducationDropDown, new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Certificate Name</h4>
+                                                @Html.TextBoxFor(U => U.CertificateName, new { @class = "form-control", placeholder = "Enter certificate name", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Certificate Year</h4>
+                                                @Html.TextBoxFor(C => C.CertificateYear, new { @class = "form-control", @id = "CertificateYear", @placeholder = "Select certificate year", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Issued By</h4>
+                                                @Html.TextBoxFor(U => U.IssuedBy, new { @class = "form-control", placeholder = "Enter certificate name", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="d-flex-div">
+                                            <div></div>
+                                            <div class="button-warpper">
+                                                <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="civi-button button-outline">
+                                                    Cancel
+                                                </a>
+                                                <button type="submit" class="btn-submit-company civi-button" name="submit_company">
+                                                    <span>Publish</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-Experience" role="tabpanel" aria-labelledby="nav-Experience-tab">
+                            @using (Html.BeginForm("ExperienceUpdateProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.HiddenFor(U => U.CandidateId)
+                                <div class="block-from">
+                                    <h2>Experience</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Available To Join In Days</h4>
+                                                @Html.TextBoxFor(U => U.AvailableToJoinInDays, new { @class = "form-control", placeholder = "Enter certificate name", maxlength = "3", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Current Employer Sector</h4>
+                                                @Html.DropDownListFor(C => C.CurrentEmployerSector, Model.CurrentEmployerSectorDropDown, "Select current employer sector", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Experience Years</h4>
+                                                @Html.TextBoxFor(U => U.ExperienceYears, new { @class = "form-control", placeholder = "Enter experience years", maxlength = "2", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Experience Months</h4>
+                                                @Html.TextBoxFor(U => U.ExperienceMonths, new { @class = "form-control", placeholder = "Enter experience months", maxlength = "2", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Skill Name</h4>
+                                                @Html.TextBoxFor(U => U.SkillName, new { @class = "form-control", placeholder = "Enter skill name", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Current Job title</h4>
+                                                @Html.TextBoxFor(U => U.CurrentJobtitle, new { @class = "form-control", placeholder = "Enter current job title", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Current Company name</h4>
+                                                @Html.TextBoxFor(U => U.CurrentCompanyname, new { @class = "form-control", placeholder = "Enter current company name", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Past job title </h4>
+                                                @Html.TextBoxFor(U => U.Pastjobtitle, new { @class = "form-control", placeholder = "Enter past job title", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>From</h4>
+                                                @Html.TextBoxFor(C => C.PastFrom, new { @class = "form-control", @id = "From", @placeholder = "Select from", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>To </h4>
+                                                @Html.TextBoxFor(C => C.PastTo, new { @class = "form-control", @id = "To", @placeholder = "Select to", @autocomplete = "off" })
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Past company name </h4>
+                                                @Html.TextBoxFor(U => U.Pastcompanyname, new { @class = "form-control", placeholder = "Enter past company name", maxlength = "50" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Discription Notes</h4>
+                                                @Html.TextBoxFor(U => U.DiscriptionNotes, new { @class = "form-control", placeholder = "Enter discription notes", maxlength = "200" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex-div">
+                                    <div></div>
+                                    <div class="button-warpper">
+                                        <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="civi-button button-outline">
+                                            Cancel
+                                        </a>
+                                        <button type="submit" class="btn-submit-company civi-button" name="submit_company">
+                                            <span>Publish</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="tab-pane fade" id="nav-Disability-Info" role="tabpanel" aria-labelledby="nav-Disability-Info-tab">
+                            @using (Html.BeginForm("DisabilityUpdateProfile", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.HiddenFor(U => U.CandidateId)
+                                <div class="block-from">
+                                    <h2>Disability Info</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Disability category</h4>
+                                                @Html.DropDownListFor(C => C.DisabilityType, Model.DisabilityTypeDropDown, "Select disability category", new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>UDID</h4>
+                                                @Html.DropDownListFor(C => C.UDIDOption, Model.UDIDOptionDropDown, new { @class = "", })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6" id="UDIDDIV">
+                                            <div class="login-form">
+                                                <h4>UDID Number</h4>
+                                                @Html.TextBoxFor(U => U.UDIDNumber, new { @class = "form-control", placeholder = "Enter udid number", maxlength = "18" })
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12" id="UDIDUPLOADDIV">
+                                            <div class="login-form">
+                                                @{ var UDID = Model.UDIDCardName;}
+                                                <h4>Upload UDID Card</h4>
+                                                @Html.TextBoxFor(C => C.UDIDCard, new { type = "file", @class = "form-control sr-only", id = "UDIDCard", accept = ".pdf,.doc" })
+                                                <label for="UDIDCard" class="btn" aria-hidden="true">Upload UDID Card</label>
+
+                                                @if (!string.IsNullOrEmpty(UDID))
+                                                {
+                                                    <div class="field-note" id="UploadUDIDCard">
+                                                        Upload file: @UDID
+                                                    </div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="field-note" id="UploadUDIDCard">
+                                                        Upload file: no file upload
+                                                    </div>
+
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="login-form">
+                                                <h4>Disability Percentage (As per certificate)</h4>
+                                                @Html.TextBoxFor(C => C.DisabilityPercentage, new { @class = "form-control", placeholder = "Enter disability percentage", maxlength = "3", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex-div">
+                                    <div></div>
+                                    <div class="button-warpper">
+                                        <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="civi-button button-outline">
+                                            Cancel
+                                        </a>
+                                        <button type="submit" class="btn-submit-company civi-button" name="submit_company">
+                                            <span>Publish</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
+                @*<div class="col-md-4">
+
+                    <div class="tooltip mettings">
+                        <div class="has-sticky">
+                            <div class="has-stickys">
+                                <h4>17%</h4>
+                                <p> Profile Strength</p>
+                            </div>
+                        </div>
+                        <span class="tooltipTexts fb">
+
+                            <ul class="tooltipcontent">
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i> Basic Info not enough information</li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i> Education not enough information</li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i> Experience not enough information</li>
+                            </ul>
+
+                        </span>
+                    </div>
+
+                </div>*@
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+    $('.moreless-button').click(function () {
+        $('.moretext').show();
+        $('.moretext3').show();
+        $('.moretext5').show();
+    });
+
+    $(".remove-social").click(function () {
+        $(".moretext").hide();
+        $(".moretext3").hide();
+        $(".moretext5").hide();
+    });
+
+    $(document).on('click', '.toggle-title', function () {
+        $(this).parent(2)
+            .toggleClass('toggled-on')
+            .toggleClass('toggled-off');
+    });
+
+
+
+</script>
+

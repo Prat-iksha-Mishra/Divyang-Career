@@ -19,6 +19,11 @@ namespace DivyangPortalWeb.Controllers
         {
             return View("~/Views/Home/About.cshtml");
         }
+        
+        public ActionResult aboutteam()
+        {
+            return View("~/Views/Home/aboutteam.cshtml");
+        }
 
         public ActionResult Contact()
         {

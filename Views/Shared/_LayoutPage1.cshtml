@@ -97,18 +97,51 @@
                                                                 <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
                                                             </a>
                                                         </li>
-                                                        <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                                        <li><a href="@Url.Action("Setting", "Setting", new { area = "Employee" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
                                                         <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
                                                     </ul>
                                                 </div>
                                             </li>
                                         }
-                                        else
+                                        else if (Session["CandidateEmail"] != null && !string.IsNullOrEmpty(Session["CandidateEmail"].ToString()))
                                         {
-                                            <li class="login-form-popups">
-                                                <a href="Javascript:;"></a>
-                                            </li>
-                                        }
+                                        <li class="login-form-popups">
+                                        <a href="Javascript:;">@Session["CandidateUserName"].ToString()</a>
+                                        <div class="civi-nav-dashboard">
+                                            <ul class="left-side-menu">
+                                                <li>
+                                                    <a href="@Url.Action("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" })" class="nav-item active">
+                                                        <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="nav-item active">
+                                                        <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Profile</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("MyJobs", "MyJobs", new { area = "Candidate" })" class="nav-item active">
+                                                        <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                                                    </a>
+                                                </li>
+                                                <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                                <li>
+                                                    <a href="@Url.Action("Meetings", "Meetings", new { area = "Candidate" })" class="nav-item active">
+                                                        <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                                                    </a>
+                                                </li>
+                                                <li><a href="@Url.Action("Setting", "Setting", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                                <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="login-form-popups">
+                                        <a href="Javascript:;"></a>
+                                    </li>
+                                }
 
                                     </ul>
                                 </div>
@@ -153,6 +186,8 @@
                             <li><a href="Blogs">Blog</a></li>
                             <li><a href="Schemes">Schemes</a></li>
                             <li><a href="Contactus">Contact Us</a></li>
+
+                            <li><a href="@Url.Action("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" })">Candidate Dashboard</a></li>
 
                             <div class="mobilescreen">
                                 <div class="login loginm">
@@ -210,7 +245,40 @@
                                                     <img src="~/Areas/Employee/Images/company.svg" alt="Meetings Icon" /><span>Company</span>
                                                 </a>
                                             </li>
-                                            <li><a href="#"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                            <li><a href="@Url.Action("Setting", "Setting", new { area = "Employee" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
+                                            <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                            else if (Session["CandidateEmail"] != null && !string.IsNullOrEmpty(Session["CandidateEmail"].ToString()))
+                            {
+                                <li class="login-form-popup">
+                                    <a href="Javascript:;">@Session["CandidateUserName"].ToString()</a>
+                                    <div class="civi-nav-dashboard">
+                                        <ul class="left-side-menu">
+                                            <li>
+                                                <a href="@Url.Action("CandidateDashboard", "CandidateDashboard", new { area = "Candidate" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/dashboard.svg" alt="Dashboard Icon" /><span>Dashboard</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Profile", "Profile", new { area = "Candidate" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Profile</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("MyJobs", "MyJobs", new { area = "Candidate" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/job.svg" alt="Jobs Icon" /><span>Jobs</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#"><img src="~/Areas/Employee/Images/message.svg" class="nav-item active"> <span>Messages</span> </a></li>
+                                            <li>
+                                                <a href="@Url.Action("Meetings", "Meetings", new { area = "Candidate" })" class="nav-item active">
+                                                    <img src="~/Areas/Employee/Images/meeting.svg" alt="Meetings Icon" /><span>Meetings</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="@Url.Action("Setting", "Setting", new { area = "Candidate" })"><img src="~/Areas/Employee/Images/setting.svg" class="nav-item active"> <span>Settings</span> </a></li>
                                             <li><a href="LogOut"><img src="~/Areas/Employee/Images/logout.svg" class="nav-item active"> <span>Logout</span> </a></li>
                                         </ul>
                                     </div>

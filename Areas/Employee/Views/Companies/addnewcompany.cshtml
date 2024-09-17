@@ -1,13 +1,17 @@
-﻿
+﻿@model DivyangPortalWeb.Areas.Employee.Models.AddCompany
 @{
     ViewBag.Title = "addnewcompany";
     Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/37.1.0/classic/ckeditor.js"></script>
-    <script src="https://unpkg.com/ckeditor5-inspector@4.1.0/build/inspector.js"></script>
+    <link href="~/Areas/Employee/Content/css/monthpicker.css" rel="stylesheet" />
 
-    <script src="~/Areas/Employee/Scripts/js/ckeditor.js"></script>
-    <script src="~/Areas/Employee/Scripts/js/inspector.js"></script>
+    <script src="~/Areas/Employee/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Areas/Employee/Scripts/ckeditor/samples/js/sample.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/jquery.validate.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/monthpicker.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/jquery-ui.min.js"></script>
+    <script src="~/Areas/Employee/Scripts/js/AddCompany.js"></script>
 }
 
 <div class="wrapper">
@@ -15,403 +19,365 @@
     <div class="spacing">
         <div class="container">
             <div class="row">
-
                 <div class="col-md-8">
-                    <div class="d-flex-div">
-                        <div><h1>Submit company</h1></div>
-                        <div class="button-warpper">
-                            <a href="javascript:;" class="civi-button button-outline">
-                                Cancel
-                            </a>
-                            <button type="submit" class="btn-submit-company civi-button" name="submit_company">
-                                <span>Publish</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Basic info</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Company name <span>*</span></h4>
-                                    <input type="email" placeholder="Name">
-                                </div>
+                    @if (TempData["AddCompanyPopUp"] != null)
+                    {
+                        if (@TempData["AddCompanyPopUp"].ToString() == "Error try again later")
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @TempData["AddCompanyPopUp"]
                             </div>
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Categories <span>*</span></h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="" data-select2-id="1">Select an option</option>
-                                        <option value="Aviation" data-select2-id="2">Aviation</option>
-                                        <option value="Ecommerce" data-select2-id="3">Ecommerce</option>
-                                        <option value="Education" data-select2-id="4">Education</option>
-                                        <option value="Healthcare" data-select2-id="5">Healthcare</option>
-                                        <option value="Hospitality" data-select2-id="6">Hospitality</option>
-                                        <option value="IT" data-select2-id="7">IT</option>
-                                        <option value="IT / ITES" data-select2-id="8">IT / ITES</option>
-                                        <option value="Media" data-select2-id="9">Media</option>
-                                        <option value="Medical / Science" data-select2-id="10">Medical / Science</option>
-                                        <option value="Non Profit / NGO" data-select2-id="11">Non Profit / NGO</option>
-                                        <option value="Organic Food products" data-select2-id="12">Organic Food products</option>
-                                        <option value="Retail" data-select2-id="13">Retail</option>
-                                        <option value="software development" data-select2-id="14">software development</option>
-                                    </select>
-                                </div>
+                        }
+                        else if (@TempData["AddCompanyPopUp"].ToString() == "fill mandatory fields")
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @TempData["AddCompanyPopUp"]
                             </div>
-
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Add New Categories</h4>
-                                    <input type="email" placeholder="Enter new Categories">
-                                </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-success" role="alert">
+                                @TempData["AddCompanyPopUp"]
                             </div>
+                        }
 
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Company Url Slugs</h4>
-                                    <div class="company-url-warp">
-                                        <input class="input-url" type="text" placeholder="https://divyangcareer.com/companies/" disabled="">
-                                        <input class="input-slug" type="text" id="company_url" name="company_url" placeholder="company-name">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>About company <span>*</span></h4>
-                                    <div id="editor"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Website</h4>
-                                    <input type="email" placeholder="www.domain.com">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Phone Number</h4>
-                                    <div class="input-group-sm">
-                                        <input id="mobile" type="tel" name="mobile" placeholder="+91" class="form-control" autofocus required">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Email <span>*</span></h4>
-                                    <input type="email" placeholder="hello@domain.com">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Founded in</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="2010" data-select2-id="15">2010</option>
-                                        <option value="2011" data-select2-id="16">2011</option>
-                                        <option value="2012" data-select2-id="17">2012</option>
-                                        <option value="2013" data-select2-id="18">2013</option>
-                                        <option value="2014" data-select2-id="19">2014</option>
-                                        <option value="2015" data-select2-id="20">2015</option>
-                                        <option value="2016" data-select2-id="21">2016</option>
-                                        <option value="2017" data-select2-id="22">2017</option>
-                                        <option value="2018" data-select2-id="23">2018</option>
-                                        <option value="2019" data-select2-id="24">2019</option>
-                                        <option value="2020" data-select2-id="25">2020</option>
-                                        <option value="2021" data-select2-id="26">2021</option>
-                                        <option value="2022" data-select2-id="27">2022</option>
-                                        <option value="2023" data-select2-id="28">2023</option>
-                                        <option value="2024" data-select2-id="29">2024</option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Company size</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="Select an option" data-select2-id="30">Select an option</option>
-                                        <option value="50-100" data-select2-id="30">50-100</option>
-                                        <option value="100-200" data-select2-id="32">100-200</option>
-                                        <option value="200-300" data-select2-id="33">200-300</option>
-                                        <option value="300-400" data-select2-id="34">300-400</option>
-                                        <option value="400-500" data-select2-id="35">400-500</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Media</h2>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="login-form">
-                                    <h4>Image</h4>
-
-                                    <div class="uploadimgs">
-                                        <input type="file" name="images[]" id="images" multiple class="form-control" required>
-                                        <div class="uploadimg">
-                                            <div class="uploadimg-middle">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                                <p>Upload</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group uploadimg">
-                                            <div id="image_preview" style="width:100%;">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="field-note">Maximum file size: 800kb.</div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-md-9">
-                                <div class="login-form">
-                                    <h4>Cover image</h4>
-
-                                    <div class="uploadimgs">
-                                        <input type="file" name="images[]" id="images2" multiple class="form-control" required>
-                                        <div class="uploadimg">
-                                            <div class="uploadimg-middle">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                                <p>Click here <span>or drop files to upload</span></p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group uploadimg">
-                                            <div id="image_preview2" style="width:100%;">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="field-note">The cover image size should be max 1920 x 400px</div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Social network</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Twitter</h4>
-                                    <input type="email" placeholder="twitter.com/company">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Linkedins</h4>
-                                    <input type="email" placeholder="linkedin.com/company">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Facebook</h4>
-                                    <input type="email" placeholder="facebook.com/company">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Instagram</h4>
-                                    <input type="email" placeholder="instagram.com/company">
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Location</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="login-form formlocation">
-                                    <h4>Location</h4>
-                                    <select name="" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option value="Select an option" data-select2-id="50">Select an option</option>
-                                        <option value="Ab e Kamari" data-select2-id="51">Ab e Kamari</option>
-                                        <option value="Agartala" data-select2-id="52">Agartala</option>
-                                        <option value="Ahmedabad" data-select2-id="53">Ahmedabad</option>
-                                        <option value="Ashkasham" data-select2-id="54">Ashkasham</option>
-                                        <option value="Aurora" data-select2-id="55">Aurora</option>
-                                        <option value="Baner Pune" data-select2-id="56">Baner Pune</option>
-                                        <option value="Banu" data-select2-id="56">Banu</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Add New Location</h4>
-                                    <input type="text" placeholder="Enter new location">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Maps location</h4>
-                                    <input type="text" placeholder="Full Address">
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div id="map">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3037.035014187959!2d-88.58546432398835!3d40.43022357143751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDDCsDI1JzQ4LjgiTiA4OMKwMzQnNTguNCJX!5e0!3m2!1sen!2sin!4v1724764752238!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Longtitude</h4>
-                                    <input type="text" placeholder="-88.0616189">
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="login-form">
-                                    <h4>Latitude</h4>
-                                    <input type="text" placeholder="41.8337734">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Gallery</h2>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="login-form">
-                                    <h4>Image</h4>
-
-                                    <div class="uploadimgs">
-                                        <input type="file" name="images[]" id="images3" multiple class="form-control" required>
-                                        <div class="uploadimg">
-                                            <div class="uploadimg-middle">
-                                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                                <p>Upload</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group uploadimg">
-                                            <div id="image_preview3" style="width:100%;">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="field-note">Maximum file size: 800kb.</div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block-from">
-                        <h2>Video</h2>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="login-form">
-                                    <h4>Introduction video Url</h4>
-                                    <input type="email" placeholder="Enter url video">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-                    <div class="spacing">
-                        <div class="detailsright">
-                            <h4><a href="javascript:;">Preview</a></h4>
-
-                            <div class="info-user">
-                                <div>
-                                    <a href="javascript:;">
-                                        <img src="/Areas/Employee/Images/Divyang-career.png">
-                                    </a>
-                                </div>
-                                <div class="Preview-user">
-                                    <div class="entry-overview">
-                                        <div class="rating-bars rating-bars-wp">
-                                            <div class="rating-bars-item">
-                                                <div class="rating-bars-name">
-                                                    <abbr>Company name</abbr>
-                                                    <div class="tip" data-tip-content="">
-                                                        <div class="tip-content">
-                                                            <b>Conditions for a green tick:</b>
-                                                            <abbr>Website not been verified</abbr>
-                                                            <abbr>Phone not been verified</abbr>
-                                                            <abbr>Location not been verified</abbr>
-                                                        </div>
-                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Location</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="info-user">
-                                <div>
-                                    <a href="javascript:;">
-                                        <img src="/Areas/Employee/Images/Divyang-career.png">
-                                    </a>
-                                </div>
-                                <div class="Preview-user">
-                                    <div class="entry-overview">
-                                        <div class="rating-bars rating-bars-wp">
-                                            <div class="rating-bars-item">
-                                                <div class="rating-bars-name">
-                                                    <abbr>Company name</abbr>
-                                                    <div class="tip" data-tip-content="">
-                                                        <div class="tip-content">
-                                                            <b>Conditions for a green tick:</b>
-                                                            <abbr>Website not been verified</abbr>
-                                                            <abbr>Phone not been verified</abbr>
-                                                            <abbr>Location not been verified</abbr>
-                                                        </div>
-                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> Location</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    }
+                    @using (Html.BeginForm("AddCompany", "Companies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(C => C.CompanyAboutUs)
+                        @Html.HiddenFor(C => C.PhoneCountryCode)
+                        @Html.HiddenFor(C => C.EmployerId)
+                       if (@Model.EmployerId > 0) // Check if EmployerId is valid (greater than 0)
+{
+    <div class="d-flex-div">
+        <div><h1>Update company</h1></div>
+        <div class="button-warpper">
+            @Html.ActionLink("Cancel", "Companies", "Companies", new { Area = "Employee" }, null)
+            <button type="submit" class="btn-submit-company civi-button" name="submit_company"  value="Update">
+                <span>Update</span>
+            </button>
         </div>
+    </div>
+}
+else
+{
+    <div class="d-flex-div">
+        <div><h1>Submit company</h1></div>
+        <div class="button-warpper">
+            @Html.ActionLink("Cancel", "Companies", "Companies", new { Area = "Employee" }, null)
+            <button type="submit" class="btn-submit-company civi-button" name="submit_company" value="Submit">
+                <span>Publish</span>
+            </button>
+        </div>
+    </div>
+}
+
+                        <div class="block-from">
+                            <h2>Basic info</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CompanyName)</h4>
+                                        @Html.EditorFor(C => C.CompanyName, new { htmlAttributes = new { autocomplete = "off", placeholder = "Enter company name", maxlength = "100" } })
+                                        @Html.ValidationMessageFor(C => C.CompanyName)
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CompanyCategories)</h4>
+                                        @Html.DropDownListFor(C => C.CompanyCategories, Model.CompanyCategoriesOptions, "Select a categories", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(C => C.CompanyCategories)
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="login-form">
+                                        @Html.HiddenFor(model => model.CompanyAboutUs, new { @id = "hfCompanyAboutUs" })
+                                        <h4>@Html.LabelFor(C => C.CompanyAboutUs)</h4>
+                                        @Html.EditorFor(C => C.CompanyAboutUs, new { htmlAttributes = new { autocomplete = "off", id = "Aboutckeditor", @class = "form-control" } })
+                                        @Html.ValidationMessageFor(C => C.CompanyAboutUs)
+                                        @*<div id="editor"></div>*@
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CompanyWebsite)</h4>
+                                        @Html.EditorFor(C => C.CompanyWebsite, new { htmlAttributes = new { autocomplete = "off", placeholder = "http(s)://www.domain.in" } })
+                                        @Html.ValidationMessageFor(C => C.CompanyWebsite)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.PhoneNumber)</h4>
+                                        <div class="input-group-sm">
+                                            @Html.TextBoxFor(C => C.PhoneNumber, new { @class = "form-control", id = "mobile", placeholder = "Phone number", maxlength = "10", oninput = "this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\\..*)\\./g, '$1');" })
+                                            @Html.ValidationMessageFor(C => C.PhoneNumber)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CompanyEmail)</h4>
+                                        @Html.EditorFor(C => C.CompanyEmail, new { htmlAttributes = new { autocomplete = "off", placeholder = "dome@gmail.com" } })
+                                        @Html.ValidationMessageFor(C => C.CompanyEmail)
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.FoundedIn)</h4>
+                                        @Html.EditorFor(C => C.FoundedIn)
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>@Html.LabelFor(C => C.CompanySize)</h4>
+                                        @Html.DropDownListFor(C => C.CompanySize, Model.CompanySizeDropDown, "Select a size", new { @class = "" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Media</h2>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="login-form">
+                                        <h4>Image</h4>
+
+                                        <div class="uploadimgs">
+                                            @*<input type="file" id="images" class="form-control">*@
+                                            @Html.TextBoxFor(C => C.CompanyLogo, new { type = "file", @class = "form-control", id = "images", accept = "image/png, image/jpeg" })
+                                            <div class="uploadimg">
+                                                <div class="uploadimg-middle">
+                                                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                    <p>Upload</p>
+                                                </div>
+                                            </div>
+                                            @{ var CompanyLogo = Model.CompanyLogoName;}
+                                            <div class="form-group uploadimg">
+                                                <div id="image_preview" style="width:100%;">
+                                                    @if (!string.IsNullOrEmpty(CompanyLogo))
+                                                    {
+                                                        <div class="img-div" id="img-div0">
+                                                            <img src="@Url.Content("~/Areas/Employee/Images/CompanyImage/"+CompanyLogo)" class="image" title="Company Logo">
+                                                            <div class="middle">
+                                                                <button id="action-icon" value="img-div0" class="btn btn-danger" role="@CompanyLogo">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field-note">Maximum file size: 800kb.</div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="login-form">
+                                        <h4>Cover image</h4>
+
+                                        <div class="uploadimgs">
+                                            @Html.TextBoxFor(C => C.CompanyCoverImages, new { type = "file", @class = "form-control", id = "images2", accept = "image/png, image/jpeg" })
+                                            <div class="uploadimg">
+                                                <div class="uploadimg-middle">
+                                                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                    <p>Click here <span>or drop files to upload</span></p>
+                                                </div>
+                                            </div>
+                                            @{ var CompanyCoverLogo = Model.CompanyCoverImagesName;}
+                                            <div class="form-group uploadimg">
+                                                <div id="image_preview2" style="width:100%;">
+                                                    @if (!string.IsNullOrEmpty(CompanyLogo))
+                                                    {
+                                                        <div class="img-div2" id='img-div20'>
+                                                            <img src="@Url.Content("~/Areas/Employee/Images/CompanyImage/"+CompanyCoverLogo)" class='image2' title='Company Cover Image'><div class='middle2'><button id='action-icon2' value='img-div20' class='btn btn-danger' role="@CompanyCoverLogo"><i class='fa fa-trash'></i></button></div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field-note">The cover image size should be max 1920 x 400px</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Social network</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Twitter</h4>
+                                        @Html.EditorFor(C => C.TwitterUrl, new { htmlAttributes = new { autocomplete = "off", placeholder = "twitter.com/company" } })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Linkedins</h4>
+                                        @Html.EditorFor(C => C.LinkdinUrl, new { htmlAttributes = new { autocomplete = "off", placeholder = "linkedin.com/company" } })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Facebook</h4>
+                                        @Html.EditorFor(C => C.FaceBookUrl, new { htmlAttributes = new { autocomplete = "off", placeholder = "facebook.com/company" } })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Instagram</h4>
+                                        @Html.EditorFor(C => C.InstagramUrl, new { htmlAttributes = new { autocomplete = "off", placeholder = "instagram.com/company" } })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Location</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="login-form formlocation">
+                                        <h4>State</h4>
+                                        @Html.DropDownListFor(C => C.State, Model.StateDropDown, "Select a state", new { @class = "", id = "stateDropdown" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>District</h4>
+                                        @Html.DropDownListFor(C => C.District, Model.DistrictDropDown, new { @class = "", id = "DistricDropdown" })
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="login-form">
+                                        <h4>Full Address</h4>
+                                        @Html.EditorFor(C => C.CompanyFullAddress, new { htmlAttributes = new { autocomplete = "off", placeholder = "Enter full address" } })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="block-from">
+                            <h2>Gallery</h2>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="login-form">
+                                        <h4>Image</h4>
+
+                                        <div class="uploadimgs">
+                                            @Html.TextBoxFor(C => C.GalleryImage, new { type = "file", @class = "form-control", id = "images3", accept = "image/png, image/jpeg" })
+                                            <div class="uploadimg">
+                                                <div class="uploadimg-middle">
+                                                    <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                                                    <p>Upload</p>
+                                                </div>
+                                            </div>
+                                            @{ var CompanyGalleryImage = Model.GalleryImageName;}
+                                            <div class="form-group uploadimg">
+                                                <div id="image_preview3" style="width:100%;">
+                                                    @if (!string.IsNullOrEmpty(CompanyGalleryImage))
+                                                    {
+                                                        <div class="img-div3" id="img-div30"><img src="@Url.Content("~/Areas/Employee/Images/CompanyImage/"+CompanyGalleryImage)" class="image3" title="05122023521.jpg"><div class="middle3"><button id="action-icon3" value="img-div30" class="btn btn-danger" role="@CompanyGalleryImage"><i class="fa fa-trash"></i></button></div></div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="field-note">Maximum file size: 800kb.</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="spacing">
+                                        <div class="detailsright">
+                                            <h4><a href="javascript:;">Preview</a></h4>
+
+                                            <div class="info-user">
+                                                <div>
+                                                    <a href="javascript:;" id="ShowLogo">
+                                                        @if (!string.IsNullOrEmpty(Model.CompanyLogoName))
+                                                        {
+                                                            <img src="/Areas/Employee/Images/CompanyImage/@Model.CompanyLogoName">
+                                                        }
+                                                        else
+                                                        {
+                                                            <img src="/Areas/Employee/Images/CompanyImage/DefaultCompanyLogo.png">
+                                                        }
+
+                                                    </a>
+                                                </div>
+                                                <div class="Preview-user">
+                                                    <div class="entry-overview">
+                                                        <div class="rating-bars rating-bars-wp">
+                                                            <div class="rating-bars-item">
+                                                                <div class="rating-bars-name">
+                                                                    <abbr id="ShowCompanyName">
+                                                                        @if (!string.IsNullOrEmpty(Model.CompanyName))
+                                                                        {
+                                                                            @Model.CompanyName
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            @*@Model.CompanyName= "Company Name";*@
+                                                                        }
+
+                                                                    </abbr>
+                                                                    <div class="tip" data-tip-content="">
+                                                                        <div class="tip-content">
+                                                                            <b>Conditions for a green tick:</b>
+                                                                            <abbr>Website not been verified</abbr>
+                                                                            <abbr>Phone not been verified</abbr>
+                                                                            <abbr>Location not been verified</abbr>
+                                                                        </div>
+                                                                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <p id="ShowLocation">
+                                                            @*@if (!string.IsNullOrEmpty(Model.State))
+                                                            {
+                                                                @Model.State
+                                                            }
+                                                            else
+                                                            {
+                                                                <i class="fa fa-map-marker" aria-hidden="true"></i>Location
+                                                             }*@
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
     </div>
 
 </div>

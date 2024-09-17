@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewBag.Title = "MyJobs";
+    Layout = "~/Areas/Candidate/Views/Shared/LayoutCandidate.cshtml";
+}
+
+<div class="wrapper">
+
+    <h1>My Jobs</h1>
+
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="tabs-header">
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Applied(3)</button>
+                            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Wishlist(1)</button>
+                            <button class="nav-link" id="nav-Invite-tab" data-bs-toggle="tab" data-bs-target="#nav-Invite" type="button" role="tab" aria-controls="nav-Invite" aria-selected="false">Invite(0)</button>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-content tab-contents" id="nav-tabContent">
+                        
+                        <div class="tab-pane fade active show" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="Search-jobs-title">
+                                            <input type="email" placeholder="Search title,description">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="sortby-col">
+                                            <span>Sort By</span>
+                                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option value="Newest" data-select2-id="11">Newest</option>
+                                                <option value="Oldest" data-select2-id="12">Oldest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tables">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="40%">Job Title</th>
+                                            <th width="25%">Status</th>
+                                            <th width="20%">Date Applied</th>
+                                            <th width="15%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="info-user">
+                                                <div>
+                                                    <a href="@Url.Action("MyJobsDetails", "MyJobs", new { area = "Candidate" })">
+                                                        <img src="/Areas/Employee/Images/user-image.jpg">
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h3 class="title-jobs-dashboard">
+                                                        <a href="@Url.Action("MyJobsDetails", "MyJobs", new { area = "Candidate" })">Packer for eCommerce company</a>
+                                                    </h3>
+                                                    <p>Physical Disability / Private / Bengaluru</p>
+                                                </div>
+                                            </td>
+                                            <td class="approve-reject">
+                                                @*<abbr class="approve">Approved</abbr>
+                                                <abbr class="reject">Rejected</abbr>*@
+                                                <abbr class="Pending">Pending</abbr>
+                                            </td>
+                                            <td class="approve-reject">
+                                                <label>25/08/2024</label>
+                                            </td>
+
+                                            <td style="text-align:right;">
+                                                <div class="info-user-end">
+                                                    <a class="delete" href="javascript:;">Delete </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="Search-jobs-title">
+                                            <input type="email" placeholder="Search jobs title">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="sortby-col">
+                                            <span>Sort By</span>
+                                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option value="Newest" data-select2-id="11">Newest</option>
+                                                <option value="Oldest" data-select2-id="12">Oldest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tables">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="60%">Job Title</th>
+                                            <th width="25%">Posted Date</th>
+                                            <th width="15%"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="info-user">
+                                                <div>
+                                                    <a href="@Url.Action("MyJobsDetails", "MyJobs", new { area = "Candidate" })">
+                                                        <img src="/Areas/Employee/Images/Divyang-career.png">
+                                                    </a>
+                                                </div>
+                                                <div>
+                                                    <h3 class="title-jobs-dashboard">
+                                                        <a href="@Url.Action("MyJobsDetails", "MyJobs", new { area = "Candidate" })">Packer for eCommerce company</a>
+                                                    </h3>
+                                                    <p> Physical Disability / Private / Kolkata </p>
+                                                </div>
+                                            </td>
+                                           
+                                            <td class="approve-reject">
+                                                <label>06/08/2024</label>
+                                            </td>
+
+                                            <td style="text-align:right;">
+                                                <div class="info-user-end">
+                                                    <a class="delete" href="javascript:;">Delete </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="tab-pane fade" id="nav-Invite" role="tabpanel" aria-labelledby="nav-Invite-tab">
+
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="Search-jobs-title">
+                                            <input type="email" placeholder="Search jobs title">
+                                            <i class="fa fa-search"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="sortby-col">
+                                            <span>Sort By</span>
+                                            <select name="filter jobs_filter_rate" class="civi-select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option value="Newest" data-select2-id="11">Newest</option>
+                                                <option value="Oldest" data-select2-id="12">Oldest</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <b style="font-size:30px; color:#666; padding:20px 0px; display:block; font-weight:400;">No item found</b>
+
+                        </div>
+                    
+                    
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
