@@ -1,14 +1,15 @@
-﻿
+﻿@model IEnumerable<DivyangPortalWeb.Areas.Employee.Models.FinalCompany>
 @{
     ViewBag.Title = "Companies";
     Layout = "~/Areas/Employee/Views/Shared/_LayoutEmployee.cshtml";
 }
-
+<script src="~/Areas/Employee/Scripts/js/Companieslist.js"></script>
 <div class="wrapper">
+    <input type="hidden" id="hdcompanyid" />
     <h1>Companies</h1>
 
     <div class="spacing">
-        
+
         <div class="container">
             <div class="tables">
                 <table class="table">
@@ -22,35 +23,38 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="info-user">
-                                <div>
-                                    <a href="javascript:;">
-                                        <img src="~/Areas/Employee/Images/Divyang-career.png" />
-                                    </a>
-                                </div>
-                                <div>
-                                    <h3 class="title-jobs-dashboard">
-                                        @Html.ActionLink("dfd", "Companiesdetails", "Companies", new { Area = "Employee" }, null)
-                                    </h3>
-                                    <p>Blood Disorder / Private</p>
-                                </div>
-                            </td>
-                            <td><span class="label-opening">Opening</span></td>
-                            <td>
-                                <p>Software development</p>
-                            </td>
+                        @foreach (var company in Model)
+                        {
+                            <tr>
+                                <td class="info-user">
+                                    <div>
+                                        <a href="javascript:;">
+                                            <img src="~/Areas/Employee/Images/CompanyImage/@company.CompanyLogo" />
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <h3 class="title-jobs-dashboard">
+                                            @Html.ActionLink(@company.CompanyName, "Companiesdetails", "Companies", new { Area = "Employee" ,id= company.Id }, null)
+                                        </h3>
+                                        <p>@company.State</p>
+                                    </div>
+                                </td>
+                                <td><span class="label-opening">@company.CompanySize</span></td>
+                                <td>
+                                    <p>@company.CompanyCategories</p>
+                                </td>
 
-                            <td>
-                                <span class="start-time">10</span>
-                            </td>
-                            
-                            <td style="text-align:right;">
-                                <a class="btn-edit" href="javascript:;"> Edit </a>
-                                <a class="Continue" href="javascript:;"> Continue </a>
-                            </td>
-                        </tr>
-                       
+                                <td>
+                                    <span class="start-time">10</span>
+                                </td>
+
+                                <td style="text-align:right;">
+                                    <a class="btn-edit" href="@Url.Action("addnewcompany", "Companies", new { id = company.Id })"> Edit </a>
+                                    <a class="Continue" href="javascript:;" id="btndelete" value="@company.Id"> Delete </a>
+                                </td>
+                            </tr>
+                        }
+
                     </tbody>
                 </table>
 
@@ -61,6 +65,30 @@
         <div class="add-new-company">@Html.ActionLink("Add new company", "addnewcompany", "Companies", new { Area = "Employee" }, null)</div>
 
     </div>
+    <!--Confirm message strat hear-->
+    <div class="lightbgcolor" >
+        <div class="middlewrapper">
+            <a href="javascript:;" class="btn-close"></a>
+            <div class="Complete-message">
+                <img src="~/Areas/Employee/Images/delete.png" />
+                <h5>Are you sure ?</h5>
+                @*<p>You can’t undo this action later.</p>*@
+            </div>
 
+            <div class="button-warpper" style="text-align:center;">
+                <a href="javascript:;" class="civi-button button-outline" id="btncancel">
+                    Cancel
+                </a>
+                <a href="javascript:;" class="btn-submit-company civi-button"  name="submit_company" id="btnyesdelete">
+                    Delete
+                </a>
+                @*<button type="submit" class="btn-submit-company civi-button" name="submit_company">
+                    <span>Delete</span>
+                </button>*@
+            </div>
+
+        </div>
+    </div>
+    <!--Confirm end hear-->
 </div>
 

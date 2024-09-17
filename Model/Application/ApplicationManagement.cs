@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI.WebControls;
 using DivyangPortalWeb.Areas.Employee.Models;
+using DivyangPortalWeb.Areas.Candidate.Models;
 
 namespace DivyangPortalWeb.Model.Application
 {
@@ -46,6 +47,14 @@ namespace DivyangPortalWeb.Model.Application
            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
             return res;
         }
+        public async Task<Message<int>> CheckEmailEmployerUpdate(CheckEmail model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Employee/CheckEmailUpdate"));
+            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
+            return res;
+        }
         public async Task<Message<EmployerDetails>> LogIn(string Email, string Password)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -62,11 +71,11 @@ namespace DivyangPortalWeb.Model.Application
             return res;
 
         }
-        public async Task<Message<EmployeeDetails>> GetEmployerDetails(string Email)
+        public async Task<Message<EmployeeDetails2>> GetEmployerDetails(string Email)
         {
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
                 "/api/Employee/GetEmployerDetails"));
-            var res = await GetAsync<Message<EmployeeDetails>, string>(requestUrl, Email,  "Email");
+            var res = await GetAsync<Message<EmployeeDetails2>, string>(requestUrl, Email,  "Email");
             return res;
         }
         public async Task<Message<int>> GetEmployerIdDetails(string Email)
@@ -85,7 +94,7 @@ namespace DivyangPortalWeb.Model.Application
             return res;
 
         }
-        public async Task<Message<int>> CheckUserExistOrNot(CheckEmail model)
+        public async Task<Message<int>> CheckUserExistOrNot2(CheckEmail model)
         {
             var message = new Message<int>();
             var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
@@ -93,6 +102,7 @@ namespace DivyangPortalWeb.Model.Application
             var res = await PostAsync<int, CheckEmail>(requestUrl, model);
             return res;
         }
+
         public async Task<Message<int>> CheckUserExistOrNot(CheckEmployeeId model)
         {
             var message = new Message<int>();
@@ -192,143 +202,314 @@ namespace DivyangPortalWeb.Model.Application
             var res = await GetAsync<Message<List<DropDownValues>>>(requestUrl);
             return res;
         }
-      
 
-        ////--- this method is  used to login for admin
-        //public async Task<Message<UserLogin>> Login(string EmailId, string password)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/User/logindata"));
-        //    var res = await GetAsync<Message<UserLogin>,string, string>(requestUrl, EmailId, password, "EmailId", "password");
-        //    return res;
-        //}
+        public async Task<Message<List<CompanyCategories>>> CompanyCategories()
+        {
+            var message = new Message<List<CompanyCategories>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/CompanyCategories"));
+            var res = await GetAsync<Message<List<CompanyCategories>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<CompanySize>>> CompanySize()
+        {
+            var message = new Message<List<CompanySize>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindCompanySize"));
+            var res = await GetAsync<Message<List<CompanySize>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<State>>> BindState()
+        {
+            var message = new Message<List<State>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindState"));
+            var res = await GetAsync<Message<List<State>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<District>>> BindDistict(string StateId)
+        {
+            var message = new Message<List<District>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/BindDistrict"));
+            var res = await GetAsync<Message<List<District>>,string>(requestUrl,StateId, "StateId");
+            return res;
+        }
+        public async Task<Message<List<Cities>>> BindCities(string StateId, string District , string SubDistrict )
+        {
+            var message = new Message<List<Cities>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/BindCities"));
+            var res = await GetAsync<Message<List<Cities>>, string, string, string>(requestUrl, StateId, District, SubDistrict, "StateId", "District", "SubDistrict");
+            return res;
+        }
+        public async Task<Message<int>> AddCompay(Areas.Employee.Models.FinalCompany model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/AddNewCompany"));
+            var res = await PostAsync<int, Areas.Employee.Models.FinalCompany>(requestUrl, model);
+            return res;
 
+        }
+        public async Task<Message<List<FinalCompany>>> GetCompanyList(string Email)
+        {
+            var message = new Message<List<FinalCompany>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetCompanyForListPage"));
+            var res = await GetAsync<Message<List<FinalCompany>>, string>(requestUrl, Email, "Email");
+            return res;
+        }
+        public async Task<Message<int>> DeleteCompany(string CompanyId)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/DeleteCompany"));
+            var res = await GetAsync<Message<int>, string>(requestUrl, CompanyId, "CompanyId");
+            return res;
+        }
+        public async Task<Message<FinalCompany>> GetCompanyEdit(string Id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetCompanyForEdit"));
+            var res = await GetAsync<Message<FinalCompany>, string>(requestUrl, Id, "Id");
+            return res;
+        }
+        public async Task<Message<int>> UpdateCompay(Areas.Employee.Models.FinalCompany model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/UpdateNewCompany"));
+            var res = await PostAsync<int, Areas.Employee.Models.FinalCompany>(requestUrl, model);
+            return res;
 
-        ////public async Task<Message<Adduser>> Adduser(Adduser Model)
-        ////{
-        ////    var requesturl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        ////        "/api/User/AddUser"));
-        ////    var res = await PostAsync<string, string>(requestUrl, Model);
-        ////    return res;
-        ////}
+        }
+        public async Task<Message<FinalCompany>> GetCompanyDataForDetail(string Id)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/AddCompany/GetAllCompanyDataForDetails"));
+            var res = await GetAsync<Message<FinalCompany>, string>(requestUrl, Id, "Id");
+            return res;
+        }
+        public async Task<Message<int>> ChangeCandidatePassword(Areas.Candidate.Models.ChangeCandidatePassword model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/ChangeCandidatePassword"));
+            var res = await PostAsync<int, Areas.Candidate.Models.ChangeCandidatePassword>(requestUrl, model);
+            return res;
 
-        ////  this method is user for add the user data from admin
-        //public async Task<Message<int>> Adduser(Adduser Model)
-        //{
-        //    var message = new Message<int>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/AddUser"));
-        //    var res = await PostAsync<int, Adduser>(requestUrl, Model);
-        //    return res;
+        }
+        public async Task<Message<Areas.Candidate.Models.CandidateDetails>> GetCandidateDetails(string Email)
+        {
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetUserDetails"));
+            var res = await GetAsync<Message<Areas.Candidate.Models.CandidateDetails>, string>(requestUrl, Email, "Email");
+            return res;
+        }
+        public async Task<Message<int>> UpdateCandidateDetails(Areas.Candidate.Models.CandidateDetails model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/UpdateCandidateDetails"));
+            var res = await PostAsync<int, Areas.Candidate.Models.CandidateDetails>(requestUrl, model);
+            return res;
 
-        //}
-        //public async Task<Message<List<User>>> GetUserLists()
-        //{
-        //    var message = new Message<List<User>>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/GetAllUserData"));
-        //    var res = await GetAsync<Message<List<User>>>(requestUrl);
-        //    return res;
-        //}
-        //public async Task<Message<int>> AddLeads(AddLeads Model)
-        //{
-        //    var message = new Message<int>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/User/AddLeads"));
-        //    var res = await PostAsync<int, AddLeads>(requestUrl, Model);
-        //    return res;
+        }
+        public async Task<Message<int>> EducationUpdateCandidateDetails(Areas.Candidate.Models.CandidateEducationDetails model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/EducationUpdateCandidateDetails"));
+            var res = await PostAsync<int, Areas.Candidate.Models.CandidateEducationDetails>(requestUrl, model);
+            return res;
 
-        //}
-        //public async Task<Message<List<AddLeads>>> GetLeadsDataForUser(string UploadBY)
-        //{
-        //    var message = new Message<List<AddLeads>>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/User/GetAllLeadDataForUSer"));
-        //    var res = await GetAsync<Message<List<AddLeads>>, string>(requestUrl, UploadBY, "UploadBY");
-        //    return res;
-        //}
+        }
+        public async Task<Message<int>> ExperinceUpdateCandidateDetails(Areas.Candidate.Models.CandidateExperienceDetails model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/ExperienceUpdateCandidateDetails"));
+            var res = await PostAsync<int, Areas.Candidate.Models.CandidateExperienceDetails>(requestUrl, model);
+            return res;
 
-        //public async Task<Message<AddLeads>> EditLeads(int id)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/GetLeadByID"));
-        //    var res = await GetAsync<Message<AddLeads>, int>(requestUrl, id, "id");
-        //    return res;
-        //}
+        }
+        public async Task<Message<int>> DisabilityUpdateCandidateDetails(Areas.Candidate.Models.CandidateDisablityInfoDetails model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/DisabilityUpdateCandidateDetails"));
+            var res = await PostAsync<int, Areas.Candidate.Models.CandidateDisablityInfoDetails>(requestUrl, model);
+            return res;
 
-        //--------------------------this is used for change user status -----------------------------------------
-        //public async Task<Message<TotalRecord>> changestatus(int status, string UserId)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/User/ChangeStatus"));
-        //    var res = await GetAsync<Message<TotalRecord>, int, string>(requestUrl, status, UserId, "status", "UserId");
-        //    return res;
-        //}
-        //--------------------------this is used for get total records-----------------------------------------
-        //public async Task<Message<List<AddLeads>>> GetTop5LeadData()
-        //{
-        //    var message = new Message<List<AddLeads>>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/GetTop5LeadData"));
-        //    var res = await GetAsync<Message<List<AddLeads>>>(requestUrl);
-        //    return res;
-        //}
-        ////--------------------------this is used for Action leads on daily baisis-----------------------------------------
-        //public async Task<Message<TotalRecord>> LeadAction(int Id = 0, string selectAction = "", string Remark = "")
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/User/AddLeadAction"));
-        //    var res = await GetAsync<Message<TotalRecord>, int,string,string>(requestUrl, Id, selectAction, Remark, "Id", "selectAction", "Remark");
-        //    return res;
-        //}
-        //}
-        ////--------------------------this is used for bind  leads-----------------------------------------
-        //public async Task<Message<List<LeadsDetails>>> BindLeadData(string EmailId, int Id)
-        //{
-        //    var message = new Message<List<LeadsDetails>>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/CheckLead"));
-        //    var res = await GetAsync<Message<List<LeadsDetails>>, int,string>(requestUrl, Id,EmailId, "id","EmailId");
-        //    return res;
-        //}
-
-        ////--------------------------this is used for delete User-----------------------------------------
-        //public async Task<Message<User>> DeleteUserByID(int id)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/DeleteUserByID"));
-        //    var res = await GetAsync<Message<User>, int>(requestUrl, id, "id");
-        //    return res;
-        //}
-        ////--------------------------this is used for Get User Details-----------------------------------------
-        //public async Task<Message<User>> UserDetails(int id)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/GetUserByID"));
-        //    var res = await GetAsync<Message<User>, int>(requestUrl, id, "id");
-        //    return res;
-        //}
-        ////--------------------------this is used for Edit User Details-----------------------------------------
-
-        //public async Task<Message<User>> EditUser(int id)
-        //{
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/GetUserByID"));
-        //    var res = await GetAsync<Message<User>, int>(requestUrl, id, "id");
-        //    return res;
-        //}
-        ////--------------------------this is used for update USer-----------------------------------------
-        //public async Task<Message<int>> UpdateUser(Adduser Model)
-        //{
-        //    var message = new Message<int>();
-        //    var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
-        //        "/api/SignUp/UpdateUser"));
-        //    var res = await PostAsync<int, Adduser>(requestUrl, Model);
-        //    return res;
-
-        //}
-
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetPrimaryLanguageOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetLanguage"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetGenderOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetGender"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetEmploymentStatusOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetEmploymentStatus"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<SubDistrict>>> BindSubDistict(string StateId, string DistrictId)
+        {
+            var message = new Message<List<SubDistrict>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/BindSubDistrict"));
+            var res = await GetAsync<Message<List<SubDistrict>>, string, string>(requestUrl, StateId, DistrictId, "StateId", "DistrictId");
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetAddressType()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetAddressType"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetAddressSubType()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetAddressSubType"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetTerritoryTypes()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetTerritoryTypes"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetMaritalStatusOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetMaritalStatus"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetReligionsOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetReligions"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetCastes()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetCastes"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetUIDTypeOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetUIDType"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetHighestEducationAttained()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetHighestEducationAttained"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Language>>> GetEduaction(string HighestEducationAttainedID)
+        {
+            var message = new Message<List<Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetEducation"));
+            var res = await GetAsync<Message<List<Language>>, string>(requestUrl, HighestEducationAttainedID,  "HighestEducationAttainedID");
+            return res;
+        }
+        public async Task<Message<List<Language>>> GetSpecializations(string EducationID)
+        {
+            var message = new Message<List<Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetSpecializations"));
+            var res = await GetAsync<Message<List<Language>>, string>(requestUrl, EducationID, "EducationID");
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetBoardUniversitiesDropDownOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetBoardUniversities"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetMounthOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetMonth"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetGradeTypesOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetGradeTypesOptions"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Gender>>> GetCourseNatureDropDown()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Gender>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetCourseNature"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Gender>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetCurrentEmployerSectorOptions()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetCurrentEmployerSector"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<List<Areas.Candidate.Models.Language>>> GetDisabilityType()
+        {
+            var message = new Message<List<Areas.Candidate.Models.Language>>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/GetDisabilityType"));
+            var res = await GetAsync<Message<List<Areas.Candidate.Models.Language>>>(requestUrl);
+            return res;
+        }
+        public async Task<Message<int>> CheckEmailCandidateUpdate(CheckEmail model)
+        {
+            var message = new Message<int>();
+            var requestUrl = CreateRequestUri(string.Format(System.Globalization.CultureInfo.InvariantCulture,
+                "/api/Candidate/CheckEmailUpdate"));
+            var res = await PostAsync<int, CheckEmail>(requestUrl, model);
+            return res;
+        }
     }
-
-
 }

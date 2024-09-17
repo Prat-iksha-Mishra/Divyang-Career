@@ -79,7 +79,7 @@ jQuery(document).ready(function ($) {
 
 
     $(function () {
-        var code = "";
+        var code = "+91";
         $('#mobile').val(code);
         $('#mobile').intlTelInput({
             autoHideDialCode: true,
@@ -151,7 +151,7 @@ jQuery(document).ready(function ($) {
 
 
 
-        var fileArr = [];
+        //var fileArr = [];
         $("#images2").change(function () {
             if (fileArr.length > 0) fileArr = [];
 
@@ -183,7 +183,7 @@ jQuery(document).ready(function ($) {
         });
 
 
-        var fileArr = [];
+       // var fileArr = [];
         $("#images3").change(function () {
             if (fileArr.length > 0) fileArr = [];
 
@@ -195,6 +195,7 @@ jQuery(document).ready(function ($) {
                     return false;
                 } else {
                     fileArr.push(total_file[i]);
+                    $('#image_preview3').empty();
                     $('#image_preview3').append("<div class='img-div3' id='img-div3" + i + "'><img src='" + URL.createObjectURL(event.target.files[i]) + "' class='image3' title='" + total_file[i].name + "'><div class='middle3'><button id='action-icon3' value='img-div3" + i + "' class='btn btn-danger' role='" + total_file[i].name + "'><i class='fa fa-trash'></i></button></div></div>");
                 }
             }

@@ -57,8 +57,21 @@
                                                     <p>Upload</p>
                                                 </div>
                                             </div>
+                                            @{ var imageName = Model.EmployeeDetails.ImageName;}
                                             <div class="form-group uploadimg">
                                                 <div id="image_preview3" style="width:100%;">
+                                                    @if (!string.IsNullOrEmpty(imageName))
+                                                    {
+                                                    <div class="img-div3" id="img-div30">
+                                                        <img src="@Url.Content("~/Areas/Employee/Images/ProfileImage/"+imageName)" class="image3" title="Profile Image" alt="Profile Image">
+                                                        <div class="middle3">
+                                                            <button id="action-icon3" value="img-div30" class="btn btn-danger" role="@imageName">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    }
+
                                                 </div>
                                             </div>
                                         </div>

@@ -242,5 +242,5 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.toggle('active');
         document.querySelector('.social').classList.toggle('active');
     }
-    document.querySelector('.share').addEventListener('click', share);
+  //  document.querySelector('.share').addEventListener('click', share);
 });

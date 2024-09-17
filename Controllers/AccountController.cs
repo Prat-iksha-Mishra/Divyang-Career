@@ -86,7 +86,7 @@ namespace DivyangPortalWeb.Controllers
                 {
                     CheckEmail checkEmail = new CheckEmail();
                     checkEmail.Email = userInfo.Email.ToString();
-                    var res = await ApiClientFactory.Instance.CheckUserExistOrNot(checkEmail);
+                    var res = await ApiClientFactory.Instance.CheckUserExistOrNot2(checkEmail);
                     if (res.ReturnMessage == "Employer" || res.ReturnMessage == "Candidate")
                     {
                         // Authenticate the user in your system (e.g., create a session or sign in the user)
@@ -204,7 +204,7 @@ namespace DivyangPortalWeb.Controllers
                     string email = userProfileData["email"]?.ToString();
                     CheckEmail checkEmail = new CheckEmail();
                     checkEmail.Email = email.ToString();
-                    var res = await ApiClientFactory.Instance.CheckUserExistOrNot(checkEmail);
+                    var res = await ApiClientFactory.Instance.CheckUserExistOrNot2(checkEmail);
                     if (res.ReturnMessage == "Employer" || res.ReturnMessage == "Candidate")
                     {
                         string userEmail = userProfileData["email"]?.ToString(); // Adjust based on LinkedIn API fields

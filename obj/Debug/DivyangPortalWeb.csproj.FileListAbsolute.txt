@@ -379,6 +379,7 @@ D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.Cop
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.dll
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.pdb
 D:\DivyangBackup\29-08-2024\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\DivyangPortalWeb.dll.config
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\DivyangPortalWeb.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\DivyangPortalWeb.pdb
@@ -414,10 +415,6 @@ C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\rosly
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Net.Sockets.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Reflection.Metadata.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Text.Encoding.CodePages.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.Threading.Tasks.Extensions.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\bin\roslyn\System.ValueTuple.dll
@@ -435,3 +432,5 @@ C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.dll
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.pdb
 C:\Users\V2\OneDrive\Desktop\Divyang-Updated\DivyangApp\Divyang-Career\obj\Debug\DivyangPortalWeb.csproj.AssemblyReference.cache
+=======
+>>>>>>> 594fe8e34f4c7775a37ea1c847863eb5cde8e505

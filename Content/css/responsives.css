@@ -199,6 +199,9 @@
     .login{display:none;}
 
     .login-form-popups:hover .civi-nav-dashboard {display: block;  z-index: 9999999999999;  position: absolute; top: 77px; width: 100%;}
+    .elementor-widget-containers{height:auto; margin:30px 15px; display:block; width:100%;}
+    .civi-modern-heading h2{font-size:30px;}
+    .bg-about-team h4 {font-size:22px; padding:20px 0px;}
 
 
     }

@@ -23,7 +23,12 @@
 
 </head>
 <body>
-   
+@{
+       if (Session["EmployeeEmail"] == null) // Check if the session is null
+       {
+           Response.Redirect(Url.Action("employerlogin", "employerlogin", new { area = "" })); // Redirect to the login page
+       }
+}
     <div id="mySidebar" class="sidebar">
         <div class="sidebar-header">
             <h3>

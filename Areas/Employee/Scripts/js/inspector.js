@@ -116,7 +116,7 @@ jQuery(document).ready(function ($) {
         });
     })
     .catch(error => {
-        console.error(error);
+      /*  console.error(error);*/
     });
 
     /*upload image*/
