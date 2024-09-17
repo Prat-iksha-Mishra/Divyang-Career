@@ -366,3 +366,12 @@ FodyWeavers.xsd
 *.Web.config
 Web.config
 web.config
+
+*.suo
+*DivyangPortalWeb.dll
+*DivyangPortalWeb.pdb
+*DesignTimeResolveAssemblyReferencesInput.cache
+*DivyangPortalWeb.csproj.AssemblyReference.cache
+*DivyangPortalWeb.csproj.CoreCompileInputs.cache
+*DivyangPortalWeb.dll
+*DivyangPortalWeb.pdb
